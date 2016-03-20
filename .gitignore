@@ -4,3 +4,4 @@
 /Radlon.Common.UnitTests/bin
 /packages
 /*.suo
+/.vs/Radlon.Common/v14/*.suo

@@ -1,5 +1,8 @@
 ﻿namespace Radlon.Common.RandomProvider
 {
+    /// <summary>
+    /// Defines the amount of random characters.
+    /// </summary>
     public enum MaxRandom
     {
         Ten = 10,

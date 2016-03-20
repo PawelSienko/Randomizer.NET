@@ -17,12 +17,18 @@ namespace Radlon.Common.RandomProvider
         // ReSharper disable once InconsistentNaming
         private static readonly Random randomizer;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         static Some()
         {
             RandomCharacters = new StringBuilder();
             randomizer = new Random();
         }
 
+        /// <summary>Generates some random  string.</summary>
+        /// <param name="maxRandom">Defines how many characters will be generated.</param>
+        /// <returns>Random string.</returns>
         public static string String(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -41,7 +47,9 @@ namespace Radlon.Common.RandomProvider
 
             return RandomCharacters.ToString();
         }
-
+        /// <summary>Generates some random  string contaoning only lower case.</summary>
+        /// <param name="maxRandom">Defines how many characters will be generated.</param>
+        /// <returns>Random string.</returns>
         public static string StringLower(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -60,6 +68,9 @@ namespace Radlon.Common.RandomProvider
             return RandomCharacters.ToString();
         }
 
+        /// <summary>Generates some random  string containing only upper case.</summary>
+        /// <param name="maxRandom">Defines how many characters will be generated.</param>
+        /// <returns>Random string.</returns>
         public static string StringUpper(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -78,6 +89,9 @@ namespace Radlon.Common.RandomProvider
             return RandomCharacters.ToString();
         }
 
+        /// <summary>Generates some random digits as text.</summary>
+        /// <param name="maxRandom">Defines how many characters will be generated.</param>
+        /// <returns>Random digits.</returns>
         public static string DigitsAsString(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -96,6 +110,8 @@ namespace Radlon.Common.RandomProvider
             return RandomCharacters.ToString();
         }
 
+        /// <summary>Generates some random date.</summary>
+        /// <returns>Random date newer than date time now.</returns>
         public static DateTime FutureDate()
         {
             DateTime dateTImeNow = DateTime.Now;
@@ -103,6 +119,8 @@ namespace Radlon.Common.RandomProvider
             return dateTImeNow.AddDays(randomValue);
         }
 
+        /// <summary>Generates some random date.</summary>
+        /// <returns>Random date older than date time now.</returns>
         public static DateTime PastDate()
         {
             DateTime dateTimeNow = DateTime.Now;
