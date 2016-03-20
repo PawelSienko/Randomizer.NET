@@ -1,0 +1,6 @@
+/Radlon.Common/obj
+/Radlon.Common/bin
+/Radlon.Common.UnitTests/obj
+/Radlon.Common.UnitTests/bin
+/packages
+/*.suo
