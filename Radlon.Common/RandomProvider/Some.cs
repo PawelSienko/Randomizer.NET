@@ -3,6 +3,9 @@ using System.Text;
 
 namespace Radlon.Common.RandomProvider
 {
+    /// <summary>
+    /// Responsible for generating some random values.
+    /// </summary>
     public static class Some
     {
         private const int FirstUpperInAscii = 'A';
@@ -128,6 +131,45 @@ namespace Radlon.Common.RandomProvider
             return dateTimeNow.AddDays(-randomValue);
         }
 
+        /// <summary>
+        /// Generates some random integer.
+        /// </summary>
+        /// <returns>Random integer.</returns>
+        public static int Integer()
+        {
+            return randomizer.Next(int.MinValue, int.MaxValue);
+        }
+
+        /// <summary>
+        /// Generates some random float.
+        /// </summary>
+        /// <returns>Random float.</returns>
+        public static float Float()
+        {
+            int randomInt = randomizer.Next(int.MinValue, int.MaxValue);
+            int divider = randomizer.Next(int.MinValue, int.MaxValue);
+
+            return (float)randomInt/divider;
+        }
+        
+        /// <summary>
+        /// Generates some random decimal.
+        /// </summary>
+        /// <returns>Random decimal.</returns>
+        public static decimal Decimal()
+        {
+            int randomInt = randomizer.Next(int.MinValue, int.MaxValue);
+            int divider = randomizer.Next(int.MinValue, int.MaxValue);
+
+            return randomInt / (decimal)divider;
+        }
+
+        /// <summary>
+        /// Generates some random char.
+        /// </summary>
+        /// <param name="firstLetter">First char where it starts.</param>
+        /// <param name="lastLetter">Last char where it starts.</param>
+        /// <returns>Random char.</returns>
         private static char RandomCharacter(int firstLetter, int lastLetter)
         {
             int randomValue = randomizer.Next(firstLetter, lastLetter);
