@@ -127,7 +127,7 @@ namespace Radlon.Common.RandomProvider
         public static DateTime PastDate()
         {
             DateTime dateTimeNow = DateTime.Now;
-            int randomValue = randomizer.Next(1,1000);
+            int randomValue = randomizer.Next(1, 1000);
             return dateTimeNow.AddDays(-randomValue);
         }
 
@@ -140,28 +140,58 @@ namespace Radlon.Common.RandomProvider
             return randomizer.Next(int.MinValue, int.MaxValue);
         }
 
+        /// <summary>Generates integer from range.</summary>
+        /// <param name="min">Min value.</param>
+        /// <param name="max">Max value.</param>
+        /// <returns></returns>
+        public static int Integer(int min, int max)
+        {
+            return randomizer.Next(min, max);
+        }
+
         /// <summary>
         /// Generates some random float.
         /// </summary>
         /// <returns>Random float.</returns>
         public static float Float()
         {
-            int randomInt = randomizer.Next(int.MinValue, int.MaxValue);
-            int divider = randomizer.Next(int.MinValue, int.MaxValue);
-
-            return (float)randomInt/divider;
+            double randomDouble = (randomizer.NextDouble() * 2) - 1;
+            double exponentResult = Math.Pow(2, randomizer.Next(-126, 126));
+            return (float)(randomDouble * exponentResult);
         }
-        
+
+        /// <summary>Generates float from range.</summary>
+        /// <param name="min">Min value.</param>
+        /// <param name="max">Max value.</param>
+        /// <returns></returns>
+        public static float Float(int min, int max)
+        {
+            if (min >= max)
+            {
+                throw new ArgumentException("Min value must be less than max");
+            }
+
+            double randomDouble = randomizer.NextDouble();
+            float randomFloat = randomizer.Next(min, max);
+            return (float) (randomDouble + randomFloat);
+        }
+
         /// <summary>
-        /// Generates some random decimal.
+        /// Returns a random floating-point number that is greater than or equal to 0.0, and less than 1.0.
         /// </summary>
-        /// <returns>Random decimal.</returns>
+        /// <returns>Returns a random floating-point number that is greater than or equal to 0.0, and less than 1.0.</returns>
+        public static double Double()
+        {
+            return randomizer.NextDouble();
+        }
+
+        /// <summary>
+        /// Returns random decimal value.
+        /// </summary>
+        /// <returns>Random decimal value.</returns>
         public static decimal Decimal()
         {
-            int randomInt = randomizer.Next(int.MinValue, int.MaxValue);
-            int divider = randomizer.Next(int.MinValue, int.MaxValue);
-
-            return randomInt / (decimal)divider;
+            return 1;
         }
 
         /// <summary>

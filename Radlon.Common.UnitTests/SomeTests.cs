@@ -11,7 +11,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringShouldReturnTextWhenLengthIsTen()
         {
-            // Arrange
+            // Act
             var text = Some.String(MaxRandom.Ten);
 
             // Assert
@@ -21,7 +21,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringShouldReturnTextWhenLengthIsTwenty()
         {
-            // Arrange
+            // Act
             var text = Some.String(MaxRandom.Twenty);
 
             // Assert
@@ -31,7 +31,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringShouldReturnTextWhenLengthIsHundred()
         {
-            // Arrange
+            // Act
             var text = Some.String(MaxRandom.Hundred);
 
             // Assert
@@ -41,7 +41,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringShouldReturnOnlyLetterWhenEnumIsCorrect()
         {
-            // Arrange
+            // Act
             var charactersArray = Some.String(MaxRandom.Twenty).ToCharArray();
 
             // Assert
@@ -52,7 +52,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringUpperShouldReturnOnlyUpperCaseWhenPassMaxRandom()
         {
-            // Arrange 
+            // Act 
             var upperLetters = Some.StringUpper(MaxRandom.Hundred);
 
             // Assert
@@ -63,7 +63,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void StringLowerhouldReturnOnlyLowerWhenPassMaxRandom()
         {
-            // Arrange 
+            // Act 
             var lowerLetters = Some.StringLower(MaxRandom.Hundred);
 
             // Assert
@@ -74,7 +74,7 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void DigitsAsStringShouldReturnDigitsOnly()
         {
-            // Arrange 
+            // Act 
             var digitsAsString = Some.DigitsAsString(MaxRandom.Hundred);
 
             // Assert
@@ -85,10 +85,12 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void FutureDateShouldReturnNewerDate()
         {
-            // Arrange 
-            var someFutureDate = Some.FutureDate();
+            // Arrange
             var dateTimeNow = DateTime.Now;
 
+            // Arrange 
+            var someFutureDate = Some.FutureDate();
+            
             // Assert
             Assert.IsTrue(dateTimeNow < someFutureDate);
         }
@@ -96,12 +98,32 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void PastDateShouldReturnSomeOlderDates()
         {
-            // Arrange 
-            var somePastDate = Some.PastDate();
+            // Act
             var dateTimeNow = DateTime.Now;
 
+            // Arrange 
+            var somePastDate = Some.PastDate();
+            
             // Assert
             Assert.IsTrue(dateTimeNow > somePastDate);
+        }
+
+        [Test]
+        public void FloatShouldThrowExceptionWhenMinIsGreatherThanMax()
+        {
+            // Assert
+            Assert.Throws<ArgumentException>(() => Some.Float(10, 5));
+        }
+
+        [Test]
+        public void FloatWithRangeShouldReturnValueWithinPassedRange()
+        {
+            // Arrange
+            var someFloat = Some.Float(10, 20);
+
+            // Assert
+            Assert.IsTrue(someFloat >= 10);
+            Assert.IsTrue(someFloat <= 20);
         }
     }
 }
