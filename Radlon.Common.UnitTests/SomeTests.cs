@@ -90,7 +90,7 @@ namespace Radlon.Common.UnitTests
 
             // Arrange 
             var someFutureDate = Some.FutureDate();
-            
+
             // Assert
             Assert.IsTrue(dateTimeNow < someFutureDate);
         }
@@ -103,7 +103,7 @@ namespace Radlon.Common.UnitTests
 
             // Arrange 
             var somePastDate = Some.PastDate();
-            
+
             // Assert
             Assert.IsTrue(dateTimeNow > somePastDate);
         }
@@ -118,12 +118,15 @@ namespace Radlon.Common.UnitTests
         [Test]
         public void FloatWithRangeShouldReturnValueWithinPassedRange()
         {
+            float min = 9.7f;
+            float max = 110.14f;
+
             // Arrange
-            var someFloat = Some.Float(10, 20);
+            var someFloat = Some.Float(min, max);
 
             // Assert
-            Assert.IsTrue(someFloat >= 10);
-            Assert.IsTrue(someFloat <= 20);
+            Assert.IsTrue(someFloat >= min);
+            Assert.IsTrue(someFloat <= max);
         }
     }
 }

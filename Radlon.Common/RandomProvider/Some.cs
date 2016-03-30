@@ -155,25 +155,30 @@ namespace Radlon.Common.RandomProvider
         /// <returns>Random float.</returns>
         public static float Float()
         {
-            double randomDouble = (randomizer.NextDouble() * 2) - 1;
-            double exponentResult = Math.Pow(2, randomizer.Next(-126, 126));
-            return (float)(randomDouble * exponentResult);
+            int randomInt = randomizer.Next();
+            float fraction = (float)randomizer.NextDouble();
+
+            return randomInt + fraction;
         }
 
         /// <summary>Generates float from range.</summary>
         /// <param name="min">Min value.</param>
         /// <param name="max">Max value.</param>
         /// <returns></returns>
-        public static float Float(int min, int max)
+        public static float Float(float min, float max)
         {
             if (min >= max)
             {
-                throw new ArgumentException("Min value must be less than max");
+                throw new ArgumentException("Min value must be less than max.");
             }
 
-            double randomDouble = randomizer.NextDouble();
-            float randomFloat = randomizer.Next(min, max);
-            return (float) (randomDouble + randomFloat);
+            float roundedMin = (float)Math.Round(min + 0.5);
+            float roundedMax = (float)Math.Round(max - 0.5);
+
+            int randomInt = randomizer.Next((int)roundedMin, (int)roundedMax);
+            float fraction = (float)randomizer.NextDouble();
+
+            return randomInt + fraction;
         }
 
         /// <summary>
@@ -191,7 +196,9 @@ namespace Radlon.Common.RandomProvider
         /// <returns>Random decimal value.</returns>
         public static decimal Decimal()
         {
-            return 1;
+            decimal value = randomizer.Next();
+            decimal divider = randomizer.Next();
+            return value / divider;
         }
 
         /// <summary>
