@@ -150,15 +150,55 @@ namespace Radlon.Common.RandomProvider
         }
 
         /// <summary>
+        /// Generates only negative integers.
+        /// </summary>
+        /// <returns>Negative integer.</returns>
+        public static int PositiveInteger()
+        {
+            return randomizer.Next(0, int.MaxValue);
+        }
+
+        /// <summary>
+        /// Generates only positive integers.
+        /// </summary>
+        /// <returns>Positive integer.</returns>
+        public static int NegativeInteger()
+        {
+            return randomizer.Next(int.MinValue, 0);
+        }
+
+        /// <summary>
         /// Generates some random float.
         /// </summary>
         /// <returns>Random float.</returns>
         public static float Float()
         {
-            int randomInt = randomizer.Next();
-            float fraction = (float)randomizer.NextDouble();
+            var someFloat1 = SomeFloat();
+            var someFloat2 = SomeFloat();
+            if (someFloat2 > someFloat1)
+            {
+                return someFloat2 - someFloat1;
+            }
 
-            return randomInt + fraction;
+            return someFloat1 - someFloat2;
+        }
+
+        /// <summary>
+        /// Returns only positive float number.
+        /// </summary>
+        /// <returns>Positive float.</returns>
+        public static float PositiveFloat()
+        {
+            return SomeFloat();
+        }
+
+        /// <summary>
+        /// Returns only negative float number.
+        /// </summary>
+        /// <returns>Negative float.</returns>
+        public static float NegativeFloat()
+        {
+            return -SomeFloat();
         }
 
         /// <summary>Generates float from range.</summary>
@@ -171,14 +211,26 @@ namespace Radlon.Common.RandomProvider
             {
                 throw new ArgumentException("Min value must be less than max.");
             }
-
+            
             float roundedMin = (float)Math.Round(min + 0.5);
             float roundedMax = (float)Math.Round(max - 0.5);
 
-            int randomInt = randomizer.Next((int)roundedMin, (int)roundedMax);
-            float fraction = (float)randomizer.NextDouble();
+            if (min >= int.MinValue && max <= int.MaxValue)
+            {
+                int randomInt = randomizer.Next((int)roundedMin, (int)roundedMax);
+                float fraction = (float)randomizer.NextDouble();
 
-            return randomInt + fraction;
+                return randomInt + fraction;
+            }
+
+            do
+            {
+                var someFloat = SomeFloat();
+                if (someFloat >= min && someFloat <= max)
+                {
+                    return someFloat;
+                }
+            } while (true);
         }
 
         /// <summary>
@@ -214,6 +266,19 @@ namespace Radlon.Common.RandomProvider
             // ReSharper disable once RedundantBoolCompare
             return character;
         }
+
+        #region Private methods
+
+        private static float SomeFloat()
+        {
+            int expander = randomizer.Next(0, 38);
+            int randomValue = randomizer.Next(0, 2);
+            float randomFraction = (float)randomizer.NextDouble();
+            float randomFloatValue = randomValue + randomFraction;
+            return randomFloatValue * ((float)Math.Pow(10, expander) - 1);
+        }
+
+        #endregion Private methods
     }
 }
 

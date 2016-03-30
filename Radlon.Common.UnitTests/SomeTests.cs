@@ -116,10 +116,10 @@ namespace Radlon.Common.UnitTests
         }
 
         [Test]
-        public void FloatWithRangeShouldReturnValueWithinPassedRange()
+        public void FloatShouldReturnValueWithinPassedRange()
         {
-            float min = 9.7f;
-            float max = 110.14f;
+            float min = 100.01f;
+            float max = 1892891.998781f;
 
             // Arrange
             var someFloat = Some.Float(min, max);
@@ -127,6 +127,30 @@ namespace Radlon.Common.UnitTests
             // Assert
             Assert.IsTrue(someFloat >= min);
             Assert.IsTrue(someFloat <= max);
+        }
+
+        [Test]
+        public void FloatShouldReturnValueWhenRangeIsVeryWide()
+        {
+            float min = float.MinValue;
+            float max = float.MaxValue;
+
+            // Arrange
+            var someFloat = Some.Float(min, max);
+
+            // Assert
+            Assert.GreaterOrEqual(someFloat, min);
+            Assert.LessOrEqual(someFloat, max);
+        }
+
+        [Test]
+        public void NegativeFloatShouldReturnSomeNegativeFloatValue()
+        {
+            // Arrange
+            var negativeFloat = Some.NegativeFloat();
+
+            // Assert
+            Assert.LessOrEqual(negativeFloat, 0);
         }
     }
 }
