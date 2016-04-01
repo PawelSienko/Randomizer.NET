@@ -1,6 +1,6 @@
 # Some library
 
-###### The open source library to generate random values for string, float, double and decimal.
+###### The open source library to generate random values for string, float,date, double and decimal.
 
 #### Positive float
 ```cs
@@ -20,3 +20,13 @@ float floatValue = Some.Float(99.1f, 341.21f);
 ```
 
 will generate float random value between **99.1f** and **341.21f**  
+
+#### Future date 
+```cs
+float floatValue = Some.FutureDate();
+```
+
+#### Paste date
+```cs
+float floatValue = Some.PastDate();
+```
