@@ -1,4 +1,4 @@
-# Some library
+# Random values generating - Some Library
 
 ###### The open source library to generate random values for string, float,date, double and decimal.
 
@@ -26,7 +26,7 @@ will generate float random value between **99.1f** and **341.21f**
 float floatValue = Some.FutureDate();
 ```
 
-#### Paste date
+#### Past date
 ```cs
 float floatValue = Some.PastDate();
 ```
