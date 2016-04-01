@@ -1,4 +1,4 @@
-﻿namespace Radlon.Common.ConfigurationProvider
+﻿namespace Some.ConfigurationProvider
 {
     public interface IConfigurationProvider
     {

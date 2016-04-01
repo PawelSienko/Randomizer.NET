@@ -1,4 +1,4 @@
-﻿namespace Radlon.Common.RandomProvider
+﻿namespace Some.RandomProvider
 {
     /// <summary>
     /// Defines the amount of random characters.

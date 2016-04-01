@@ -2,7 +2,7 @@
 using System.Configuration;
 using Unity.Utility;
 
-namespace Radlon.Common.ConfigurationProvider
+namespace Some.ConfigurationProvider
 {
     public class AppConfigProvider : IConfigurationProvider
     {

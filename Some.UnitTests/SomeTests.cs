@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
-using Radlon.Common.RandomProvider;
+using Some.RandomProvider;
+using SomeItem = Some.RandomProvider.Some;
 
-namespace Radlon.Common.UnitTests
+namespace Some.UnitTests
 {
     [TestFixture]
     public class SomeTests
@@ -12,7 +13,7 @@ namespace Radlon.Common.UnitTests
         public void StringShouldReturnTextWhenLengthIsTen()
         {
             // Act
-            var text = Some.String(MaxRandom.Ten);
+            var text = SomeItem.String(MaxRandom.Ten);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Ten, text.Length);
@@ -22,7 +23,7 @@ namespace Radlon.Common.UnitTests
         public void StringShouldReturnTextWhenLengthIsTwenty()
         {
             // Act
-            var text = Some.String(MaxRandom.Twenty);
+            var text = SomeItem.String(MaxRandom.Twenty);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Twenty, text.Length);
@@ -32,7 +33,7 @@ namespace Radlon.Common.UnitTests
         public void StringShouldReturnTextWhenLengthIsHundred()
         {
             // Act
-            var text = Some.String(MaxRandom.Hundred);
+            var text = SomeItem.String(MaxRandom.Hundred);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Hundred, text.Length);
@@ -42,7 +43,7 @@ namespace Radlon.Common.UnitTests
         public void StringShouldReturnOnlyLetterWhenEnumIsCorrect()
         {
             // Act
-            var charactersArray = Some.String(MaxRandom.Twenty).ToCharArray();
+            var charactersArray = SomeItem.String(MaxRandom.Twenty).ToCharArray();
 
             // Assert
             var alphanumericArray = charactersArray.Where(Char.IsLetter).ToArray();
@@ -53,7 +54,7 @@ namespace Radlon.Common.UnitTests
         public void StringUpperShouldReturnOnlyUpperCaseWhenPassMaxRandom()
         {
             // Act 
-            var upperLetters = Some.StringUpper(MaxRandom.Hundred);
+            var upperLetters = SomeItem.StringUpper(MaxRandom.Hundred);
 
             // Assert
             var filteredUppercaseCount = upperLetters.Where(Char.IsUpper).ToList().Count;
@@ -64,7 +65,7 @@ namespace Radlon.Common.UnitTests
         public void StringLowerhouldReturnOnlyLowerWhenPassMaxRandom()
         {
             // Act 
-            var lowerLetters = Some.StringLower(MaxRandom.Hundred);
+            var lowerLetters = SomeItem.StringLower(MaxRandom.Hundred);
 
             // Assert
             var filteredUppercaseCount = lowerLetters.Where(Char.IsLower).ToList().Count;
@@ -75,7 +76,7 @@ namespace Radlon.Common.UnitTests
         public void DigitsAsStringShouldReturnDigitsOnly()
         {
             // Act 
-            var digitsAsString = Some.DigitsAsString(MaxRandom.Hundred);
+            var digitsAsString = SomeItem.DigitsAsString(MaxRandom.Hundred);
 
             // Assert
             var filtereddigitsCount = digitsAsString.Where(Char.IsDigit).ToList().Count;
@@ -89,7 +90,7 @@ namespace Radlon.Common.UnitTests
             var dateTimeNow = DateTime.Now;
 
             // Arrange 
-            var someFutureDate = Some.FutureDate();
+            var someFutureDate = SomeItem.FutureDate();
 
             // Assert
             Assert.IsTrue(dateTimeNow < someFutureDate);
@@ -102,7 +103,7 @@ namespace Radlon.Common.UnitTests
             var dateTimeNow = DateTime.Now;
 
             // Arrange 
-            var somePastDate = Some.PastDate();
+            var somePastDate = SomeItem.PastDate();
 
             // Assert
             Assert.IsTrue(dateTimeNow > somePastDate);
@@ -112,7 +113,7 @@ namespace Radlon.Common.UnitTests
         public void FloatShouldThrowExceptionWhenMinIsGreatherThanMax()
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => Some.Float(10, 5));
+            Assert.Throws<ArgumentException>(() => SomeItem.Float(10, 5));
         }
 
         [Test]
@@ -122,7 +123,7 @@ namespace Radlon.Common.UnitTests
             float max = 1892891.998781f;
 
             // Arrange
-            var someFloat = Some.Float(min, max);
+            var someFloat = SomeItem.Float(min, max);
 
             // Assert
             Assert.IsTrue(someFloat >= min);
@@ -136,7 +137,7 @@ namespace Radlon.Common.UnitTests
             float max = float.MaxValue;
 
             // Arrange
-            var someFloat = Some.Float(min, max);
+            var someFloat = SomeItem.Float(min, max);
 
             // Assert
             Assert.GreaterOrEqual(someFloat, min);
@@ -147,7 +148,7 @@ namespace Radlon.Common.UnitTests
         public void NegativeFloatShouldReturnSomeNegativeFloatValue()
         {
             // Arrange
-            var negativeFloat = Some.NegativeFloat();
+            var negativeFloat = SomeItem.NegativeFloat();
 
             // Assert
             Assert.LessOrEqual(negativeFloat, 0);
@@ -157,7 +158,7 @@ namespace Radlon.Common.UnitTests
         public void PositiveFloatShouldReturnPositiveValue()
         {
             // Arrange
-            var positiiveFloat = Some.PositiveFloat();
+            var positiiveFloat = SomeItem.PositiveFloat();
 
             // Assert
             Assert.GreaterOrEqual(positiiveFloat, 0);
@@ -167,7 +168,7 @@ namespace Radlon.Common.UnitTests
         public void DoubleShouldReturnProperValue()
         {
             // Arrange 
-            var someDouble = Some.Double();
+            var someDouble = SomeItem.Double();
         }
     }
 }

@@ -6,3 +6,7 @@
 /*.suo
 /.vs/Radlon.Common/v14/*.suo
 /.vs/Some/v14/.suo
+/Some/obj
+/Some/bin
+/Some.UnitTests/obj
+/Some.UnitTests/bin

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Radlon.Common.RandomProvider
+namespace Some.RandomProvider
 {
     /// <summary>
     /// Responsible for generating some random values.
