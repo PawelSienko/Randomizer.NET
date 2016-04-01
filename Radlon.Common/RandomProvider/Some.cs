@@ -8,6 +8,7 @@ namespace Radlon.Common.RandomProvider
     /// </summary>
     public static class Some
     {
+        private const string MinMaxValueExceptionMsg = "Min value must be less than max.";
         private const int FirstUpperInAscii = 'A';
         private const int LastUpperInAscii = 'Z';
         private const int LastLetterInAscii = 'z';
@@ -209,9 +210,9 @@ namespace Radlon.Common.RandomProvider
         {
             if (min >= max)
             {
-                throw new ArgumentException("Min value must be less than max.");
+                throw new ArgumentException(MinMaxValueExceptionMsg);
             }
-            
+
             float roundedMin = (float)Math.Round(min + 0.5);
             float roundedMax = (float)Math.Round(max - 0.5);
 
@@ -234,12 +235,65 @@ namespace Radlon.Common.RandomProvider
         }
 
         /// <summary>
+        /// Returns positive double value.
+        /// </summary>
+        /// <returns>Positive double.</returns>
+        public static double PositiveDouble()
+        {
+            return SomeDouble();
+        }
+
+        public static double NegativeDouble()
+        {
+            return -SomeDouble();
+        }
+
+        /// <summary>
         /// Returns a random floating-point number that is greater than or equal to 0.0, and less than 1.0.
         /// </summary>
         /// <returns>Returns a random floating-point number that is greater than or equal to 0.0, and less than 1.0.</returns>
         public static double Double()
         {
-            return randomizer.NextDouble();
+            var doubleValue1 = SomeDouble();
+            var doubleValue2 = SomeDouble();
+            if (doubleValue1 >= doubleValue2)
+            {
+                return doubleValue1 - doubleValue2;
+            }
+
+            return doubleValue2 - doubleValue1;
+        }
+
+        /// <summary>
+        /// Returns some double value within provided range.
+        /// </summary>
+        /// <param name="min">Min value.</param>
+        /// <param name="max">Max value.</param>
+        /// <returns></returns>
+        public static double Double(double min, double max)
+        {
+            if (min >= max)
+            {
+                throw new ArgumentException(MinMaxValueExceptionMsg);
+            }
+
+            if (min >= int.MinValue && max <= int.MaxValue)
+            {
+
+                double randomFraction = randomizer.NextDouble();
+                int randomValue = randomizer.Next((int)min, (int)max);
+                return randomValue + randomFraction;
+            }
+
+            do
+            {
+                var someDouble1 = SomeDouble();
+                if (someDouble1 >= min && someDouble1 <= max)
+                {
+                    return someDouble1;
+                }
+                
+            } while (true);
         }
 
         /// <summary>
@@ -276,6 +330,12 @@ namespace Radlon.Common.RandomProvider
             float randomFraction = (float)randomizer.NextDouble();
             float randomFloatValue = randomValue + randomFraction;
             return randomFloatValue * ((float)Math.Pow(10, expander) - 1);
+        }
+
+        private static double SomeDouble()
+        {
+            int expander = randomizer.Next(0, 308);
+            return Math.Pow(10, expander) - 1;
         }
 
         #endregion Private methods

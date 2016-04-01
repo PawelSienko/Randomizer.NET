@@ -152,5 +152,22 @@ namespace Radlon.Common.UnitTests
             // Assert
             Assert.LessOrEqual(negativeFloat, 0);
         }
+
+        [Test]
+        public void PositiveFloatShouldReturnPositiveValue()
+        {
+            // Arrange
+            var positiiveFloat = Some.PositiveFloat();
+
+            // Assert
+            Assert.GreaterOrEqual(positiiveFloat, 0);
+        }
+
+        [Test]
+        public void DoubleShouldReturnProperValue()
+        {
+            // Arrange 
+            var someDouble = Some.Double();
+        }
     }
 }
