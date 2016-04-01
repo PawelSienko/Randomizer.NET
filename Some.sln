@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Some", "Radlon.Common\Some.csproj", "{447730F2-2210-4747-A023-753FC4C1B712}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Some", "Some\Some.csproj", "{447730F2-2210-4747-A023-753FC4C1B712}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Some.UnitTests", "Radlon.Common.UnitTests\Some.UnitTests.csproj", "{B00A8527-D989-44DD-904A-7219177092AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Some.UnitTests", "Some.UnitTests\Some.UnitTests.csproj", "{B00A8527-D989-44DD-904A-7219177092AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

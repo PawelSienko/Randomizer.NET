@@ -1,0 +1,15 @@
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.UnitTests.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.UnitTests.pdb
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.UnitTests.dll.CodeAnalysisLog.xml
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.UnitTests.dll.lastcodeanalysissucceeded
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Unity.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Unity.ServiceLocator.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Radlon.Common.pdb
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Unity.xml
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\bin\Debug\Unity.ServiceLocator.xml
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\obj\Debug\Radlon.Common.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\obj\Debug\Radlon.Common.UnitTests.dll
+C:\Users\psienko\Desktop\Modules\Radlon.Some\Radlon.Common.UnitTests\obj\Debug\Radlon.Common.UnitTests.pdb
