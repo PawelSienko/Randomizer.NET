@@ -22,12 +22,14 @@ float floatValue = Some.Float(99.1f, 341.21f);
 
 will generate float random value between **99.1f** and **341.21f**  
 
-#### Future date 
+#### Future date and time
 ```cs
 DateTime futureDate = Some.FutureDate();
 ```
+will return newer date and time when invoked. 
 
-#### Past date
+#### Past date and time
 ```cs
 DateTime pastDate = Some.PastDate();
 ```
+will return older date and time when invoked.
