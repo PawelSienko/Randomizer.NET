@@ -1,6 +1,6 @@
-# Radlon.Some
+# Some library
 
-#### The open source library to generate random values for string, float, double and decimal.
+###### The open source library to generate random values for string, float, double and decimal.
 
 #### Positive float
 ```cs
