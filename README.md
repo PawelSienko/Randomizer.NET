@@ -1,4 +1,4 @@
-# Random values generating - Unit tests
+# Generating random values
 
 ###### The open source library to generate random values for string, float,date, double and decimal.
 ###### Very helpful in unit tests or random values to fill database tables.
