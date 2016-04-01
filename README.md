@@ -24,10 +24,10 @@ will generate float random value between **99.1f** and **341.21f**
 
 #### Future date 
 ```cs
-float floatValue = Some.FutureDate();
+DateTime futureDate = Some.FutureDate();
 ```
 
 #### Past date
 ```cs
-float floatValue = Some.PastDate();
+DateTime pastDate = Some.PastDate();
 ```
