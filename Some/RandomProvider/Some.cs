@@ -9,13 +9,13 @@ namespace Some.RandomProvider
     public static class Some
     {
         private const string MinMaxValueExceptionMsg = "Min value must be less than max.";
-        private const int FirstUpperInAscii = 'A';
-        private const int LastUpperInAscii = 'Z';
-        private const int LastLetterInAscii = 'z';
-        private const int FirstLowerInAscii = 'a';
-        private const int LastLowerInAscii = 'z';
-        private const int FirstDigitInAscii = '0';
-        private const int LastDigitInAscii = '9';
+        private const char FirstUpperInAscii = 'A';
+        private const char LastUpperInAscii = 'Z';
+        private const char LastLetterInAscii = 'z';
+        private const char FirstLowerInAscii = 'a';
+        private const char LastLowerInAscii = 'z';
+        private const char FirstDigitInAscii = '0';
+        private const char LastDigitInAscii = '9';
 
         private static readonly StringBuilder RandomCharacters;
         // ReSharper disable once InconsistentNaming
@@ -313,7 +313,7 @@ namespace Some.RandomProvider
         /// <param name="firstLetter">First char where it starts.</param>
         /// <param name="lastLetter">Last char where it starts.</param>
         /// <returns>Random char.</returns>
-        private static char RandomCharacter(int firstLetter, int lastLetter)
+        private static char RandomCharacter(char firstLetter, char lastLetter)
         {
             int randomValue = randomizer.Next(firstLetter, lastLetter);
             char character = (char)randomValue;

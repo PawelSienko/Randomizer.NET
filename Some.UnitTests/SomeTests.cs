@@ -168,7 +168,8 @@ namespace Some.UnitTests
         public void DoubleShouldReturnProperValue()
         {
             // Arrange 
-            var someDouble = SomeItem.Double();
+            var someDouble = SomeItem.Double(1.765d, 100.091892d);
+            
         }
     }
 }
