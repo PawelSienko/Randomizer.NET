@@ -40,7 +40,7 @@ string randomString = Some.String(MaxRandom.Twenty);
 ```
 will generate string with 20 random characters.
 
-#### MaxRandom enum
+#### MaxRandom
 To avoid out of memory exception **MaxRandom** enum is defined.
 ```cs
 public enum MaxRandom
