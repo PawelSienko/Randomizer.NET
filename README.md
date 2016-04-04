@@ -7,7 +7,7 @@
 ```cs
 float floatValue = Some.PositiveFloat();
 ```
-will generate random value from 0 to max float value. 
+will generate random value from 0 to max float. 
 
 #### Negative float
 ```cs
@@ -33,3 +33,22 @@ will return newer date and time when invoked.
 DateTime pastDate = Some.PastDate();
 ```
 will return older date and time when invoked.
+
+#### String 
+```cs
+string randomString = Some.String(MaxRandom.Twenty);
+```
+will generate string with 20 random characters.
+
+#### MaxRandom enum
+To avoid out of memory exception **MaxRandom** enum is defined.
+```cs
+public enum MaxRandom
+    {
+        Ten = 10,
+
+        Twenty = 20,
+
+        Hundred = 100,
+    }
+```
