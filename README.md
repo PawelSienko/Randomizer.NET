@@ -98,24 +98,36 @@ will return random negative integer value.
 
 #### Double
 ```cs
-int randomDouble = Some.Double();
+double randomDouble = Some.Double();
 ```
 will return random double value.
 
 #### Double with range
 ```cs
-int randomDouble = SomeItem.Double(1.765d, 100.091892d);
+double randomDouble = SomeItem.Double(1.765d, 100.091892d);
 ```
 will return random double value between **1.765d** and **100.091892d**. 
 
 #### Positive double
 ```cs
-int randomDouble = SomeItem.PositiveDouble();
+double randomDouble = SomeItem.PositiveDouble();
 ```
 will return only positive double value.
 
 #### Negative double
 ```cs
-int randomDouble = SomeItem.PositiveDouble();
+double randomDouble = SomeItem.PositiveDouble();
 ```
 will return only negative double value.
+
+#### Decimal
+```cs
+decimal randomDecimal = SomeItem.Decimal();
+```
+will return radnom decimal value.
+
+#### Single character
+```cs
+char randomChar = SomeItem.RandomCharacter('f', 'x');
+```
+will return random character between **f** and **x**.
