@@ -1,5 +1,5 @@
 # Some
-
+# 100% percent covered by UnitTests (NUnit)
 ###### The open source library to generate random values for string, float, date, double and decimal.
 ###### Very helpful in unit tests or random values to fill database tables.
 
@@ -34,7 +34,7 @@ DateTime pastDate = Some.PastDate();
 ```
 will return older date and time when invoked.
 
-#### String 
+#### String (only letters)
 ```cs
 string randomString = Some.String(MaxRandom.Twenty);
 ```
@@ -54,13 +54,13 @@ public enum MaxRandom
         Hundred = 100,
     }
 ```
-#### Lowercase string
+#### Lowercase string (only letters)
 ```cs
 string randomString = Some.StringLower(MaxRandom.Twenty);
 ```
 will generate 20 lowercase characters as string.
 
-#### Uppercase string
+#### Uppercase string (only letters)
 ```cs
 string randomString = Some.StringUpper(MaxRandom.Twenty);
 ```
