@@ -54,19 +54,19 @@ public enum MaxRandom
         Hundred = 100,
     }
 ```
-#### StringLower
+#### Lowercase string
 ```cs
 string randomString = Some.StringLower(MaxRandom.Twenty);
 ```
 will generate 20 lowercase characters as string.
 
-#### StringUpper
+#### Uppercase string
 ```cs
 string randomString = Some.StringUpper(MaxRandom.Twenty);
 ```
 will generate 20 uppercase characters as string.
 
-#### DigitsAsString
+#### String with digits
 ```cs
 string randomString = Some.DigitsAsString(MaxRandom.Twenty);
 ```
@@ -95,3 +95,27 @@ will return random positive integer value.
 int negativeInteger = Some.NegativeInteger();
 ```
 will return random negative integer value.
+
+#### Double
+```cs
+int randomDouble = Some.Double();
+```
+will return random double value.
+
+#### Double with range
+```cs
+int randomDouble = SomeItem.Double(1.765d, 100.091892d);
+```
+will return random double value between **1.765d** and **100.091892d**. 
+
+#### Positive double
+```cs
+int randomDouble = SomeItem.PositiveDouble();
+```
+will return only positive double value.
+
+#### Negative double
+```cs
+int randomDouble = SomeItem.PositiveDouble();
+```
+will return only negative double value.
