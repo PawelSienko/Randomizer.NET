@@ -13,14 +13,14 @@ will generate random value from 0 to [max float](https://msdn.microsoft.com/pl-p
 ```cs
 float floatValue = Some.NegativeFloat();
 ```
-will generate random float value from min float to 0.
+will generate random float value from [min float](https://msdn.microsoft.com/pl-pl/library/b1e65aza.aspx) to 0.
 
 #### Float with range
 ```cs
 float floatValue = Some.Float(99.1f, 341.21f);
 ```
 
-will generate float random value between **99.1f** and **341.21f**  
+will generate float random value between **99.1f** and **341.21f**.  
 
 #### Future date and time
 ```cs
@@ -76,9 +76,9 @@ will generate 20 digits as string.
 ```cs
 int randomInteger = Some.Integer();
 ```
-will return random integer value. 
+will return random [integer](https://msdn.microsoft.com/en-us/library/5kzh1b5w.aspx) value. 
 
-#### Integer with range
+#### Integer within range
 ```cs
 int randomInteger = Some.Integer(100, 456);
 ```
@@ -100,9 +100,9 @@ will return random negative integer value.
 ```cs
 double randomDouble = Some.Double();
 ```
-will return random double value.
+will return random [double](https://msdn.microsoft.com/pl-pl/library/678hzkk9.aspx) value.
 
-#### Double with range
+#### Double within range
 ```cs
 double randomDouble = SomeItem.Double(1.765d, 100.091892d);
 ```
@@ -124,10 +124,4 @@ will return only negative double value.
 ```cs
 decimal randomDecimal = SomeItem.Decimal();
 ```
-will return radnom decimal value.
-
-#### Single character
-```cs
-char randomChar = SomeItem.RandomCharacter('f', 'x');
-```
-will return random character between **f** and **x**.
+will return radnom [decimal](https://msdn.microsoft.com/pl-pl/library/364x0z75.aspx) value.
