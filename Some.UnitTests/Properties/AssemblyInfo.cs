@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Radlon.Common.UnitTests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Some.UnitTests")]
+[assembly: AssemblyDescription("Unit tests.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Radlon.Common.UnitTests")]
+[assembly: AssemblyProduct("Some.UnitTests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
