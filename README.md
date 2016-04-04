@@ -40,6 +40,8 @@ string randomString = Some.String(MaxRandom.Twenty);
 ```
 will generate string with 20 random characters.
 
+The same is for other values of **MaxRandom** enum.
+
 #### MaxRandom
 To avoid out of memory exception **MaxRandom** enum is defined.
 ```cs
@@ -52,3 +54,44 @@ public enum MaxRandom
         Hundred = 100,
     }
 ```
+#### StringLower
+```cs
+string randomString = Some.StringLower(MaxRandom.Twenty);
+```
+will generate 20 lowercase characters as string.
+
+#### StringUpper
+```cs
+string randomString = Some.StringUpper(MaxRandom.Twenty);
+```
+will generate 20 uppercase characters as string.
+
+#### DigitsAsString
+```cs
+string randomString = Some.DigitsAsString(MaxRandom.Twenty);
+```
+will generate 20 digits as string. 
+
+#### Integer
+```cs
+int randomInteger = Some.Integer();
+```
+will return random integer value. 
+
+#### Integer with range
+```cs
+int randomInteger = Some.Integer(100, 456);
+```
+will return random integer value between **100** and ***456***;
+
+#### Positive integer
+```cs
+int positiveInteger = Some.PositiveInteger();
+```
+will return random positive integer value.
+
+#### Negative integer
+```cs
+int negativeInteger = Some.NegativeInteger();
+```
+will return random negative integer value.
