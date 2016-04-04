@@ -10,7 +10,7 @@ namespace Some.UnitTests
     public class SomeTests
     {
         [Test]
-        public void StringShouldReturnTextWhenLengthIsTen()
+        public void StringShouldReturn10CharactersTextWhenLengthIs10()
         {
             // Act
             var text = SomeItem.String(MaxRandom.Ten);
@@ -20,7 +20,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void StringShouldReturnTextWhenLengthIsTwenty()
+        public void StringShouldReturn20CharactersTextWhenLengthIs20()
         {
             // Act
             var text = SomeItem.String(MaxRandom.Twenty);
@@ -30,7 +30,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void StringShouldReturnTextWhenLengthIsHundred()
+        public void StringShouldReturn100CharactersTextWhenLengthIs100()
         {
             // Act
             var text = SomeItem.String(MaxRandom.Hundred);
@@ -40,7 +40,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void StringShouldReturnOnlyLetterWhenEnumIsCorrect()
+        public void StringShouldReturnOnlyLettersWhenEnumIsCorrect()
         {
             // Act
             var charactersArray = SomeItem.String(MaxRandom.Twenty).ToCharArray();
@@ -51,7 +51,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void StringUpperShouldReturnOnlyUpperCaseWhenPassMaxRandom()
+        public void StringUpperShouldReturnOnlyUppercaseWhenPassMaxRandomValue()
         {
             // Act 
             var upperLetters = SomeItem.StringUpper(MaxRandom.Hundred);
@@ -62,7 +62,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void StringLowerhouldReturnOnlyLowerWhenPassMaxRandom()
+        public void StringLowerShouldReturnOnlyLowercaseWhenPassMaxRandom()
         {
             // Act 
             var lowerLetters = SomeItem.StringLower(MaxRandom.Hundred);
@@ -97,7 +97,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void PastDateShouldReturnSomeOlderDates()
+        public void PastDateShouldReturnOlderDate()
         {
             // Act
             var dateTimeNow = DateTime.Now;
@@ -130,6 +130,9 @@ namespace Some.UnitTests
             Assert.IsTrue(someFloat <= max);
         }
 
+        /// <summary>
+        /// Float should return float value between max float range values.
+        /// </summary>
         [Test]
         public void FloatShouldReturnValueWhenRangeIsVeryWide()
         {
@@ -145,7 +148,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void NegativeFloatShouldReturnSomeNegativeFloatValue()
+        public void NegativeFloatShouldReturnNegativeFloatValue()
         {
             // Arrange
             var negativeFloat = SomeItem.NegativeFloat();
@@ -155,7 +158,7 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void PositiveFloatShouldReturnPositiveValue()
+        public void PositiveFloatShouldReturnPositiveFloatValue()
         {
             // Arrange
             var positiiveFloat = SomeItem.PositiveFloat();
@@ -165,11 +168,18 @@ namespace Some.UnitTests
         }
 
         [Test]
-        public void DoubleShouldReturnProperValue()
+        public void DoubleShouldReturnProperValueWithinRange()
         {
             // Arrange 
-            var someDouble = SomeItem.Double(1.765d, 100.091892d);
-            
+            double min = 1.765d;
+            double max = 100.091892d;
+
+            // Act
+            var someDouble = SomeItem.Double(min, max);
+
+            // Assert
+            Assert.GreaterOrEqual(someDouble, min);
+            Assert.LessOrEqual(someDouble, max);
         }
     }
 }

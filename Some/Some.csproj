@@ -52,8 +52,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigurationProvider\AppConfigProvider.cs" />
-    <Compile Include="ConfigurationProvider\IConfigurationProvider.cs" />
     <Compile Include="RandomProvider\MaxRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomProvider\Some.cs" />
