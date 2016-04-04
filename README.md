@@ -7,7 +7,7 @@
 ```cs
 float floatValue = Some.PositiveFloat();
 ```
-will generate random value from 0 to max float. 
+will generate random value from 0 to [max float](https://msdn.microsoft.com/pl-pl/library/b1e65aza.aspx). 
 
 #### Negative float
 ```cs
