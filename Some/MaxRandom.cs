@@ -1,4 +1,4 @@
-﻿namespace Some.RandomProvider
+﻿namespace Some
 {
     /// <summary>
     /// Defines the amount of random characters.

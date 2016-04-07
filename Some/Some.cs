@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Some.RandomProvider
+namespace Some
 {
     /// <summary>
     /// Responsible for generating some random values.

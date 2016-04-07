@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
-using Some.RandomProvider;
-using SomeItem = Some.RandomProvider.Some;
+using SomeItem = Some.Some;
 
 namespace Some.UnitTests
 {
