@@ -8,6 +8,7 @@ namespace Some
     /// </summary>
     public static class Some
     {
+        askdljska
         private const string MinMaxValueExceptionMsg = "Min value must be less than max.";
         private const char FirstUpperInAscii = 'A';
         private const char LastUpperInAscii = 'Z';
