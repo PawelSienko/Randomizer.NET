@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 using NUnit.Framework;
-using SomeItem = Some.Some;
 
-namespace Some.UnitTests
+namespace Randomizer.UnitTests
 {
     [TestFixture]
     public class SomeTests
@@ -12,7 +11,7 @@ namespace Some.UnitTests
         public void StringShouldReturn10CharactersTextWhenLengthIs10()
         {
             // Act
-            var text = SomeItem.String(MaxRandom.Ten);
+            var text = Some.String(MaxRandom.Ten);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Ten, text.Length);
@@ -22,7 +21,7 @@ namespace Some.UnitTests
         public void StringShouldReturn20CharactersTextWhenLengthIs20()
         {
             // Act
-            var text = SomeItem.String(MaxRandom.Twenty);
+            var text = Some.String(MaxRandom.Twenty);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Twenty, text.Length);
@@ -32,7 +31,7 @@ namespace Some.UnitTests
         public void StringShouldReturn100CharactersTextWhenLengthIs100()
         {
             // Act
-            var text = SomeItem.String(MaxRandom.Hundred);
+            var text = Some.String(MaxRandom.Hundred);
 
             // Assert
             Assert.AreEqual((int)MaxRandom.Hundred, text.Length);
@@ -42,7 +41,7 @@ namespace Some.UnitTests
         public void StringShouldReturnOnlyLettersWhenEnumIsCorrect()
         {
             // Act
-            var charactersArray = SomeItem.String(MaxRandom.Twenty).ToCharArray();
+            var charactersArray = Some.String(MaxRandom.Twenty).ToCharArray();
 
             // Assert
             var alphanumericArray = charactersArray.Where(Char.IsLetter).ToArray();
@@ -53,7 +52,7 @@ namespace Some.UnitTests
         public void StringUpperShouldReturnOnlyUppercaseWhenPassMaxRandomValue()
         {
             // Act 
-            var upperLetters = SomeItem.StringUpper(MaxRandom.Hundred);
+            var upperLetters = Some.StringUpper(MaxRandom.Hundred);
 
             // Assert
             var filteredUppercaseCount = upperLetters.Where(Char.IsUpper).ToList().Count;
@@ -64,7 +63,7 @@ namespace Some.UnitTests
         public void StringLowerShouldReturnOnlyLowercaseWhenPassMaxRandom()
         {
             // Act 
-            var lowerLetters = SomeItem.StringLower(MaxRandom.Hundred);
+            var lowerLetters = Some.StringLower(MaxRandom.Hundred);
 
             // Assert
             var filteredUppercaseCount = lowerLetters.Where(Char.IsLower).ToList().Count;
@@ -75,7 +74,7 @@ namespace Some.UnitTests
         public void DigitsAsStringShouldReturnDigitsOnly()
         {
             // Act 
-            var digitsAsString = SomeItem.DigitsAsString(MaxRandom.Hundred);
+            var digitsAsString = Some.DigitsAsString(MaxRandom.Hundred);
 
             // Assert
             var filtereddigitsCount = digitsAsString.Where(Char.IsDigit).ToList().Count;
@@ -89,7 +88,7 @@ namespace Some.UnitTests
             var dateTimeNow = DateTime.Now;
 
             // Arrange 
-            var someFutureDate = SomeItem.FutureDate();
+            var someFutureDate = Some.FutureDate();
 
             // Assert
             Assert.IsTrue(dateTimeNow < someFutureDate);
@@ -102,7 +101,7 @@ namespace Some.UnitTests
             var dateTimeNow = DateTime.Now;
 
             // Arrange 
-            var somePastDate = SomeItem.PastDate();
+            var somePastDate = Some.PastDate();
 
             // Assert
             Assert.IsTrue(dateTimeNow > somePastDate);
@@ -112,7 +111,7 @@ namespace Some.UnitTests
         public void FloatShouldThrowExceptionWhenMinIsGreatherThanMax()
         {
             // Assert
-            Assert.Throws<ArgumentException>(() => SomeItem.Float(10, 5));
+            Assert.Throws<ArgumentException>(() => Some.Float(10, 5));
         }
 
         [Test]
@@ -122,7 +121,7 @@ namespace Some.UnitTests
             float max = 1892891.998781f;
 
             // Arrange
-            var someFloat = SomeItem.Float(min, max);
+            var someFloat = Some.Float(min, max);
 
             // Assert
             Assert.IsTrue(someFloat >= min);
@@ -139,7 +138,7 @@ namespace Some.UnitTests
             float max = float.MaxValue;
 
             // Arrange
-            var someFloat = SomeItem.Float(min, max);
+            var someFloat = Some.Float(min, max);
 
             // Assert
             Assert.GreaterOrEqual(someFloat, min);
@@ -150,7 +149,7 @@ namespace Some.UnitTests
         public void NegativeFloatShouldReturnNegativeFloatValue()
         {
             // Arrange
-            var negativeFloat = SomeItem.NegativeFloat();
+            var negativeFloat = Some.NegativeFloat();
 
             // Assert
             Assert.LessOrEqual(negativeFloat, 0);
@@ -160,7 +159,7 @@ namespace Some.UnitTests
         public void PositiveFloatShouldReturnPositiveFloatValue()
         {
             // Arrange
-            var positiiveFloat = SomeItem.PositiveFloat();
+            var positiiveFloat = Some.PositiveFloat();
 
             // Assert
             Assert.GreaterOrEqual(positiiveFloat, 0);
@@ -174,7 +173,7 @@ namespace Some.UnitTests
             double max = 100.091892d;
 
             // Act
-            var someDouble = SomeItem.Double(min, max);
+            var someDouble = Some.Double(min, max);
 
             // Assert
             Assert.GreaterOrEqual(someDouble, min);

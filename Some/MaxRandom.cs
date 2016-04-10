@@ -1,4 +1,4 @@
-﻿namespace Some
+﻿namespace Randomizer
 {
     /// <summary>
     /// Defines the amount of random characters.

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
 
-namespace Some
+// ReSharper disable once CheckNamespace
+namespace Randomizer
 {
     /// <summary>
     /// Responsible for generating some random values.
