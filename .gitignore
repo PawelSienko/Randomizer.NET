@@ -10,3 +10,8 @@
 /Some/bin
 /Some.UnitTests/obj
 /Some.UnitTests/bin
+/Randomizer/obj
+/Randomizer/bin
+/Randomizer.UnitTests/obj
+/Randomizer.UnitTests/bin
+/.vs
