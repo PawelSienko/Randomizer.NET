@@ -12,7 +12,6 @@ namespace Randomizer
         private const string MinMaxValueExceptionMsg = "Min value must be less than max.";
         private const char FirstUpperInAscii = 'A';
         private const char LastUpperInAscii = 'Z';
-        private const char LastLetterInAscii = 'z';
         private const char FirstLowerInAscii = 'a';
         private const char LastLowerInAscii = 'z';
         private const char FirstDigitInAscii = '0';
@@ -42,7 +41,7 @@ namespace Randomizer
 
             do
             {
-                char character = RandomCharacter(FirstUpperInAscii, LastLetterInAscii);
+                char character = RandomCharacter(FirstUpperInAscii, LastLowerInAscii);
                 // ReSharper disable once RedundantBoolCompare
                 if (char.IsLetter(character) == true)
                 {
@@ -269,24 +268,7 @@ namespace Randomizer
             {
                 throw new ArgumentException(MinMaxValueExceptionMsg);
             }
-
-            if (min >= int.MinValue && max <= int.MaxValue)
-            {
-
-                double randomFraction = randomizer.NextDouble();
-                int randomValue = randomizer.Next((int)min, (int)max);
-                return randomValue + randomFraction;
-            }
-
-            do
-            {
-                var someDouble1 = SomeDouble();
-                if (someDouble1 >= min && someDouble1 <= max)
-                {
-                    return someDouble1;
-                }
-
-            } while (true);
+            return randomizer.NextDouble() * (min - max) + min;
         }
 
         /// <summary>
@@ -327,8 +309,8 @@ namespace Randomizer
 
         private static double SomeDouble()
         {
-            int expander = randomizer.Next(0, 308);
-            return Math.Pow(10, expander) - 1;
+            int exponent = randomizer.Next(-308, 308);
+            return Math.Pow(10, exponent) * 1.7;
         }
 
         #endregion Private methods
