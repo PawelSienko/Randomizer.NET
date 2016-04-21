@@ -301,10 +301,10 @@ namespace Randomizer
         private static float SomeFloat()
         {
             int expander = randomizer.Next(0, 38);
-            int randomValue = randomizer.Next(0, 2);
-            float randomFraction = (float)randomizer.NextDouble();
+            int randomValue = randomizer.Next(0, 3);
+            float randomFraction = (float)randomizer.Next(0, 4) / 10;
             float randomFloatValue = randomValue + randomFraction;
-            return randomFloatValue * ((float)Math.Pow(10, expander) - 1);
+            return randomFloatValue * randomFloatValue * (float)Math.Pow(10, expander);
         }
 
         private static double SomeDouble()
