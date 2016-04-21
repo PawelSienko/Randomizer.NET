@@ -139,7 +139,7 @@ namespace Randomizer
         /// <returns></returns>
         public static int Integer(int min, int max)
         {
-            return randomizer.Next(min, max);
+            return randomizer.Next(min, max + 1);
         }
 
         /// <summary>
