@@ -63,11 +63,7 @@ namespace Randomizer
             do
             {
                 char character = RandomCharacter(FirstLowerInAscii, LastLowerInAscii);
-                // ReSharper disable once RedundantBoolCompare
-                if (char.IsLower(character) == true)
-                {
-                    RandomCharacters.Append(character);
-                }
+                RandomCharacters.Append(character);
             } while (RandomCharacters.Length < numberOfLetters);
 
             return RandomCharacters.ToString();
@@ -84,11 +80,7 @@ namespace Randomizer
             do
             {
                 char character = RandomCharacter(FirstUpperInAscii, LastUpperInAscii);
-                // ReSharper disable once RedundantBoolCompare
-                if (char.IsUpper(character) == true)
-                {
-                    RandomCharacters.Append(character);
-                }
+                RandomCharacters.Append(character);
             } while (RandomCharacters.Length < numberOfLetters);
 
             return RandomCharacters.ToString();
@@ -293,7 +285,7 @@ namespace Randomizer
                 {
                     return someDouble1;
                 }
-                
+
             } while (true);
         }
 
