@@ -19,7 +19,7 @@ namespace Randomizer
 
         private static readonly StringBuilder RandomCharacters;
         // ReSharper disable once InconsistentNaming
-        private static readonly Random randomizer;
+        private static Random randomizer;
 
         /// <summary>
         /// Default constructor
@@ -28,6 +28,18 @@ namespace Randomizer
         {
             RandomCharacters = new StringBuilder();
             randomizer = new Random();
+        }
+
+        // ReSharper disable once InconsistentNaming
+        private static int seed;
+        public static int Seed
+        {
+            get { return seed; }
+            set
+            {
+                seed = value;
+                randomizer = new Random(seed);
+            }
         }
 
         /// <summary>Generates some random  string.</summary>
