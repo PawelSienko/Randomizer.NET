@@ -45,6 +45,7 @@ namespace Randomizer
         /// <summary>Generates some random  string.</summary>
         /// <param name="maxRandom">Defines how many characters will be generated.</param>
         /// <returns>Random string.</returns>
+        [Obsolete("This method will be removed in the future. Please use another one with length parameter.")]
         public static string String(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -63,9 +64,39 @@ namespace Randomizer
 
             return RandomCharacters.ToString();
         }
+
+        /// <summary>Generates some random  string.</summary>
+        /// <param name="length">Defines how many characters will be generated.</param>
+        /// <returns>Random string.</returns>
+        public static string String(int length)
+        {
+            if (length <= 0)
+            {
+                throw new ArgumentException("Lenght cannot be less or equal 0");
+            }
+
+            RandomCharacters.Clear();
+
+            int numberOfLetters = length;
+
+            do
+            {
+                char character = RandomCharacter(FirstUpperInAscii, LastLowerInAscii);
+                // ReSharper disable once RedundantBoolCompare
+                if (char.IsLetter(character) == true)
+                {
+                    RandomCharacters.Append(character);
+                }
+            } while (RandomCharacters.Length < numberOfLetters);
+
+            return RandomCharacters.ToString();
+        }
+
+
         /// <summary>Generates some random  string contaoning only lower case.</summary>
         /// <param name="maxRandom">Defines how many characters will be generated.</param>
         /// <returns>Random string.</returns>
+        [Obsolete("This method will be removed in the future. Please use another one with length parameter.")]
         public static string StringLower(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -80,9 +111,56 @@ namespace Randomizer
             return RandomCharacters.ToString();
         }
 
+        /// <summary>
+        /// Generates some random  string contaoning only lower case.
+        /// </summary>
+        /// <param name="length">>Defines how many characters will be generated.</param>
+        /// <returns>Text containing only lowercases.</returns>
+        public static string StringLower(int length)
+        {
+            if (length <= 0)
+            {
+                throw new ArgumentException("Lenght cannot be less or equal 0");
+            }
+
+            RandomCharacters.Clear();
+
+            do
+            {
+                char character = RandomCharacter(FirstLowerInAscii, LastLowerInAscii);
+                RandomCharacters.Append(character);
+            } while (RandomCharacters.Length < length);
+
+            return RandomCharacters.ToString();
+        }
+
+        /// <summary>
+        /// Generates some random  string containing only upper case.
+        /// </summary>
+        /// <param name="length">Defines how many characters will be generated.</param>
+        /// <returns>Text with uppercases.</returns>
+        public static string StringUpper(int length)
+        {
+            if (length <= 0)
+            {
+                throw new ArgumentException("Lenght cannot be less or equal 0");
+            }
+
+            RandomCharacters.Clear();
+            
+            do
+            {
+                char character = RandomCharacter(FirstUpperInAscii, LastUpperInAscii);
+                RandomCharacters.Append(character);
+            } while (RandomCharacters.Length < length);
+
+            return RandomCharacters.ToString();
+        }
+
         /// <summary>Generates some random  string containing only upper case.</summary>
         /// <param name="maxRandom">Defines how many characters will be generated.</param>
         /// <returns>Random string.</returns>
+        [Obsolete("This method will be removed in the future. Please use another one with length parameter.")]
         public static string StringUpper(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -98,8 +176,35 @@ namespace Randomizer
         }
 
         /// <summary>Generates some random digits as text.</summary>
+        /// <param name="lenght">Length of the string.</param>
+        /// <returns>Text containing only digits</returns>
+        public static string DigitsAsString(int length)
+        {
+            if (length <= 0)
+            {
+                throw new ArgumentException("Lenght cannot be less or equal 0");
+            }
+
+
+            RandomCharacters.Clear();
+            
+            do
+            {
+                char character = RandomCharacter(FirstDigitInAscii, LastDigitInAscii);
+                // ReSharper disable once RedundantBoolCompare
+                if (char.IsDigit(character) == true)
+                {
+                    RandomCharacters.Append(character);
+                }
+            } while (RandomCharacters.Length < length);
+
+            return RandomCharacters.ToString();
+        }
+
+        /// <summary>Generates some random digits as text.</summary>
         /// <param name="maxRandom">Defines how many characters will be generated.</param>
         /// <returns>Random digits.</returns>
+        [Obsolete("This method will be removed in the future. Please use another one with length parameter.")]
         public static string DigitsAsString(MaxRandom maxRandom)
         {
             RandomCharacters.Clear();
@@ -134,6 +239,29 @@ namespace Randomizer
             DateTime dateTimeNow = DateTime.Now;
             int randomValue = randomizer.Next(1, 1000);
             return dateTimeNow.AddDays(-randomValue);
+        }
+
+        /// <summary>
+        /// Generates the date between since and to.
+        /// </summary>
+        /// <param name="since">Minimum date.</param>
+        /// <param name="to">Maximum date.</param>
+        /// <returns>Returns the date between values provided.</returns>
+        public static DateTime Date(DateTime since, DateTime to)
+        {
+            if (since > to)
+            {
+                throw new ArgumentException("Inproper range provided.");
+            }
+
+            if (since == to)
+            {
+                return since;
+            }
+
+            double daysDifference = (to - since).TotalDays;
+            double randomValue = Double(0, daysDifference);
+            return since.AddDays(randomValue);
         }
 
         /// <summary>
@@ -280,7 +408,7 @@ namespace Randomizer
             {
                 throw new ArgumentException(MinMaxValueExceptionMsg);
             }
-            return randomizer.NextDouble() * (min - max) + min;
+            return randomizer.NextDouble() * (max - min) + min;
         }
 
         /// <summary>

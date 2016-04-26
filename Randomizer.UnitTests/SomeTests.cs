@@ -8,6 +8,7 @@ namespace Randomizer.UnitTests
     public class SomeTests
     {
         [Test]
+        [Obsolete]
         public void StringShouldReturn10CharactersTextWhenLengthIs10()
         {
             // Act
@@ -18,6 +19,7 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        [Obsolete]
         public void StringShouldReturn20CharactersTextWhenLengthIs20()
         {
             // Act
@@ -28,6 +30,7 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        [Obsolete]
         public void StringShouldReturn100CharactersTextWhenLengthIs100()
         {
             // Act
@@ -38,6 +41,7 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        [Obsolete]
         public void StringShouldReturnOnlyLettersWhenEnumIsCorrect()
         {
             // Act
@@ -49,6 +53,7 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        [Obsolete]
         public void StringUpperShouldReturnOnlyUppercaseWhenPassMaxRandomValue()
         {
             // Act 
@@ -60,6 +65,7 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        [Obsolete]
         public void StringLowerShouldReturnOnlyLowercaseWhenPassMaxRandom()
         {
             // Act 
@@ -71,6 +77,116 @@ namespace Randomizer.UnitTests
         }
 
         [Test]
+        public void StringLowerShouldReturnOnlyLowercaseWhenPassLengthValue()
+        {
+            // Arrange
+            int length = 1000;
+
+            // Act 
+            var lowerLetters = Some.StringLower(length);
+
+            // Assert
+            var filteredUppercaseCount = lowerLetters.Where(Char.IsLower).ToList().Count;
+            Assert.AreEqual(length, filteredUppercaseCount);
+        }
+
+
+        [Test]
+        public void StringLowerShouldThrowExceptionWhenLengthIsBelowZero()
+        {
+            // Arrange
+            int length = -1;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.StringLower(length));
+        }
+
+
+        [Test]
+        public void StringLowerShouldThrowExceptionWhenLengthIsZero()
+        {
+            // Arrange
+            int length = 0;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.StringLower(length));
+        }
+
+        [Test]
+        public void StringUpperShouldThrowExceptionWhenLengthIsZero()
+        {
+            // Arrange
+            int length = 0;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.StringUpper(length));
+        }
+
+        [Test]
+        public void StringUpperShouldThrowExceptionWhenLengthIsBelowZero()
+        {
+            // Arrange
+            int length = -1;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.StringUpper(length));
+        }
+
+        [Test]
+        public void StringUpperShouldReturnTextWithUppercasesWhenLenthValueIsPositive()
+        {
+            // Arrange
+            int length = 1000;
+
+            // Act 
+            string text = Some.StringUpper(length);
+
+            // Assert
+            Assert.IsNotNull(text);
+            Assert.IsNotEmpty(text);
+            Assert.AreEqual(length, text.Length);
+        }
+
+        [Test]
+        public void DigitsAsStringShouldReturnDigitsOnlyWhenLengthIsPassed()
+        {
+            // Arrange
+            int length = 1000;
+
+            // Act 
+            var digitsAsString = Some.DigitsAsString(length);
+
+            // Assert
+            Assert.IsNotNull(digitsAsString);
+            Assert.IsNotEmpty(digitsAsString);
+            var filtereddigitsCount = digitsAsString.Where(Char.IsDigit).ToList().Count;
+            Assert.AreEqual(length, filtereddigitsCount);
+        }
+
+        [Test]
+        public void DigitsAsStringShouldThrowExceptionWhenLenghtIsBelowZero()
+        {
+            // Arrange
+            int length = -1;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.DigitsAsString(length));
+        }
+
+
+
+        [Test]
+        public void DigitsAsStringShouldThrowExceptionWhenLenghtIsEqualZero()
+        {
+            // Arrange
+            int length = 0;
+
+            // Act 
+            Assert.Throws<ArgumentException>(() => Some.DigitsAsString(length));
+        }
+
+        [Test]
+        [Obsolete]
         public void DigitsAsStringShouldReturnDigitsOnly()
         {
             // Act 
@@ -79,6 +195,41 @@ namespace Randomizer.UnitTests
             // Assert
             var filtereddigitsCount = digitsAsString.Where(Char.IsDigit).ToList().Count;
             Assert.AreEqual((int)MaxRandom.Hundred, filtereddigitsCount);
+        }
+
+        [Test]
+        public void StringWithLengthEqualsToZero()
+        {
+            // Arrange
+            int length = 0;
+
+            // Act
+            Assert.Throws<ArgumentException>(() => Some.String(length));
+        }
+
+        [Test]
+        public void StringWithLenthLessThanZero()
+        {
+            // Arrange
+            int length = -1;
+
+            // Act
+            Assert.Throws<ArgumentException>(() => Some.String(length));
+        }
+
+        [Test]
+        public void StringWithLengthGreaterThanZero()
+        {
+            // Arrange
+            int length = 100;
+
+            // Act
+            string text = Some.String(length);
+
+            // Assert
+            Assert.IsNotNull(text);
+            Assert.IsNotEmpty(text);
+            Assert.AreEqual(length, text.Length);
         }
 
         [Test]
@@ -105,6 +256,21 @@ namespace Randomizer.UnitTests
 
             // Assert
             Assert.IsTrue(dateTimeNow > somePastDate);
+        }
+
+        [Test]
+        public void DateShouldReturnDateWithinRange()
+        {
+            // Act
+            var since = DateTime.Now;
+            var to = DateTime.Now.AddDays(100);
+
+            // Arrange 
+            var randomDate = Some.Date(since, to);
+
+            // Assert
+            Assert.GreaterOrEqual(randomDate, since);
+            Assert.LessOrEqual(randomDate, to);
         }
 
         [Test]
