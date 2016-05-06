@@ -3,6 +3,19 @@
 ###### Very helpful in unit tests or random values to fill database tables.
 ###### 100% of code covered by UnitTests (NUnit)
 
+#### Initialize seed value
+```cs
+public static int Seed
+       {
+           get { return seed; }
+           set
+           {
+               seed = value;
+               randomizer = new Random(seed);
+           }
+       }
+```
+
 #### Positive float
 ```cs
 float floatValue = Some.PositiveFloat();
@@ -34,41 +47,33 @@ DateTime pastDate = Some.PastDate();
 ```
 will return older date and time when invoked.
 
+#### Date with range
+```cs
+DateTime date = Some.Date(DateTime.Now, DateTime.Now.AddDays(10));
+```
+will generate date withing specified range in input parameters of invoking method.
+
 #### String (only letters)
 ```cs
-string randomString = Some.String(MaxRandom.Twenty);
+string randomString = Some.String(20);
 ```
 will generate string with 20 random characters.
 
-The same is for other values of **MaxRandom** enum.
-
-#### MaxRandom
-To avoid out of memory exception **MaxRandom** enum is defined.
-```cs
-public enum MaxRandom
-    {
-        Ten = 10,
-
-        Twenty = 20,
-
-        Hundred = 100,
-    }
-```
 #### Lowercase string (only letters)
 ```cs
-string randomString = Some.StringLower(MaxRandom.Twenty);
+string randomString = Some.StringLower(20);
 ```
 will generate 20 lowercase characters as string.
 
 #### Uppercase string (only letters)
 ```cs
-string randomString = Some.StringUpper(MaxRandom.Twenty);
+string randomString = Some.StringUpper(20);
 ```
 will generate 20 uppercase characters as string.
 
 #### String with digits
 ```cs
-string randomString = Some.DigitsAsString(MaxRandom.Twenty);
+string randomString = Some.DigitsAsString(20);
 ```
 will generate 20 digits as string. 
 
@@ -116,7 +121,7 @@ will return only positive double value.
 
 #### Negative double
 ```cs
-double randomDouble = SomeItem.PositiveDouble();
+double randomDouble = SomeItem.NegativeDouble();
 ```
 will return only negative double value.
 
