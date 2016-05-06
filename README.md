@@ -3,6 +3,8 @@
 ###### Very helpful in unit tests or random values to fill database tables.
 ###### 100% of code covered by UnitTests (NUnit)
 
+https://travis-ci.org/PawelSienko/Some.svg?branch=master
+
 #### Initialize seed value
 ```cs
 public static int Seed
