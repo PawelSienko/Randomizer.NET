@@ -27,11 +27,14 @@ namespace Randomizer
         static Some()
         {
             RandomCharacters = new StringBuilder();
-            randomizer = new Random();
+            randomizer = new Random((int)DateTime.Now.Ticks);
         }
 
         // ReSharper disable once InconsistentNaming
+        [Obsolete]
         private static int seed;
+
+        [Obsolete]
         public static int Seed
         {
             get { return seed; }
