@@ -5,15 +5,14 @@
 
 #### Default constructor
 ```cs
-        // <summary>
-        /// Default constructor
-        /// </summary>
-        static Some()
-        {
-            RandomCharacters = new StringBuilder();
-            randomizer = new Random((int)DateTime.Now.Ticks);
-        }
-
+// <summary>
+/// Default constructor
+/// </summary>
+static Some()
+{
+        RandomCharacters = new StringBuilder();
+        randomizer = new Random((int)DateTime.Now.Ticks);
+}
 ```
 
 #### Positive float
