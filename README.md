@@ -5,7 +5,7 @@
 
 #### Default constructor
 ```cs
-// <summary>
+        // <summary>
         /// Default constructor
         /// </summary>
         static Some()
