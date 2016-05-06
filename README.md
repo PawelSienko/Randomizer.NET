@@ -1,4 +1,4 @@
-# Some ![alt tag](https://travis-ci.org/PawelSienko/Some.svg?branch=master)
+# Some [![Build Status](https://travis-ci.org/PawelSienko/Some.svg?branch=master)](https://travis-ci.org/PawelSienko/Some)
 ###### The open source lightweight library to generate random values for string, float, date, double and decimal.
 ###### Very helpful in unit tests or random values to fill database tables.
 ###### 100% of code covered by UnitTests (NUnit)
