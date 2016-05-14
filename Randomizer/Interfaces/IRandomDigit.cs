@@ -5,8 +5,8 @@
         where TType : struct
         where TSeed : new()
     {
-        TType GeneratePositiveValue(TType min, TType max);
+        TType GeneratePositiveValue();
 
-        TType GenerateNegativeValue(TType min, TType max);
+        TType GenerateNegativeValue();
     }
 }

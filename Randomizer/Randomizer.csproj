@@ -43,14 +43,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
+    <Compile Include="Interfaces\IRandomDecimal.cs" />
     <Compile Include="Interfaces\IRandomDigit.cs" />
     <Compile Include="Interfaces\IRandom.cs" />
     <Compile Include="Interfaces\IRandomFloat.cs" />
+    <Compile Include="Interfaces\IRandomInteger.cs" />
     <Compile Include="Interfaces\IRandomValueType.cs" />
     <Compile Include="MaxRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomGeneratorBase.cs" />
     <Compile Include="Some.cs" />
+    <Compile Include="Types\RandomDecimalGenerator.cs" />
     <Compile Include="Types\RandomFloatGenerator.cs" />
+    <Compile Include="Types\RandomIntegerGenerator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

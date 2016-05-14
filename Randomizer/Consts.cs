@@ -9,5 +9,6 @@ namespace Randomizer
     public static class Consts
     {
         public const string MinMaxValueExceptionMsg = "Min value must be less than max.";
+        public const string PassedParameterEqualMsg = "Passed min and max are equal!";
     }
 }

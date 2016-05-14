@@ -3,10 +3,8 @@ using Randomizer.Interfaces;
 
 namespace Randomizer.Types
 {
-    public class RandomFloatGenerator : IRandomFloat
+    public sealed class RandomFloatGenerator : RandomGeneratorBase, IRandomFloat
     {
-        private Random randomizer;
-
         public void InitSeed(int seed)
         {
             randomizer = new Random(seed);
@@ -28,34 +26,17 @@ namespace Randomizer.Types
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
             }
 
-            int roundedMin = (int)Math.Round(min, MidpointRounding.AwayFromZero);
-            int roundedMax = (int)Math.Round(max, MidpointRounding.AwayFromZero);
-
-            float randomValue = randomizer.Next(roundedMin, roundedMax);
-            float randomFraction = (float)randomizer.NextDouble();
-
-            float randomValueWithFraction = randomValue + randomFraction;
-
-            if (randomValueWithFraction < min)
-            {
-                return randomValueWithFraction + 0.5f;
-            }
-            else if (randomValueWithFraction > max)
-            {
-                return randomValueWithFraction - 0.5f;
-            }
-
-            return randomValueWithFraction;
+            return min + (float)randomizer.NextDouble() * (max - min);
         }
 
-        public float GeneratePositiveValue(float min = float.MaxValue, float max = float.MaxValue)
+        public float GeneratePositiveValue()
         {
-            return this.GenerateValue(min, max);
+            return this.GenerateValue();
         }
 
-        public float GenerateNegativeValue(float min = float.MinValue, float max = float.MaxValue)
+        public float GenerateNegativeValue()
         {
-            return this.GenerateValue(min, max);
+            return this.GenerateValue();
         }
     }
 }

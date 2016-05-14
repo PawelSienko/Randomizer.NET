@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomFloatGeneratorTests.cs" />
     <Compile Include="SomeTests.cs" />
   </ItemGroup>
   <ItemGroup>
