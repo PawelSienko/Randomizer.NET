@@ -1,5 +1,6 @@
 ﻿using System;
 using Randomizer.Interfaces;
+using Randomizer.Interfaces.ValueTypes;
 
 namespace Randomizer.Types
 {
@@ -12,11 +13,10 @@ namespace Randomizer.Types
 
         public float GenerateValue()
         {
-            int expander = randomizer.Next(0, 38);
-            int randomValue = randomizer.Next(0, 3);
-            float randomFraction = (float)randomizer.Next(0, 4) / 10;
-            float randomFloatValue = randomValue + randomFraction;
-            return randomFloatValue * randomFloatValue * (float)Math.Pow(10, expander);
+            float randomFloatMinValue = (float)randomizer.NextDouble() * float.MinValue;
+            float randomFLoatMaxValue = (float)randomizer.NextDouble() * float.MaxValue;
+
+            return randomFloatMinValue + randomFLoatMaxValue;
         }
 
         public float GenerateValue(float min, float max)
@@ -36,7 +36,7 @@ namespace Randomizer.Types
 
         public float GenerateNegativeValue()
         {
-            return this.GenerateValue();
+            return -this.GenerateValue();
         }
     }
 }

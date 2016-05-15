@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Randomizer.Interfaces;
+using Randomizer.Interfaces.ValueTypes;
 
 namespace Randomizer.Types
 {

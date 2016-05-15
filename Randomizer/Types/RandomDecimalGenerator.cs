@@ -1,5 +1,6 @@
 ﻿using System;
 using Randomizer.Interfaces;
+using Randomizer.Interfaces.ValueTypes;
 
 namespace Randomizer.Types
 {
@@ -12,13 +13,19 @@ namespace Randomizer.Types
 
         public decimal GenerateValue()
         {
-            decimal baseValue = randomizer.Next();
-            decimal divider = randomizer.Next();
-            return baseValue / divider;
+            decimal randomDecimalPositive = (decimal)randomizer.NextDouble() * decimal.MaxValue;
+            decimal randomDecimalNegative = (decimal)randomizer.NextDouble() * decimal.MinValue;
+
+            return randomDecimalNegative + randomDecimalPositive;
         }
 
         public decimal GenerateValue(decimal min, decimal max)
         {
+            if (min >= max)
+            {
+                throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
+            }
+
             return min + (decimal)randomizer.NextDouble() * (max - min);
         }
 

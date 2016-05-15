@@ -15,3 +15,5 @@
 /Randomizer.UnitTests/obj
 /Randomizer.UnitTests/bin
 /.vs
+/Randomizer.OutputTests/obj
+/Randomizer.OutputTests/bin
