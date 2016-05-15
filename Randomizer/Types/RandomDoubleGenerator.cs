@@ -24,16 +24,31 @@ namespace Randomizer.Types
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
             }
 
+            if (IsConditionToReachLimit())
+            {
+                return double.MaxValue;
+            }
+
             return min + randomizer.NextDouble() * (max - min);
         }
 
         public double GeneratePositiveValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return double.MaxValue;
+            }
+
             return this.GenerateValue();
         }
 
         public double GenerateNegativeValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return double.MinValue;
+            }
+
             return -this.GenerateValue();
         }
     }

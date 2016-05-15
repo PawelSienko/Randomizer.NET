@@ -17,6 +17,11 @@ namespace Randomizer.Types
 
         public int GenerateValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return int.MaxValue;
+            }
+
             return randomizer.Next();
         }
 
@@ -27,16 +32,31 @@ namespace Randomizer.Types
                 throw new ArgumentException("Min cannot be greater than max.");
             }
 
+            if (IsConditionToReachLimit())
+            {
+                return max;
+            }
+
             return randomizer.Next(min, max);
         }
 
         public int GeneratePositiveValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return int.MaxValue;
+            }
+
             return randomizer.Next(0, int.MaxValue);
         }
 
         public int GenerateNegativeValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return 0;
+            }
+
             return randomizer.Next(int.MinValue, 0);
         }
     }

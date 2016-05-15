@@ -14,9 +14,9 @@ namespace Randomizer.Types
         public float GenerateValue()
         {
             float randomFloatMinValue = (float)randomizer.NextDouble() * float.MinValue;
-            float randomFLoatMaxValue = (float)randomizer.NextDouble() * float.MaxValue;
+            float randomFloatMaxValue = (float)randomizer.NextDouble() * float.MaxValue;
 
-            return randomFloatMinValue + randomFLoatMaxValue;
+            return randomFloatMinValue + randomFloatMaxValue;
         }
 
         public float GenerateValue(float min, float max)
@@ -25,17 +25,31 @@ namespace Randomizer.Types
             {
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
             }
+            if (IsConditionToReachLimit())
+            {
+                return float.MaxValue;
+            }
 
             return min + (float)randomizer.NextDouble() * (max - min);
         }
 
         public float GeneratePositiveValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return float.MaxValue;
+            }
+
             return this.GenerateValue();
         }
 
         public float GenerateNegativeValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return float.MinValue;
+            }
+
             return -this.GenerateValue();
         }
     }

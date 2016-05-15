@@ -15,6 +15,10 @@ namespace Randomizer.Types
         {
             decimal randomDecimalPositive = (decimal)randomizer.NextDouble() * decimal.MaxValue;
             decimal randomDecimalNegative = (decimal)randomizer.NextDouble() * decimal.MinValue;
+            if (IsConditionToReachLimit())
+            {
+                return decimal.MaxValue;
+            }
 
             return randomDecimalNegative + randomDecimalPositive;
         }
@@ -26,16 +30,31 @@ namespace Randomizer.Types
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
             }
 
+            if (IsConditionToReachLimit())
+            {
+                return max;
+            }
+
             return min + (decimal)randomizer.NextDouble() * (max - min);
         }
 
         public decimal GeneratePositiveValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return decimal.MaxValue;
+            }
+
             return (decimal)randomizer.NextDouble() * decimal.MaxValue;
         }
 
         public decimal GenerateNegativeValue()
         {
+            if (IsConditionToReachLimit())
+            {
+                return decimal.MinValue;
+            }
+
             return (decimal)randomizer.NextDouble() * decimal.MinValue;
         }
     }
