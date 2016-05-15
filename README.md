@@ -3,17 +3,16 @@
 ###### Very helpful in unit tests or random values to fill database tables.
 ###### 100% of code covered by UnitTests (NUnit)
 
-#### Initialize seed value
+#### Default constructor
 ```cs
-public static int Seed
-       {
-           get { return seed; }
-           set
-           {
-               seed = value;
-               randomizer = new Random(seed);
-           }
-       }
+// <summary>
+/// Default constructor
+/// </summary>
+static Some()
+{
+        RandomCharacters = new StringBuilder();
+        randomizer = new Random((int)DateTime.Now.Ticks);
+}
 ```
 
 #### Positive float
