@@ -7,7 +7,7 @@ namespace Randomizer.Types
     {
         public void InitSeed(int seed)
         {
-            this.randomizer = new Random(seed);
+            randomizer = new Random(seed);
         }
 
         public long GenerateValue()

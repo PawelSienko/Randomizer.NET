@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Randomizer.Interfaces;
 using Randomizer.Interfaces.ValueTypes;
 
 namespace Randomizer.Types
@@ -12,7 +7,7 @@ namespace Randomizer.Types
     {
         public void InitSeed(int seed)
         {
-            this.randomizer = new Random(seed);
+            randomizer = new Random(seed);
         }
 
         public int GenerateValue()

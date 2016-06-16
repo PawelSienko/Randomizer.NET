@@ -1,5 +1,4 @@
 ﻿using System;
-using Randomizer.Interfaces;
 using Randomizer.Interfaces.ValueTypes;
 
 namespace Randomizer.Types

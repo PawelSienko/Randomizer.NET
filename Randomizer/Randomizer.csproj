@@ -43,6 +43,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
+    <Compile Include="Interfaces\IRandomRefType.cs" />
+    <Compile Include="Interfaces\ReferenceTypes\IRandomAlphanumericString.cs" />
+    <Compile Include="Interfaces\ReferenceTypes\IRandomCharacter.cs" />
     <Compile Include="Interfaces\ValueTypes\IRandomDecimal.cs" />
     <Compile Include="Interfaces\IRandomDigit.cs" />
     <Compile Include="Interfaces\IRandom.cs" />
@@ -56,6 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomGeneratorBase.cs" />
     <Compile Include="Some.cs" />
+    <Compile Include="Types\RandomAlphanumericGenerator.cs" />
+    <Compile Include="Types\RandomAlphanumericStringGenerator.cs" />
     <Compile Include="Types\RandomDecimalGenerator.cs" />
     <Compile Include="Types\RandomDoubleGenerator.cs" />
     <Compile Include="Types\RandomFloatGenerator.cs" />

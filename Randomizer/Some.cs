@@ -177,10 +177,7 @@ namespace Randomizer
 
             return RandomCharacters.ToString();
         }
-
-        /// <summary>Generates some random digits as text.</summary>
-        /// <param name="lenght">Length of the string.</param>
-        /// <returns>Text containing only digits</returns>
+        
         public static string DigitsAsString(int length)
         {
             if (length <= 0)
