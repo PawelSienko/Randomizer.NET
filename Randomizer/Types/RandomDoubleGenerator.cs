@@ -12,9 +12,9 @@ namespace Randomizer.Types
 
         public double GenerateValue()
         {
-            double randomDoubleMinValue = randomizer.NextDouble() * double.MaxValue;
-            double randomDoubleMaxValue = randomizer.NextDouble() * double.MinValue;
-            return randomDoubleMinValue + randomDoubleMaxValue;
+            double randomPositive = randomizer.NextDouble() * double.MaxValue;
+            double randomNegative = randomizer.NextDouble() * double.MinValue;
+            return randomPositive + randomNegative;
         }
 
         public double GenerateValue(double min, double max)
@@ -26,7 +26,7 @@ namespace Randomizer.Types
 
             if (IsConditionToReachLimit())
             {
-                return double.MaxValue;
+                return max;
             }
 
             return min + randomizer.NextDouble() * (max - min);
@@ -39,7 +39,7 @@ namespace Randomizer.Types
                 return double.MaxValue;
             }
 
-            return this.GenerateValue();
+            return randomizer.NextDouble() * double.MaxValue;
         }
 
         public double GenerateNegativeValue()
@@ -49,7 +49,7 @@ namespace Randomizer.Types
                 return double.MinValue;
             }
 
-            return -this.GenerateValue();
+            return randomizer.NextDouble() * double.MinValue;
         }
     }
 }

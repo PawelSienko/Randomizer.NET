@@ -50,6 +50,8 @@
     <Compile Include="Interfaces\ValueTypes\IRandomFloat.cs" />
     <Compile Include="Interfaces\ValueTypes\IRandomInteger.cs" />
     <Compile Include="Interfaces\IRandomValueType.cs" />
+    <Compile Include="Interfaces\ValueTypes\IRandomLong.cs" />
+    <Compile Include="Interfaces\ValueTypes\IRandomShort.cs" />
     <Compile Include="MaxRandom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomGeneratorBase.cs" />
@@ -58,6 +60,8 @@
     <Compile Include="Types\RandomDoubleGenerator.cs" />
     <Compile Include="Types\RandomFloatGenerator.cs" />
     <Compile Include="Types\RandomIntegerGenerator.cs" />
+    <Compile Include="Types\RandomLongGenerator.cs" />
+    <Compile Include="Types\RandomShortGenerator.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

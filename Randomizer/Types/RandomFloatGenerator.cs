@@ -13,10 +13,10 @@ namespace Randomizer.Types
 
         public float GenerateValue()
         {
-            float randomFloatMinValue = (float)randomizer.NextDouble() * float.MinValue;
-            float randomFloatMaxValue = (float)randomizer.NextDouble() * float.MaxValue;
+            float randomPositive = (float)randomizer.NextDouble() * float.MinValue;
+            float randomNegative = (float)randomizer.NextDouble() * float.MaxValue;
 
-            return randomFloatMinValue + randomFloatMaxValue;
+            return randomPositive + randomNegative;
         }
 
         public float GenerateValue(float min, float max)
@@ -27,7 +27,7 @@ namespace Randomizer.Types
             }
             if (IsConditionToReachLimit())
             {
-                return float.MaxValue;
+                return max;
             }
 
             return min + (float)randomizer.NextDouble() * (max - min);
@@ -40,7 +40,7 @@ namespace Randomizer.Types
                 return float.MaxValue;
             }
 
-            return this.GenerateValue();
+            return (float)randomizer.NextDouble() * float.MaxValue;
         }
 
         public float GenerateNegativeValue()
@@ -50,7 +50,7 @@ namespace Randomizer.Types
                 return float.MinValue;
             }
 
-            return -this.GenerateValue();
+            return (float)randomizer.NextDouble() * float.MinValue;
         }
     }
 }

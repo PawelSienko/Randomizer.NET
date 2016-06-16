@@ -13,14 +13,14 @@ namespace Randomizer.Types
 
         public decimal GenerateValue()
         {
-            decimal randomDecimalPositive = (decimal)randomizer.NextDouble() * decimal.MaxValue;
-            decimal randomDecimalNegative = (decimal)randomizer.NextDouble() * decimal.MinValue;
+            decimal randomPositive = (decimal)randomizer.NextDouble() * decimal.MaxValue;
+            decimal randomNegative = (decimal)randomizer.NextDouble() * decimal.MinValue;
             if (IsConditionToReachLimit())
             {
                 return decimal.MaxValue;
             }
 
-            return randomDecimalNegative + randomDecimalPositive;
+            return randomNegative + randomPositive;
         }
 
         public decimal GenerateValue(decimal min, decimal max)

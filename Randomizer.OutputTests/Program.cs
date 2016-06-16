@@ -21,33 +21,33 @@ namespace Randomizer.OutputTests
         static void Main(string[] args)
         {
             Init();
-            //ProcessFloat();
-            //ProcessFloatWithRange();
-            ShowLnForTicks();
+            ProcessFloat();
+            ProcessFloatWithRange();
+            ////ShowLnForTicks();
             Console.WriteLine("Press any key to exit..");
             Console.ReadLine();
         }
 
-        /// <summary>
-        /// Shows numbers for natural logarithm.
-        /// </summary>
-        private static void ShowLnForTicks()
-        {
-            WriteConsoleMsg("Ln - generating ....");
-            for (int i = 0; i < 10000000; i++)
-            {
-                long ticks = DateTime.Now.Ticks;
+        /////// <summary>
+        /////// Shows numbers for natural logarithm.
+        /////// </summary>
+        ////private static void ShowLnForTicks()
+        ////{
+        ////    WriteConsoleMsg("Ln - generating ....");
+        ////    for (int i = 0; i < 10000000; i++)
+        ////    {
+        ////        long ticks = DateTime.Now.Ticks;
 
-                if (ticks % 2016 == 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Generated");
-                    SaveToFile(ticks.ToString(CultureInfo.InvariantCulture) + Environment.NewLine, "C:\\Temp\\exp.txt");
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-            }
-            WriteConsoleMsg("Float - finished!");
-        }
+        ////        if (ticks % 2016 == 0)
+        ////        {
+        ////            Console.ForegroundColor = ConsoleColor.Red;
+        ////            Console.WriteLine("Generated");
+        ////            SaveToFile(ticks.ToString(CultureInfo.InvariantCulture) + Environment.NewLine, "C:\\Temp\\results.txt");
+        ////            Console.ForegroundColor = ConsoleColor.White;
+        ////        }
+        ////    }
+        ////    WriteConsoleMsg("Float - finished!");
+        ////}
 
         private static void Init()
         {
