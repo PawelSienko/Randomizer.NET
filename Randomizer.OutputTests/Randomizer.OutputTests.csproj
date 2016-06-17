@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Randomizer.OutputTests</RootNamespace>
     <AssemblyName>Randomizer.OutputTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Randomizer\Randomizer.csproj">
-      <Project>{447730f2-2210-4747-a023-753fc4c1b712}</Project>
+      <Project>{447730F2-2210-4747-A023-753FC4C1B712}</Project>
       <Name>Randomizer</Name>
     </ProjectReference>
   </ItemGroup>

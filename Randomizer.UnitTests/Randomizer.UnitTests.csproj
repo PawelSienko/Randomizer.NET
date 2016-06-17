@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Randomizer.UnitTests</RootNamespace>
     <AssemblyName>Randomizer.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -51,13 +52,13 @@
     <Compile Include="SomeTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Randomizer\Randomizer.csproj">
-      <Project>{447730f2-2210-4747-a023-753fc4c1b712}</Project>
-      <Name>Randomizer</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Randomizer\Randomizer.csproj">
+      <Project>{447730F2-2210-4747-A023-753FC4C1B712}</Project>
+      <Name>Randomizer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

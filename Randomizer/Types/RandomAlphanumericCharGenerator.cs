@@ -3,9 +3,9 @@ using Randomizer.Interfaces.ReferenceTypes;
 
 namespace Randomizer.Types
 {
-    public class RandomAlphanumericGenerator : RandomGeneratorBase, IRandomCharacter
+    public class RandomAlphanumericCharGenerator : RandomGeneratorBase, IRandomCharacter
     {
-        public RandomAlphanumericGenerator(int seed)
+        public RandomAlphanumericCharGenerator(int seed)
         {
             randomizer = new Random(seed);
         }
