@@ -7,6 +7,11 @@ namespace Randomizer
         // ReSharper disable once InconsistentNaming
         protected Random randomizer;
 
+        protected RandomGeneratorBase()
+        {
+            randomizer = new Random((int)DateTime.Now.Ticks);
+        }
+
         protected virtual bool IsConditionToReachLimit()
         {
             return DateTime.Now.Ticks % 2016 == 0;
