@@ -1,13 +1,15 @@
-﻿using Microsoft.Practices.Unity;
-using Randomizer.OutputTests.Tests;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Randomizer.OutputTests.TestManagers
 {
     public class FloatTestManager : TestManagerBase
     {
-        public FloatTestManager(OutputTestBase floatInRangeOutputTest)
+        public FloatTestManager(IEnumerable<OutputTestBase> floatInRangeOutputTest, int executionTimes = 0) 
+            : base(executionTimes)
         {
-            base.AddExecutable(floatInRangeOutputTest.PerformTest);
+            this.executionTimes = executionTimes;
+            base.AddExecutable(floatInRangeOutputTest.ToList());
         }
     }
 }

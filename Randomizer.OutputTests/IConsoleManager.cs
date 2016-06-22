@@ -1,4 +1,6 @@
-﻿namespace Randomizer.OutputTests
+﻿using System;
+
+namespace Randomizer.OutputTests
 {
     public interface IConsoleManager
     {
@@ -7,5 +9,7 @@
         void PrintFooter();
 
         void PrintLine(string line);
+
+        ConsoleColor ForegroundColor { get; set; }
     }
 }

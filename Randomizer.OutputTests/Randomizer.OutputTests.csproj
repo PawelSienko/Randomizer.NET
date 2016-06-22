@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,11 +69,24 @@
     <Compile Include="FileLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestManagers\DecimalTestManager.cs" />
     <Compile Include="TestManagers\FloatTestManager.cs" />
+    <Compile Include="TestManagers\IntegerTestManager.cs" />
     <Compile Include="TestManagers\ITestManager.cs" />
-    <Compile Include="TestManagers\TestManagerBase.cs" />
-    <Compile Include="Tests\FloatInRangeOutputTest.cs" />
-    <Compile Include="Tests\OutputTestBase.cs" />
+    <Compile Include="TestManagerBase.cs" />
+    <Compile Include="Tests\Decimal\DecimalInRangeOutputTest.cs" />
+    <Compile Include="Tests\Decimal\DecimalNegativeValueOutputTest.cs" />
+    <Compile Include="Tests\Decimal\DecimalOutputTest.cs" />
+    <Compile Include="Tests\Decimal\FloatPositiveValueOutputTest.cs" />
+    <Compile Include="Tests\Float\FloatInRangeOutputTest.cs" />
+    <Compile Include="OutputTestBase.cs" />
+    <Compile Include="Tests\Float\FloatNegativeValueOutputTest.cs" />
+    <Compile Include="Tests\Float\FloatOutputTest.cs" />
+    <Compile Include="Tests\Float\FloatPositiveValueOutputTest.cs" />
+    <Compile Include="Tests\Integer\IntegerOutputTest.cs" />
+    <Compile Include="Tests\Integer\IntegerNegativeValueOutputTest.cs" />
+    <Compile Include="Tests\Integer\IntegerPositiveValueOutputTest.cs" />
+    <Compile Include="Tests\Integer\IntegerInRangeOutputTest.cs" />
     <Compile Include="Unity\UnityConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
