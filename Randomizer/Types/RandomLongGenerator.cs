@@ -51,7 +51,7 @@ namespace Randomizer.Types
         {
             if (IsConditionToReachLimit())
             {
-                return long.MaxValue;
+                return long.MinValue;
             }
 
             return (long)(randomizer.NextDouble() * long.MinValue);
