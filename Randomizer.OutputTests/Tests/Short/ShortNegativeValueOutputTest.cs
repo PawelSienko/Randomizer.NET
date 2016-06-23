@@ -1,22 +1,22 @@
 ﻿using System.Globalization;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.OutputTests.Tests.Decimal
+namespace Randomizer.OutputTests.Tests.Short
 {
-    public class DecimalPositiveValueOutputTest : DecimalOutputTest
+    public class ShortNegativeValueOutputTest : ShortOutputTest
     {
-        public DecimalPositiveValueOutputTest(IRandomDecimal randomDecimal, ILogger logger)
-            : base(randomDecimal, logger)
+        public ShortNegativeValueOutputTest(IRandomShort randomShort, ILogger fileLogger)
+            : base(randomShort, fileLogger)
         {
         }
-
         public override void PerformTest(object min = null, object max = null)
         {
             base.PerformTest(min, max);
+
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                decimal randomValue = randomDecimal.GeneratePositiveValue();
-                if (randomValue < 0)
+                short randomValue = randomShort.GenerateNegativeValue();
+                if (randomValue > 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }

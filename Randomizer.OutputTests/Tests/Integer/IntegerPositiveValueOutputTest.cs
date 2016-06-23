@@ -16,7 +16,7 @@ namespace Randomizer.OutputTests.Tests.Integer
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                float randomValue = randomLong.GeneratePositiveValue();
+                int randomValue = randomLong.GeneratePositiveValue();
                 if (randomValue < 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

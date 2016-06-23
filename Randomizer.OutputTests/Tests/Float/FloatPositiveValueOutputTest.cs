@@ -15,7 +15,7 @@ namespace Randomizer.OutputTests.Tests.Float
             base.PerformTest(min,max);
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                var randomValue = randomFloat.GeneratePositiveValue();
+                float randomValue = randomFloat.GeneratePositiveValue();
                 if (randomValue < 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

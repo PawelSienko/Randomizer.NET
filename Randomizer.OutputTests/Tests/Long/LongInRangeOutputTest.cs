@@ -20,7 +20,7 @@ namespace Randomizer.OutputTests.Tests.Long
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                float randomValue = randomLong.GenerateValue(minValue, maxValue);
+                long randomValue = randomLong.GenerateValue(minValue, maxValue);
                 if (randomValue > maxValue || randomValue < minValue)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

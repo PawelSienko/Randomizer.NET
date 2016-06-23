@@ -16,7 +16,7 @@ namespace Randomizer.OutputTests.Tests.Decimal
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                var randomValue = randomDecimal.GenerateNegativeValue();
+                decimal randomValue = randomDecimal.GenerateNegativeValue();
                 if (randomValue > 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

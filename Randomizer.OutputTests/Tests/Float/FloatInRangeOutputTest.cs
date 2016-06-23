@@ -19,7 +19,7 @@ namespace Randomizer.OutputTests.Tests.Float
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                var randomValue = randomFloat.GenerateValue(minValue, maxValue);
+                float randomValue = randomFloat.GenerateValue(minValue, maxValue);
                 if (randomValue > maxValue || randomValue < minValue)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

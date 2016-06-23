@@ -75,6 +75,7 @@
     <Compile Include="TestManagers\IntegerTestManager.cs" />
     <Compile Include="TestManagers\ITestManager.cs" />
     <Compile Include="TestManagerBase.cs" />
+    <Compile Include="TestManagers\ShortTestManager.cs" />
     <Compile Include="Tests\Decimal\DecimalInRangeOutputTest.cs" />
     <Compile Include="Tests\Decimal\DecimalNegativeValueOutputTest.cs" />
     <Compile Include="Tests\Decimal\DecimalOutputTest.cs" />
@@ -92,6 +93,10 @@
     <Compile Include="Tests\Long\LongNegativeValueOutputTest.cs" />
     <Compile Include="Tests\Long\LongPositiveValueOutputTest.cs" />
     <Compile Include="Tests\Long\LongOutputTest.cs" />
+    <Compile Include="Tests\Short\ShortInRangeOutputTest.cs" />
+    <Compile Include="Tests\Short\ShortNegativeValueOutputTest.cs" />
+    <Compile Include="Tests\Short\ShortOutputTest.cs" />
+    <Compile Include="Tests\Short\ShortPositiveValueOutputTest.cs" />
     <Compile Include="Unity\UnityConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
