@@ -1,12 +1,11 @@
 ﻿using System.Globalization;
-using Common.Core.Validation;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.OutputTests.Tests.Integer
+namespace Randomizer.OutputTests.Tests.Long
 {
-    public class IntegerPositiveValueOutputTest : IntegerOutputTest
+    public class LongPositiveValueOutputTest : LongOutputTest
     {
-        public IntegerPositiveValueOutputTest(IRandomInteger randomLong, ILogger fileLogger)
+        public LongPositiveValueOutputTest(IRandomLong randomLong, ILogger fileLogger)
             : base(randomLong, fileLogger)
         {
         }

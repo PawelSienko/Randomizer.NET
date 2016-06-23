@@ -1,13 +1,14 @@
 ﻿using Common.Core.Validation;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.OutputTests.Tests.Integer
+namespace Randomizer.OutputTests.Tests.Long
 {
-    public class IntegerOutputTest : OutputTestBase
+    public class LongOutputTest : OutputTestBase
     {
-        protected IRandomInteger randomLong;
+        // ReSharper disable once InconsistentNaming
+        protected IRandomLong randomLong;
 
-        public IntegerOutputTest(IRandomInteger randomLong, ILogger fileLogger)
+        public LongOutputTest(IRandomLong randomLong, ILogger fileLogger)
         {
             Validator.ValidateNull(randomLong);
             Validator.ValidateNull(fileLogger);

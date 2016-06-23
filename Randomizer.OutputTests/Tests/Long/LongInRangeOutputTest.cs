@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.OutputTests.Tests.Integer
+namespace Randomizer.OutputTests.Tests.Long
 {
-    public class IntegerInRangeOutputTest : IntegerOutputTest
+    public class LongInRangeOutputTest : LongOutputTest
     {
-        public IntegerInRangeOutputTest(IRandomInteger randomLong, ILogger fileLogger)
+        public LongInRangeOutputTest(IRandomLong randomLong, ILogger fileLogger)
             : base(randomLong, fileLogger)
         {
         }
@@ -14,9 +14,9 @@ namespace Randomizer.OutputTests.Tests.Integer
             base.PerformTest(min,max);
 
             // ReSharper disable once PossibleNullReferenceException
-            int minValue = (int)min;
+            long minValue = (long)min;
             // ReSharper disable once PossibleNullReferenceException
-            int maxValue = (int)max;
+            long maxValue = (long)max;
 
             for (int i = 0; i < ExecutionTimes; i++)
             {

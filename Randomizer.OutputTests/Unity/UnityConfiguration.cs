@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using Common.Core.Validation;
 using Microsoft.Practices.Unity;
@@ -8,6 +9,7 @@ using Randomizer.OutputTests.Tests;
 using Randomizer.OutputTests.Tests.Decimal;
 using Randomizer.OutputTests.Tests.Float;
 using Randomizer.OutputTests.Tests.Integer;
+using Randomizer.OutputTests.Tests.Long;
 using Randomizer.Types;
 
 namespace Randomizer.OutputTests.Unity
@@ -25,51 +27,86 @@ namespace Randomizer.OutputTests.Unity
 
             unity = new UnityContainer();
 
-            unity.RegisterType<ILogger, FileLogger>("floatInRangeLog", new InjectionConstructor(basePath, "floatInRange.log"));
-            unity.RegisterType<ILogger, FileLogger>("positiveFloatLog", new InjectionConstructor(basePath, "positiveFloat.log"));
-            unity.RegisterType<ILogger, FileLogger>("negativeFloatLog", new InjectionConstructor(basePath, "negativeFloat.log"));
-
-            unity.RegisterType<ILogger, FileLogger>("intInRangeLog", new InjectionConstructor(basePath, "intInRange.log"));
-            unity.RegisterType<ILogger, FileLogger>("intPositiveLog", new InjectionConstructor(basePath, "intPositive.log"));
-            unity.RegisterType<ILogger, FileLogger>("intNegativeLog", new InjectionConstructor(basePath, "intNegative.log"));
-
-            unity.RegisterType<ILogger, FileLogger>("decimalInRangeLog", new InjectionConstructor(basePath, "decimalInRange.log"));
-            unity.RegisterType<ILogger, FileLogger>("decimalPositiveLog", new InjectionConstructor(basePath, "decimalPositive.log"));
-            unity.RegisterType<ILogger, FileLogger>("decimalNegativeLog", new InjectionConstructor(basePath, "decimalNegative.log"));
+            RegisterLoggers(basePath);
 
             unity.RegisterType<IRandomFloat, RandomFloatGenerator>();
             unity.RegisterType<IRandomInteger, RandomIntegerGenerator>();
             unity.RegisterType<IRandomDecimal, RandomDecimalGenerator>();
+            unity.RegisterType<IRandomLong, RandomLongGenerator>();
 
             unity.RegisterType<IOutpuTest, OutputTestBase>();
             unity.RegisterType<IConsoleManager, ConsoleManager>();
 
-            unity.RegisterType<FloatOutputTest, FloatInRangeOutputTest>("float", new InjectionConstructor(new ResolvedParameter(typeof(IRandomFloat))
-                , new ResolvedParameter(typeof(ILogger), "floatInRangeLog")));
-            unity.RegisterType<FloatOutputTest, FloatPositiveValueOutputTest>("float", new InjectionConstructor(new ResolvedParameter(typeof(IRandomFloat))
-                , new ResolvedParameter(typeof(ILogger), "positiveFloatLog")));
-            unity.RegisterType<FloatOutputTest, FloatNegativeValueOutputTest>("float", new InjectionConstructor(new ResolvedParameter(typeof(IRandomFloat))
-                , new ResolvedParameter(typeof(ILogger), "negativeFloatLog")));
-
-            unity.RegisterType<IntegerOutputTest, IntegerInRangeOutputTest>("integer", new InjectionConstructor(new ResolvedParameter(typeof(IRandomInteger))
-                , new ResolvedParameter(typeof(ILogger), "intInRangeLog")));
-            unity.RegisterType<IntegerOutputTest, IntegerPositiveValueOutputTest>("integer", new InjectionConstructor(new ResolvedParameter(typeof(IRandomInteger))
-                , new ResolvedParameter(typeof(ILogger), "intPositiveLog")));
-            unity.RegisterType<IntegerOutputTest, IntegerNegativeValueOutputTest>("integer", new InjectionConstructor(new ResolvedParameter(typeof(IRandomInteger))
-                , new ResolvedParameter(typeof(ILogger), "intNegativeLog")));
-
-            unity.RegisterType<DecimalOutputTest, DecimalInRangeOutputTest>("decimal", new InjectionConstructor(new ResolvedParameter(typeof(IRandomDecimal))
-                , new ResolvedParameter(typeof(ILogger), "decimalInRangeLog")));
-            unity.RegisterType<DecimalOutputTest, DecimalPositiveValueOutputTest>("decimal", new InjectionConstructor(new ResolvedParameter(typeof(IRandomDecimal))
-                , new ResolvedParameter(typeof(ILogger), "decimalPositiveLog")));
-            unity.RegisterType<DecimalOutputTest, DecimalNegativeValueOutputTest>("decimal", new InjectionConstructor(new ResolvedParameter(typeof(IRandomDecimal))
-                , new ResolvedParameter(typeof(ILogger), "decimalNegativeLog")));
-
+            RegisterOutputTests();
+            
             unity.RegisterType<TestManagerBase, FloatTestManager>(new InjectionConstructor(unity.ResolveAll<FloatOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, IntegerTestManager>(new InjectionConstructor(unity.ResolveAll<IntegerOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, DecimalTestManager>(new InjectionConstructor(unity.ResolveAll<DecimalOutputTest>(), executionNumber));
+            unity.RegisterType<TestManagerBase, LongTestManager>(new InjectionConstructor(unity.ResolveAll<LongOutputTest>(), executionNumber));
+        }
+        
+        private static void RegisterOutputTests()
+        {
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatInRangeOutputTest), typeof(IRandomFloat), "float",
+                "floatInRangeLog");
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatPositiveValueOutputTest), typeof(IRandomFloat), "float",
+                "positiveFloatLog");
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatNegativeValueOutputTest), typeof(IRandomFloat), "float",
+                "negativeFloatLog");
+
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerInRangeOutputTest), typeof(IRandomInteger), "integer",
+                "intInRangeLog");
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerPositiveValueOutputTest), typeof(IRandomInteger), "integer",
+                "intPositiveLog");
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerNegativeValueOutputTest), typeof(IRandomInteger), "integer",
+                "intNegativeLog");
+
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalInRangeOutputTest), typeof(IRandomDecimal), "decimal",
+                "decimalInRangeLog");
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalPositiveValueOutputTest), typeof(IRandomDecimal), "decimal",
+                "decimalPositiveLog");
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalNegativeValueOutputTest), typeof(IRandomDecimal), "decimal",
+                "decimalNegativeLog");
+
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongInRangeOutputTest), typeof(IRandomLong), "long",
+               "longInRangeLog");
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongPositiveValueOutputTest), typeof(IRandomLong), "long",
+                "longPositiveLog");
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongNegativeValueOutputTest), typeof(IRandomLong), "long",
+                "longNegativeLog");
         }
 
+        private static void RegisterOutputTest(Type baseType, Type concreteType, Type randomInputInterface,
+            string registerName, string loggerRegisterName)
+        {
+            unity.RegisterType(baseType, concreteType, registerName, new InjectionConstructor(new ResolvedParameter(randomInputInterface)
+                , new ResolvedParameter(typeof(ILogger), loggerRegisterName)));
+        }
+
+        private static void RegisterLoggers(string basePath)
+        {
+
+            RegisterLogger("floatInRangeLog", "floatInRange.log", basePath);
+            RegisterLogger("positiveFloatLog", "positiveFloat.log", basePath);
+            RegisterLogger("negativeFloatLog", "negativeFloat.log", basePath);
+
+            RegisterLogger("intInRangeLog", "intInRange.log", basePath);
+            RegisterLogger("intPositiveLog", "intPositive.log", basePath);
+            RegisterLogger("intNegativeLog", "intNegative.log", basePath);
+
+            RegisterLogger("decimalInRangeLog", "decimalInRange.log", basePath);
+            RegisterLogger("decimalPositiveLog", "decimalPositive.log", basePath);
+            RegisterLogger("decimalNegativeLog", "decimalNegative.log", basePath);
+
+            RegisterLogger("longInRangeLog", "longInRange.log", basePath);
+            RegisterLogger("longPositiveLog", "longPositive.log", basePath);
+            RegisterLogger("longNegativeLog", "longNegative.log", basePath);
+        }
+
+        private static void RegisterLogger(string registerName, string logFileName, string basePath)
+        {
+            unity.RegisterType<ILogger, FileLogger>(registerName, new InjectionConstructor(basePath, logFileName));
+        }
         public static UnityContainer Get
         {
             get { return unity; }

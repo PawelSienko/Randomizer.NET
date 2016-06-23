@@ -21,6 +21,7 @@ namespace Randomizer.OutputTests
             InvokeTests<IntegerTestManager>("integer", 10, 20);
             InvokeTests<FloatTestManager>("float", 1.9023f, 1.924565f);
             InvokeTests<DecimalTestManager>("decimal", 1.22342m, 1.32331m);
+            InvokeTests<LongTestManager>("long", -4294967296L, 4294967296L);
             consoleManager.PrintFooter();
         }
 
@@ -29,9 +30,9 @@ namespace Randomizer.OutputTests
         {
             consoleManager.PrintLine($"Start {testName} tests..............");
             UnityConfiguration.Get.Resolve<T>().ExecuteAll(min, max);
-            consoleManager.PrintLine($"Start {testName} tests..............");
+            consoleManager.PrintLine($"Stop {testName} tests..............");
         }
-        
+
         private static void Bootstrap()
         {
             UnityConfiguration.Configure();

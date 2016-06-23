@@ -1,12 +1,11 @@
 ﻿using System.Globalization;
-using Common.Core.Validation;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.OutputTests.Tests.Integer
+namespace Randomizer.OutputTests.Tests.Long
 {
-    public class IntegerPositiveValueOutputTest : IntegerOutputTest
+    public class LongNegativeValueOutputTest : LongOutputTest
     {
-        public IntegerPositiveValueOutputTest(IRandomInteger randomLong, ILogger fileLogger)
+        public LongNegativeValueOutputTest(IRandomLong randomLong, ILogger fileLogger)
             : base(randomLong, fileLogger)
         {
         }
@@ -16,8 +15,8 @@ namespace Randomizer.OutputTests.Tests.Integer
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                float randomValue = randomLong.GeneratePositiveValue();
-                if (randomValue < 0)
+                float randomValue = randomLong.GenerateNegativeValue();
+                if (randomValue > 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }
