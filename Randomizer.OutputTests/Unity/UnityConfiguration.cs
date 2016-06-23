@@ -7,6 +7,7 @@ using Randomizer.Interfaces.ValueTypes;
 using Randomizer.OutputTests.TestManagers;
 using Randomizer.OutputTests.Tests;
 using Randomizer.OutputTests.Tests.Decimal;
+using Randomizer.OutputTests.Tests.Double;
 using Randomizer.OutputTests.Tests.Float;
 using Randomizer.OutputTests.Tests.Integer;
 using Randomizer.OutputTests.Tests.Long;
@@ -35,6 +36,7 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<IRandomDecimal, RandomDecimalGenerator>();
             unity.RegisterType<IRandomLong, RandomLongGenerator>();
             unity.RegisterType<IRandomShort, RandomShortGenerator>();
+            unity.RegisterType<IRandomDouble, RandomDoubleGenerator>();
 
             unity.RegisterType<IOutpuTest, OutputTestBase>();
             unity.RegisterType<IConsoleManager, ConsoleManager>();
@@ -46,6 +48,7 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<TestManagerBase, DecimalTestManager>(new InjectionConstructor(unity.ResolveAll<DecimalOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, LongTestManager>(new InjectionConstructor(unity.ResolveAll<LongOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, ShortTestManager>(new InjectionConstructor(unity.ResolveAll<ShortOutputTest>(), executionNumber));
+            unity.RegisterType<TestManagerBase, DoubleTestManager>(new InjectionConstructor(unity.ResolveAll<DoubleOutputTest>(), executionNumber));
         }
 
         private static void RegisterOutputTests()
@@ -84,6 +87,13 @@ namespace Randomizer.OutputTests.Unity
                 "shortPositiveLog");
             RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortNegativeValueOutputTest), typeof(IRandomShort), "short",
                 "shortNegativeLog");
+            
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleInRangeOutputTest), typeof(IRandomDouble), "double",
+               "shortInRangeLog");
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoublePositiveValueOutputTest), typeof(IRandomDouble), "double",
+                "shortPositiveLog");
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleNegativeValueOutputTest), typeof(IRandomDouble), "double",
+                "shortNegativeLog");
         }
 
         private static void RegisterOutputTest(Type baseType, Type concreteType, Type randomInputInterface,
@@ -115,6 +125,10 @@ namespace Randomizer.OutputTests.Unity
             RegisterLogger("shortInRangeLog", "shortInRange.log", basePath);
             RegisterLogger("shortPositiveLog", "shortPositive.log", basePath);
             RegisterLogger("shortNegativeLog", "shortNegative.log", basePath);
+
+            RegisterLogger("doubleInRangeLog", "doubleInRange.log", basePath);
+            RegisterLogger("doublePositiveLog", "doublePositive.log", basePath);
+            RegisterLogger("doubleNegativeLog", "doubleNegative.log", basePath);
         }
 
         private static void RegisterLogger(string registerName, string logFileName, string basePath)

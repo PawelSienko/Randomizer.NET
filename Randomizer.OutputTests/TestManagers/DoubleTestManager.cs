@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Randomizer.OutputTests.TestManagers
 {
-    public class IntegerTestManager : TestManagerBase
+    public class DoubleTestManager : TestManagerBase
     {
-        public IntegerTestManager(IEnumerable<OutputTestBase> outputTests, int executionTimes = 0)
+        public DoubleTestManager(IEnumerable<OutputTestBase> outputTests, int executionTimes = 0) 
+            : base(executionTimes)
         {
-
             this.executionTimes = executionTimes;
             base.AddExecutable(outputTests.ToList());
         }

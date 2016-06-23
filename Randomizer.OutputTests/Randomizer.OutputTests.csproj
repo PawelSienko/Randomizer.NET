@@ -69,6 +69,7 @@
     <Compile Include="FileLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestManagers\DoubleTestManager.cs" />
     <Compile Include="TestManagers\LongTestManager.cs" />
     <Compile Include="TestManagers\DecimalTestManager.cs" />
     <Compile Include="TestManagers\FloatTestManager.cs" />
@@ -79,7 +80,11 @@
     <Compile Include="Tests\Decimal\DecimalInRangeOutputTest.cs" />
     <Compile Include="Tests\Decimal\DecimalNegativeValueOutputTest.cs" />
     <Compile Include="Tests\Decimal\DecimalOutputTest.cs" />
-    <Compile Include="Tests\Decimal\FloatPositiveValueOutputTest.cs" />
+    <Compile Include="Tests\Decimal\DecimalPositiveValueOutputTest.cs" />
+    <Compile Include="Tests\Double\DoubleInRangeOutputTest.cs" />
+    <Compile Include="Tests\Double\DoubleNegativeValueOutputTest.cs" />
+    <Compile Include="Tests\Double\DoubleOutputTest.cs" />
+    <Compile Include="Tests\Double\DoublePositiveValueOutputTest.cs" />
     <Compile Include="Tests\Float\FloatInRangeOutputTest.cs" />
     <Compile Include="OutputTestBase.cs" />
     <Compile Include="Tests\Float\FloatNegativeValueOutputTest.cs" />

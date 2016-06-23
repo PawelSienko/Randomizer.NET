@@ -23,6 +23,7 @@ namespace Randomizer.OutputTests
             InvokeTests<DecimalTestManager>("decimal", 1.22342m, 1.32331m);
             InvokeTests<LongTestManager>("long", -4294967296L, 4294967296L);
             InvokeTests<ShortTestManager>("short", -12, 15);
+            InvokeTests<DoubleTestManager>("double", double.MinValue + 100, double.MaxValue - 10000);
             consoleManager.PrintFooter();
         }
 
