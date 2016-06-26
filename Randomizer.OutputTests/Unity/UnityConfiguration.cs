@@ -6,6 +6,7 @@ using Microsoft.Practices.Unity;
 using Randomizer.Interfaces.ValueTypes;
 using Randomizer.OutputTests.TestManagers;
 using Randomizer.OutputTests.Tests;
+using Randomizer.OutputTests.Tests.DateTime;
 using Randomizer.OutputTests.Tests.Decimal;
 using Randomizer.OutputTests.Tests.Double;
 using Randomizer.OutputTests.Tests.Float;
@@ -37,6 +38,7 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<IRandomLong, RandomLongGenerator>();
             unity.RegisterType<IRandomShort, RandomShortGenerator>();
             unity.RegisterType<IRandomDouble, RandomDoubleGenerator>();
+            unity.RegisterType<IRandomDateTime, RandomDateTimeGenerator>();
 
             unity.RegisterType<IOutpuTest, OutputTestBase>();
             unity.RegisterType<IConsoleManager, ConsoleManager>();
@@ -49,6 +51,7 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<TestManagerBase, LongTestManager>(new InjectionConstructor(unity.ResolveAll<LongOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, ShortTestManager>(new InjectionConstructor(unity.ResolveAll<ShortOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, DoubleTestManager>(new InjectionConstructor(unity.ResolveAll<DoubleOutputTest>(), executionNumber));
+            unity.RegisterType<TestManagerBase, DateTimeTestManager>(new InjectionConstructor(unity.ResolveAll<DateTimeOutputTest>(), executionNumber));
         }
 
         private static void RegisterOutputTests()
@@ -94,6 +97,13 @@ namespace Randomizer.OutputTests.Unity
                 "shortPositiveLog");
             RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleNegativeValueOutputTest), typeof(IRandomDouble), "double",
                 "shortNegativeLog");
+
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeInRangeOutputTest), typeof(IRandomDateTime), "dateTime",
+               "dateTimeInRangeLog");
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimePositiveValueOutputTest), typeof(IRandomDateTime), "dateTime",
+                "dateTimePositiveLog");
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeNegativeValueOutputTest), typeof(IRandomDateTime), "dateTime",
+                "dateTimeNegativeLog");
         }
 
         private static void RegisterOutputTest(Type baseType, Type concreteType, Type randomInputInterface,
@@ -129,6 +139,10 @@ namespace Randomizer.OutputTests.Unity
             RegisterLogger("doubleInRangeLog", "doubleInRange.log", basePath);
             RegisterLogger("doublePositiveLog", "doublePositive.log", basePath);
             RegisterLogger("doubleNegativeLog", "doubleNegative.log", basePath);
+
+            RegisterLogger("dateTimeInRangeLog", "dateTimeInRange.log", basePath);
+            RegisterLogger("dateTimePositiveLog", "dateTimePositive.log", basePath);
+            RegisterLogger("dateTimeNegativeLog", "dateTimeNegative.log", basePath);
         }
 
         private static void RegisterLogger(string registerName, string logFileName, string basePath)

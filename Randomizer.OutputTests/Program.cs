@@ -24,6 +24,7 @@ namespace Randomizer.OutputTests
             InvokeTests<LongTestManager>("long", -4294967296L, 4294967296L);
             InvokeTests<ShortTestManager>("short", -12, 15);
             InvokeTests<DoubleTestManager>("double", double.MinValue + 100, double.MaxValue - 10000);
+            InvokeTests<DoubleTestManager>("dateTime", DateTime.MinValue.AddYears(20), DateTime.MaxValue.AddYears(-20));
             consoleManager.PrintFooter();
         }
 

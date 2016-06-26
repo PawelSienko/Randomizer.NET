@@ -17,3 +17,5 @@
 /.vs
 /Randomizer.OutputTests/obj
 /Randomizer.OutputTests/bin
+/Randomizer.OutputTests/*.user
+/Randomizer/*.user
