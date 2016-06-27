@@ -1,6 +1,6 @@
 ﻿namespace Randomizer.Interfaces
 {
-    public interface IRandomRefType<in TInput,out TReturn>
+    public interface IRandomRefType<out TReturn>
     {
         TReturn GenerateValue();
 

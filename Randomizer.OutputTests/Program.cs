@@ -25,10 +25,11 @@ namespace Randomizer.OutputTests
             InvokeTests<ShortTestManager>("short", -12, 15);
             InvokeTests<DoubleTestManager>("double", double.MinValue + 100, double.MaxValue - 10000);
             InvokeTests<DoubleTestManager>("dateTime", DateTime.MinValue.AddYears(20), DateTime.MaxValue.AddYears(-20));
+            InvokeTests<AlphanumericStringTestManager>("alphanumeric string");
             consoleManager.PrintFooter();
         }
 
-        private static void InvokeTests<T>(string testName, object min, object max)
+        private static void InvokeTests<T>(string testName, object min = null, object max = null)
             where T : TestManagerBase
         {
             consoleManager.PrintLine($"Start {testName} tests..............");

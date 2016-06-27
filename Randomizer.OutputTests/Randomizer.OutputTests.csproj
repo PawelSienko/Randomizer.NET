@@ -69,6 +69,7 @@
     <Compile Include="FileLogger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestManagers\AlphanumericStringTestManager.cs" />
     <Compile Include="TestManagers\DateTimeTestManager.cs" />
     <Compile Include="TestManagers\DoubleTestManager.cs" />
     <Compile Include="TestManagers\LongTestManager.cs" />
@@ -78,6 +79,11 @@
     <Compile Include="TestManagers\ITestManager.cs" />
     <Compile Include="TestManagerBase.cs" />
     <Compile Include="TestManagers\ShortTestManager.cs" />
+    <Compile Include="Tests\AlphanumericString\AlphanumericStringDefaultLengthOutputTest.cs" />
+    <Compile Include="Tests\AlphanumericString\AlphanumericStringUppercaseOutputTest.cs" />
+    <Compile Include="Tests\AlphanumericString\AlphanumericStringLowercaseOutputTest.cs" />
+    <Compile Include="Tests\AlphanumericString\AlphanumericStringFixedLengthOutputTest.cs" />
+    <Compile Include="Tests\AlphanumericString\AlphanumericStringOutputTest.cs" />
     <Compile Include="Tests\DateTime\DateTimeInRangeOutputTest.cs" />
     <Compile Include="Tests\DateTime\DateTimeNegativeValueOutputTest.cs" />
     <Compile Include="Tests\DateTime\DateTimeOutputTest.cs" />

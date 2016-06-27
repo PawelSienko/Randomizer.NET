@@ -6,9 +6,9 @@ namespace Randomizer.Types
 {
     public class RandomAlphanumericStringGenerator : RandomGeneratorBase, IRandomAlphanumericString
     {
-        public RandomAlphanumericStringGenerator(int seed)
+        public RandomAlphanumericStringGenerator()
         {
-            randomizer = new Random(seed);
+            randomizer = new Random((int)DateTime.Now.Ticks);
         }
         public string GenerateValue()
         {

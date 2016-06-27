@@ -1,6 +1,6 @@
 ﻿namespace Randomizer.Interfaces.ReferenceTypes
 {
-    public interface IRandomAlphanumericString : IRandomRefType<string, string>
+    public interface IRandomAlphanumericString : IRandomRefType<string>
     {
         string GenerateValue(int lenght = 25);
 
