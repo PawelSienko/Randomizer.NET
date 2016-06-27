@@ -9,6 +9,7 @@
         public const string Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         public const string Numbers = "0123456789";
 
+
         public static string AlphanumericCharacters => string.Concat(Uppercase, Lowercase, Numbers);
 
         public static char[] AlphanumericCharArray => AlphanumericCharacters.ToCharArray();
