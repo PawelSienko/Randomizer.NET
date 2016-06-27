@@ -5,9 +5,9 @@ namespace Randomizer.Types
 {
     public class RandomAlphanumericCharGenerator : RandomGeneratorBase, IRandomCharacter
     {
-        public RandomAlphanumericCharGenerator(int seed)
+        public RandomAlphanumericCharGenerator()
         {
-            randomizer = new Random(seed);
+            randomizer = new Random((int)DateTime.Now.Ticks);
         }
 
         public char GenerateValue()
@@ -17,14 +17,6 @@ namespace Randomizer.Types
 
         public char GenerateValue(char min, char max)
         {
-            min = min.ToString().ToLower()[0];
-            max = max.ToString().ToLower()[0];
-
-            if (min >= max)
-            {
-                throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
-            }
-
             if (IsConditionToReachLimit())
             {
                 return max;
@@ -33,7 +25,13 @@ namespace Randomizer.Types
             int firstIndex = Consts.AlphanumericCharacters.IndexOf(min);
             int lastIndex = Consts.AlphanumericCharacters.IndexOf(max);
 
-            return (char)randomizer.Next(firstIndex, lastIndex);
+            if (firstIndex >= lastIndex)
+            {
+                throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
+            }
+
+            int randomIndex = randomizer.Next(firstIndex, lastIndex);
+            return Consts.AlphanumericCharArray[randomIndex];
         }
     }
 }

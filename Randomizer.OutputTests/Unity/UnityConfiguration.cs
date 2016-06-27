@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using Common.Core.Validation;
 using Microsoft.Practices.Unity;
-using Randomizer.Interfaces;
 using Randomizer.Interfaces.ReferenceTypes;
 using Randomizer.Interfaces.ValueTypes;
 using Randomizer.OutputTests.TestManagers;
-using Randomizer.OutputTests.Tests;
+using Randomizer.OutputTests.Tests.AlphanumericChar;
 using Randomizer.OutputTests.Tests.AlphanumericString;
 using Randomizer.OutputTests.Tests.DateTime;
 using Randomizer.OutputTests.Tests.Decimal;
@@ -34,7 +32,7 @@ namespace Randomizer.OutputTests.Unity
             unity = new UnityContainer();
 
             RegisterLoggers(basePath);
-            
+
             unity.RegisterType<IRandomFloat, RandomFloatGenerator>();
             unity.RegisterType<IRandomInteger, RandomIntegerGenerator>();
             unity.RegisterType<IRandomDecimal, RandomDecimalGenerator>();
@@ -42,9 +40,10 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<IRandomShort, RandomShortGenerator>();
             unity.RegisterType<IRandomDouble, RandomDoubleGenerator>();
             unity.RegisterType<IRandomDateTime, RandomDateTimeGenerator>();
-            
+
             unity.RegisterType<IRandomAlphanumericString, RandomAlphanumericStringGenerator>();
-            
+            unity.RegisterType<IRandomCharacter, RandomAlphanumericCharGenerator>();
+
             unity.RegisterType<IOutpuTest, OutputTestBase>();
             unity.RegisterType<IConsoleManager, ConsoleManager>();
 
@@ -58,6 +57,7 @@ namespace Randomizer.OutputTests.Unity
             unity.RegisterType<TestManagerBase, DoubleTestManager>(new InjectionConstructor(unity.ResolveAll<DoubleOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, DateTimeTestManager>(new InjectionConstructor(unity.ResolveAll<DateTimeOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, AlphanumericStringTestManager>(new InjectionConstructor(unity.ResolveAll<AlphanumericStringOutputTest>(), executionNumber));
+            unity.RegisterType<TestManagerBase, AlphanumericCharTestManager>(new InjectionConstructor(unity.ResolveAll<AlphanumericCharOutputTest>(), executionNumber));
         }
 
         private static void RegisterOutputTests()
@@ -96,7 +96,7 @@ namespace Randomizer.OutputTests.Unity
                 "shortPositiveLog");
             RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortNegativeValueOutputTest), typeof(IRandomShort), "short",
                 "shortNegativeLog");
-            
+
             RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleInRangeOutputTest), typeof(IRandomDouble), "double",
                "shortInRangeLog");
             RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoublePositiveValueOutputTest), typeof(IRandomDouble), "double",
@@ -119,6 +119,11 @@ namespace Randomizer.OutputTests.Unity
                 "stringLowercaseLog");
             RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringUppercaseOutputTest), typeof(IRandomAlphanumericString), "alphanumericString",
                 "stringUppercaseLog");
+
+            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericRandomCharOutputTest), typeof(IRandomCharacter), "char",
+              "randomCharacterLog");
+            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericCharInRangeOutputTest), typeof(IRandomCharacter), "char",
+                "randomCharacterInRangeLog");
         }
 
         private static void RegisterOutputTest(Type baseType, Type concreteType, Type randomInputInterface,
@@ -159,10 +164,13 @@ namespace Randomizer.OutputTests.Unity
             RegisterLogger("dateTimePositiveLog", "dateTimePositive.log", basePath);
             RegisterLogger("dateTimeNegativeLog", "dateTimeNegative.log", basePath);
 
-            RegisterLogger("stringDefaultLengthLog", "stringDefaultLengthLog.log", basePath);
+            RegisterLogger("stringDefaultLengthLog", "stringDefaultLength.log", basePath);
             RegisterLogger("stringFixedLengthLog", "stringFixedLength.log", basePath);
             RegisterLogger("stringLowercaseLog", "stringLowercase.log", basePath);
             RegisterLogger("stringUppercaseLog", "stringUppercase.log", basePath);
+
+            RegisterLogger("randomCharacterLog", "randomCharacter.log", basePath);
+            RegisterLogger("randomCharacterInRangeLog", "randomCharacter.log", basePath);
         }
 
         private static void RegisterLogger(string registerName, string logFileName, string basePath)
