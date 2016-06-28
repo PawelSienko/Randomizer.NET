@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer", "Randomizer\Ra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer.OutputTests", "Randomizer.OutputTests\Randomizer.OutputTests.csproj", "{BD2F9F8E-B98B-4F83-98D8-56EA3F4743B8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common.Core", "Common.Core", "{0DAE3618-E542-4DE8-9CEF-01DF2B3213B0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Core", "..\Common.Core\Common.Core\Common.Core.csproj", "{5A14F7AC-1B58-4645-9CAC-34C114006486}"
 EndProject
 Global
@@ -32,8 +30,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{5A14F7AC-1B58-4645-9CAC-34C114006486} = {0DAE3618-E542-4DE8-9CEF-01DF2B3213B0}
 	EndGlobalSection
 EndGlobal
