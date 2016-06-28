@@ -2,7 +2,6 @@
 /Radlon.Common/bin
 /Radlon.Common.UnitTests/obj
 /Radlon.Common.UnitTests/bin
-/packages
 /*.suo
 /.vs/Radlon.Common/v14/*.suo
 /.vs/Some/v14/.suo
