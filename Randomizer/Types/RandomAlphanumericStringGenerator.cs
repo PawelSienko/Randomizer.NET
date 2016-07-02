@@ -49,8 +49,17 @@ namespace Randomizer
 
         private string GenerateRandomString(int lenght, string source)
         {
-            char[] chars = Enumerable.Repeat((char)randomizer.Next(0, source.Length - 1), lenght).ToArray();
-            return new string(chars);
+            int maxIndex = source.Length - 1;
+            char[] resultArray = new char[lenght];
+            char[] sourceAsArray = source.ToCharArray();
+
+            for (int i = 0; i < lenght; i++)
+            {
+                var randomIndex = randomizer.Next(0, maxIndex);
+                resultArray[i] = sourceAsArray[randomIndex];
+            }
+
+            return new string(resultArray);
         }
     }
 }
