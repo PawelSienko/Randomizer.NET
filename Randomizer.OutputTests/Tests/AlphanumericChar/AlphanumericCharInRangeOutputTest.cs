@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-using System.Linq;
-using Randomizer.Interfaces.ReferenceTypes;
+﻿using Randomizer.Interfaces.ReferenceTypes;
 
 namespace Randomizer.OutputTests.Tests.AlphanumericChar
 {
