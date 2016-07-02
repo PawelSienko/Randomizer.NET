@@ -1,4 +1,7 @@
-﻿using Common.Core.Validation;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Common.Core.Validation;
 using Randomizer.Interfaces.ReferenceTypes;
 using Randomizer.Interfaces.ValueTypes;
 
@@ -20,6 +23,12 @@ namespace Randomizer.OutputTests.Tests.AlphanumericString
         public override void PerformTest(object min = null, object max = null)
         {
             
+        }
+
+        protected bool IsLetterOrDigit(string randomValue)
+        {
+            char[] randomValueAsArray = randomValue.ToCharArray();
+            return randomValueAsArray.All(Char.IsLetterOrDigit);
         }
     }
 }

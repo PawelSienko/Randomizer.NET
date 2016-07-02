@@ -2,7 +2,8 @@
 using Common.Core.Exceptions;
 using Randomizer.Interfaces.ValueTypes;
 
-namespace Randomizer.Types
+// ReSharper disable once CheckNamespace
+namespace Randomizer
 {
     public class RandomDateTimeGenerator : RandomGeneratorBase, IRandomDateTime
     {

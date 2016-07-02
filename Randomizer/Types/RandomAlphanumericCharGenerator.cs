@@ -1,7 +1,8 @@
 ﻿using System;
 using Randomizer.Interfaces.ReferenceTypes;
 
-namespace Randomizer.Types
+// ReSharper disable once CheckNamespace
+namespace Randomizer
 {
     public class RandomAlphanumericCharGenerator : RandomGeneratorBase, IRandomCharacter
     {

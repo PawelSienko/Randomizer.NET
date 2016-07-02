@@ -7,6 +7,7 @@ namespace Randomizer
     /// <summary>
     /// Responsible for generating some random values.
     /// </summary>
+    [Obsolete("This enum will be removed in future versions.")]
     public static class Some
     {
         private const string MinMaxValueExceptionMsg = "Min value must be less than max.";

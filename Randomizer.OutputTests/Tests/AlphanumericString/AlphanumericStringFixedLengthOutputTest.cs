@@ -19,7 +19,7 @@ namespace Randomizer.OutputTests.Tests.AlphanumericString
                 {
                     wrongResults.Add("NULL");
                 }
-                else if (randomValue.Length != 100)
+                else if (randomValue.Length != 100 || IsLetterOrDigit(randomValue) == false)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }

@@ -20,7 +20,7 @@ namespace Randomizer.OutputTests.Tests.AlphanumericString
                 {
                     wrongResults.Add("NULL");
                 }
-                else if (randomValue.Any(char.IsLower))
+                else if (randomValue.Any(char.IsLower) || IsLetterOrDigit(randomValue) == false)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }
