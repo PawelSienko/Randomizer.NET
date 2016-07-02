@@ -14,7 +14,6 @@ using Randomizer.OutputTests.Tests.Float;
 using Randomizer.OutputTests.Tests.Integer;
 using Randomizer.OutputTests.Tests.Long;
 using Randomizer.OutputTests.Tests.Short;
-using Randomizer.Types;
 
 namespace Randomizer.OutputTests.Unity
 {
