@@ -7,10 +7,14 @@ namespace Randomizer
 {
     public class RandomDateTimeGenerator : RandomGeneratorBase, IRandomDateTime
     {
-        public RandomDateTimeGenerator(int seed)
-            :base(seed)
+        public RandomDateTimeGenerator()
         {
             
+        }
+        public RandomDateTimeGenerator(int seed)
+            : base(seed)
+        {
+
         }
 
         public DateTime GenerateValue()
@@ -27,7 +31,7 @@ namespace Randomizer
 
             if (min.Year == max.Year && min.Month == max.Month && min.Day < max.Day)
             {
-                return new DateTime(min.Year, min.Month, randomizer.Next(min.Day, max.Day + 1));
+                return new DateTime(min.Year, min.Month, randomizer.Next(min.Day, max.Day));
             }
 
             if (min.Year == max.Year && min.Month < max.Month)
@@ -37,7 +41,7 @@ namespace Randomizer
 
             if (min.Year != max.Year)
             {
-                return new DateTime(randomizer.Next(min.Year, max.Year + 1), randomizer.Next(1, 13), randomizer.Next(1, 32));
+                return new DateTime(randomizer.Next(min.Year, max.Year), randomizer.Next(1, 13), randomizer.Next(1, 32));
             }
 
             throw new InvalidStatementException();

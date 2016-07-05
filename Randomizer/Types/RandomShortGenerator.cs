@@ -6,6 +6,10 @@ namespace Randomizer
 {
     public class RandomShortGenerator : RandomGeneratorBase, IRandomShort
     {
+        public RandomShortGenerator()
+        {
+            
+        }
         public RandomShortGenerator(int seed)
             : base(seed)
         { }
@@ -24,14 +28,15 @@ namespace Randomizer
 
         public short GenerateValue(short min, short max)
         {
-            short randomPositive = (short)randomizer.Next(0, max);
-            short randomNegative = (short)randomizer.Next(min, 0);
+            if (min >= max)
+            {
+                throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
+            }
             if (IsConditionToReachLimit())
             {
                 return min;
             }
-
-            return (short)(randomPositive + randomNegative);
+            return (short) randomizer.Next(min, max);
         }
 
         public short GeneratePositiveValue()

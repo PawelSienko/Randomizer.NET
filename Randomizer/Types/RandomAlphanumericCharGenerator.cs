@@ -6,6 +6,10 @@ namespace Randomizer
 {
     public class RandomAlphanumericCharGenerator : RandomGeneratorBase, IRandomCharacter
     {
+        public RandomAlphanumericCharGenerator()
+        {
+            
+        }
         public RandomAlphanumericCharGenerator(int seed)
             :base(seed)
         {
@@ -13,7 +17,8 @@ namespace Randomizer
 
         public char GenerateValue()
         {
-            return (char)randomizer.Next(0, Consts.AlphanumericCharacters.Length - 1);
+            int indexofCharacter = randomizer.Next(0, Consts.AlphanumericCharacters.Length - 1);
+            return Consts.AlphanumericCharArray[indexofCharacter];
         }
 
         public char GenerateValue(char min, char max)

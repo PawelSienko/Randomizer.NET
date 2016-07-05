@@ -6,6 +6,10 @@ namespace Randomizer
 {
     public class RandomDoubleGenerator : RandomGeneratorBase, IRandomDouble
     {
+        public RandomDoubleGenerator()
+        {
+
+        }
         public RandomDoubleGenerator(int seed)
             : base(seed)
         { }
@@ -28,8 +32,8 @@ namespace Randomizer
             {
                 return max;
             }
-
-            return min + randomizer.NextDouble() * (max - min);
+            double randomDouble = randomizer.NextDouble();
+            return min + randomDouble * max - randomDouble * min;
         }
 
         public double GeneratePositiveValue()

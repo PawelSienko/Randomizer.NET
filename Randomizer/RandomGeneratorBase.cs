@@ -7,15 +7,14 @@ namespace Randomizer
         // ReSharper disable once InconsistentNaming
         protected Random randomizer;
 
-        protected RandomGeneratorBase(int seed)
-        {
-            randomizer = new Random(seed);
-        }
-
-
         protected RandomGeneratorBase()
         {
             randomizer = new Random((int)DateTime.Now.Ticks);
+        }
+
+        protected RandomGeneratorBase(int seed)
+        {
+            randomizer = new Random(seed);
         }
 
         protected virtual bool IsConditionToReachLimit()

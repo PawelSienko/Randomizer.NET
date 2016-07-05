@@ -18,7 +18,8 @@ namespace Randomizer.OutputTests.Tests.AlphanumericChar
             for (int i = 0; i < ExecutionTimes; i++)
             {
                 char randomValue = randomCharacter.GenerateValue();
-                if (new string(new[] { randomValue }).Any(char.IsLetter) == false)
+                var randomArrayValues = new string(new[] { randomValue });
+                if (randomArrayValues.Any(char.IsLetter) == false && randomArrayValues.Any(char.IsDigit) == false)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }

@@ -31,23 +31,22 @@ namespace Randomizer.OutputTests.Unity
             unity = new UnityContainer();
 
             RegisterLoggers(basePath);
+            unity.RegisterType<IRandomFloat, RandomFloatGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomInteger, RandomIntegerGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomDecimal, RandomDecimalGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomLong, RandomLongGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomShort, RandomShortGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomDouble, RandomDoubleGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomDateTime, RandomDateTimeGenerator>(new InjectionConstructor());
 
-            unity.RegisterType<IRandomFloat, RandomFloatGenerator>();
-            unity.RegisterType<IRandomInteger, RandomIntegerGenerator>();
-            unity.RegisterType<IRandomDecimal, RandomDecimalGenerator>();
-            unity.RegisterType<IRandomLong, RandomLongGenerator>();
-            unity.RegisterType<IRandomShort, RandomShortGenerator>();
-            unity.RegisterType<IRandomDouble, RandomDoubleGenerator>();
-            unity.RegisterType<IRandomDateTime, RandomDateTimeGenerator>();
-
-            unity.RegisterType<IRandomAlphanumericString, RandomAlphanumericStringGenerator>();
-            unity.RegisterType<IRandomCharacter, RandomAlphanumericCharGenerator>();
+            unity.RegisterType<IRandomAlphanumericString, RandomAlphanumericStringGenerator>(new InjectionConstructor());
+            unity.RegisterType<IRandomCharacter, RandomAlphanumericCharGenerator>(new InjectionConstructor());
 
             unity.RegisterType<IOutpuTest, OutputTestBase>();
             unity.RegisterType<IConsoleManager, ConsoleManager>();
 
             RegisterOutputTests();
-
+            
             unity.RegisterType<TestManagerBase, FloatTestManager>(new InjectionConstructor(unity.ResolveAll<FloatOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, IntegerTestManager>(new InjectionConstructor(unity.ResolveAll<IntegerOutputTest>(), executionNumber));
             unity.RegisterType<TestManagerBase, DecimalTestManager>(new InjectionConstructor(unity.ResolveAll<DecimalOutputTest>(), executionNumber));
@@ -61,67 +60,67 @@ namespace Randomizer.OutputTests.Unity
 
         private static void RegisterOutputTests()
         {
-            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatInRangeOutputTest), typeof(IRandomFloat), "float",
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatInRangeOutputTest), typeof(IRandomFloat), "floatInRange",
                 "floatInRangeLog");
-            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatPositiveValueOutputTest), typeof(IRandomFloat), "float",
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatPositiveValueOutputTest), typeof(IRandomFloat), "floatPositive",
                 "positiveFloatLog");
-            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatNegativeValueOutputTest), typeof(IRandomFloat), "float",
+            RegisterOutputTest(typeof(FloatOutputTest), typeof(FloatNegativeValueOutputTest), typeof(IRandomFloat), "floatNegative",
                 "negativeFloatLog");
 
-            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerInRangeOutputTest), typeof(IRandomInteger), "integer",
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerInRangeOutputTest), typeof(IRandomInteger), "integerInRange",
                 "intInRangeLog");
-            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerPositiveValueOutputTest), typeof(IRandomInteger), "integer",
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerPositiveValueOutputTest), typeof(IRandomInteger), "integerPositive",
                 "intPositiveLog");
-            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerNegativeValueOutputTest), typeof(IRandomInteger), "integer",
+            RegisterOutputTest(typeof(IntegerOutputTest), typeof(IntegerNegativeValueOutputTest), typeof(IRandomInteger), "integerNegative",
                 "intNegativeLog");
 
-            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalInRangeOutputTest), typeof(IRandomDecimal), "decimal",
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalInRangeOutputTest), typeof(IRandomDecimal), "decimalInRange",
                 "decimalInRangeLog");
-            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalPositiveValueOutputTest), typeof(IRandomDecimal), "decimal",
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalPositiveValueOutputTest), typeof(IRandomDecimal), "decimalPositive",
                 "decimalPositiveLog");
-            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalNegativeValueOutputTest), typeof(IRandomDecimal), "decimal",
+            RegisterOutputTest(typeof(DecimalOutputTest), typeof(DecimalNegativeValueOutputTest), typeof(IRandomDecimal), "decimalNegative",
                 "decimalNegativeLog");
 
-            RegisterOutputTest(typeof(LongOutputTest), typeof(LongInRangeOutputTest), typeof(IRandomLong), "long",
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongInRangeOutputTest), typeof(IRandomLong), "longInRangte",
                "longInRangeLog");
-            RegisterOutputTest(typeof(LongOutputTest), typeof(LongPositiveValueOutputTest), typeof(IRandomLong), "long",
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongPositiveValueOutputTest), typeof(IRandomLong), "longPositive",
                 "longPositiveLog");
-            RegisterOutputTest(typeof(LongOutputTest), typeof(LongNegativeValueOutputTest), typeof(IRandomLong), "long",
+            RegisterOutputTest(typeof(LongOutputTest), typeof(LongNegativeValueOutputTest), typeof(IRandomLong), "longNegative",
                 "longNegativeLog");
 
-            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortInRangeOutputTest), typeof(IRandomShort), "short",
+            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortInRangeOutputTest), typeof(IRandomShort), "shortInRange",
                "shortInRangeLog");
-            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortPositiveValueOutputTest), typeof(IRandomShort), "short",
+            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortPositiveValueOutputTest), typeof(IRandomShort), "shortPositive",
                 "shortPositiveLog");
-            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortNegativeValueOutputTest), typeof(IRandomShort), "short",
+            RegisterOutputTest(typeof(ShortOutputTest), typeof(ShortNegativeValueOutputTest), typeof(IRandomShort), "shortNegative",
                 "shortNegativeLog");
 
-            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleInRangeOutputTest), typeof(IRandomDouble), "double",
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleInRangeOutputTest), typeof(IRandomDouble), "doubleInRange",
                "shortInRangeLog");
-            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoublePositiveValueOutputTest), typeof(IRandomDouble), "double",
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoublePositiveValueOutputTest), typeof(IRandomDouble), "doublePositive",
                 "shortPositiveLog");
-            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleNegativeValueOutputTest), typeof(IRandomDouble), "double",
+            RegisterOutputTest(typeof(DoubleOutputTest), typeof(DoubleNegativeValueOutputTest), typeof(IRandomDouble), "doubleNegative",
                 "shortNegativeLog");
 
-            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeInRangeOutputTest), typeof(IRandomDateTime), "dateTime",
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeInRangeOutputTest), typeof(IRandomDateTime), "dateTimeInRange",
                "dateTimeInRangeLog");
-            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimePositiveValueOutputTest), typeof(IRandomDateTime), "dateTime",
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimePositiveValueOutputTest), typeof(IRandomDateTime), "dateTimePositive",
                 "dateTimePositiveLog");
-            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeNegativeValueOutputTest), typeof(IRandomDateTime), "dateTime",
+            RegisterOutputTest(typeof(DateTimeOutputTest), typeof(DateTimeNegativeValueOutputTest), typeof(IRandomDateTime), "dateTimeNegative",
                 "dateTimeNegativeLog");
 
-            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringDefaultLengthOutputTest), typeof(IRandomAlphanumericString), "alphanumericString",
+            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringDefaultLengthOutputTest), typeof(IRandomAlphanumericString), "alphanumericStringDefault",
               "stringDefaultLengthLog");
-            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringFixedLengthOutputTest), typeof(IRandomAlphanumericString), "alphanumericString",
+            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringFixedLengthOutputTest), typeof(IRandomAlphanumericString), "alphanumericStringFixed",
                 "stringFixedLengthLog");
-            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringLowercaseOutputTest), typeof(IRandomAlphanumericString), "alphanumericString",
+            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringLowercaseOutputTest), typeof(IRandomAlphanumericString), "alphanumericStringLower",
                 "stringLowercaseLog");
-            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringUppercaseOutputTest), typeof(IRandomAlphanumericString), "alphanumericString",
+            RegisterOutputTest(typeof(AlphanumericStringOutputTest), typeof(AlphanumericStringUppercaseOutputTest), typeof(IRandomAlphanumericString), "alphanumericStringUpper",
                 "stringUppercaseLog");
 
-            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericRandomCharOutputTest), typeof(IRandomCharacter), "char",
+            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericRandomCharOutputTest), typeof(IRandomCharacter), "charDefault",
               "randomCharacterLog");
-            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericCharInRangeOutputTest), typeof(IRandomCharacter), "char",
+            RegisterOutputTest(typeof(AlphanumericCharOutputTest), typeof(AlphanumericCharInRangeOutputTest), typeof(IRandomCharacter), "charInRange",
                 "randomCharacterInRangeLog");
         }
 

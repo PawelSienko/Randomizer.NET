@@ -6,10 +6,12 @@ namespace Randomizer
 {
     public sealed class RandomFloatGenerator : RandomGeneratorBase, IRandomFloat
     {
+        public RandomFloatGenerator()
+        { }
+
         public RandomFloatGenerator(int seed)
             : base(seed)
         {
-
         }
 
         public float GenerateValue()
@@ -30,8 +32,8 @@ namespace Randomizer
             {
                 return max;
             }
-
-            return min + (float)randomizer.NextDouble() * (max - min);
+            float randomFloat = (float)randomizer.NextDouble();
+            return min + randomFloat * max - randomFloat * min;
         }
 
         public float GeneratePositiveValue()

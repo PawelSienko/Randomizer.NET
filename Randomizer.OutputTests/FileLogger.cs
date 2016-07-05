@@ -16,7 +16,7 @@ namespace Randomizer.OutputTests
             Validator.ValidateNullOrEmpty(fileName);
             if (Directory.Exists(basePath) == false)
             {
-                throw new InvalidPathException("Could not find directory", basePath);
+                Directory.CreateDirectory(basePath);
             }
 
             fullPath = Path.Combine(basePath, fileName);

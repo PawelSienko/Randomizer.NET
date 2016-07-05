@@ -6,6 +6,10 @@ namespace Randomizer
 {
     public class RandomDecimalGenerator : RandomGeneratorBase, IRandomDecimal
     {
+        public RandomDecimalGenerator()
+        {
+
+        }
         public RandomDecimalGenerator(int seed)
             : base(seed)
         {
@@ -35,8 +39,8 @@ namespace Randomizer
             {
                 return max;
             }
-
-            return min + (decimal)randomizer.NextDouble() * (max - min);
+            decimal randomDecimal = (decimal)randomizer.NextDouble();
+            return min + randomDecimal * max - randomDecimal * min;
         }
 
         public decimal GeneratePositiveValue()

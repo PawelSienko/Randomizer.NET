@@ -6,6 +6,10 @@ namespace Randomizer
 {
     public class RandomLongGenerator : RandomGeneratorBase, IRandomLong
     {
+        public RandomLongGenerator()
+        {
+
+        }
         public RandomLongGenerator(int seed)
             : base(seed)
         { }
@@ -33,8 +37,8 @@ namespace Randomizer
             {
                 return max;
             }
-
-            return min + (long)(randomizer.NextDouble() * (max - min));
+            long randomLong = (long)randomizer.NextDouble();
+            return min + randomLong * max - randomLong * min;
         }
 
         public long GeneratePositiveValue()
