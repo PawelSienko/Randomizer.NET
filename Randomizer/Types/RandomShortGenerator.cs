@@ -6,11 +6,10 @@ namespace Randomizer
 {
     public class RandomShortGenerator : RandomGeneratorBase, IRandomShort
     {
-        public void InitSeed(int seed)
-        {
-            randomizer = new Random(seed);
-        }
-
+        public RandomShortGenerator(int seed)
+            : base(seed)
+        { }
+        
         public short GenerateValue()
         {
             short randomPositive = (short)randomizer.Next(0, short.MaxValue);

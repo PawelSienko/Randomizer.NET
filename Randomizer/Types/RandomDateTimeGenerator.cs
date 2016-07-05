@@ -7,9 +7,10 @@ namespace Randomizer
 {
     public class RandomDateTimeGenerator : RandomGeneratorBase, IRandomDateTime
     {
-        public void InitSeed(int seed)
+        public RandomDateTimeGenerator(int seed)
+            :base(seed)
         {
-            randomizer = new Random(seed);
+            
         }
 
         public DateTime GenerateValue()

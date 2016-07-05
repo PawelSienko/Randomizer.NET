@@ -6,8 +6,8 @@ namespace Randomizer.OutputTests.Tests.Integer
 {
     public class IntegerPositiveValueOutputTest : IntegerOutputTest
     {
-        public IntegerPositiveValueOutputTest(IRandomInteger randomLong, ILogger fileLogger)
-            : base(randomLong, fileLogger)
+        public IntegerPositiveValueOutputTest(IRandomInteger randomInteger, ILogger fileLogger)
+            : base(randomInteger, fileLogger)
         {
         }
         public override void PerformTest(object min = null, object max = null)
@@ -16,7 +16,7 @@ namespace Randomizer.OutputTests.Tests.Integer
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                int randomValue = randomLong.GeneratePositiveValue();
+                int randomValue = randomInteger.GeneratePositiveValue();
                 if (randomValue < 0)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

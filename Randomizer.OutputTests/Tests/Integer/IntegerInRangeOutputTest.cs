@@ -5,8 +5,8 @@ namespace Randomizer.OutputTests.Tests.Integer
 {
     public class IntegerInRangeOutputTest : IntegerOutputTest
     {
-        public IntegerInRangeOutputTest(IRandomInteger randomLong, ILogger fileLogger)
-            : base(randomLong, fileLogger)
+        public IntegerInRangeOutputTest(IRandomInteger randomInteger, ILogger fileLogger)
+            : base(randomInteger, fileLogger)
         {
         }
         public override void PerformTest(object min = null, object max = null)
@@ -20,7 +20,7 @@ namespace Randomizer.OutputTests.Tests.Integer
 
             for (int i = 0; i < ExecutionTimes; i++)
             {
-                int randomValue = randomLong.GenerateValue(minValue, maxValue);
+                int randomValue = randomInteger.GenerateValue(minValue, maxValue);
                 if (randomValue > maxValue || randomValue < minValue)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));

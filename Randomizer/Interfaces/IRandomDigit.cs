@@ -1,9 +1,8 @@
 ﻿namespace Randomizer.Interfaces
 {
-    public interface IRandomDigit<in TSeed, TType>
-        : IRandomValueType<TSeed, TType>
+    public interface IRandomDigit<TType>
+        : IRandomValueType<TType>
         where TType : struct
-        where TSeed : new()
     {
         TType GeneratePositiveValue();
 

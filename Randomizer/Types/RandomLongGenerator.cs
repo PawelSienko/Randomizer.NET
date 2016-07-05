@@ -6,10 +6,9 @@ namespace Randomizer
 {
     public class RandomLongGenerator : RandomGeneratorBase, IRandomLong
     {
-        public void InitSeed(int seed)
-        {
-            randomizer = new Random(seed);
-        }
+        public RandomLongGenerator(int seed)
+            : base(seed)
+        { }
 
         public long GenerateValue()
         {

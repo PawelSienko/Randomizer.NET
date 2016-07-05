@@ -6,9 +6,9 @@ namespace Randomizer
 {
     public class RandomAlphanumericCharGenerator : RandomGeneratorBase, IRandomCharacter
     {
-        public RandomAlphanumericCharGenerator()
+        public RandomAlphanumericCharGenerator(int seed)
+            :base(seed)
         {
-            randomizer = new Random((int)DateTime.Now.Ticks);
         }
 
         public char GenerateValue()

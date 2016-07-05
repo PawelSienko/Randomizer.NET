@@ -2,7 +2,7 @@
 
 namespace Randomizer.Interfaces.ValueTypes
 {
-    public interface IRandomDateTime : IRandomDigit<int,DateTime>
+    public interface IRandomDateTime : IRandomDigit<DateTime>
     {
     }
 }

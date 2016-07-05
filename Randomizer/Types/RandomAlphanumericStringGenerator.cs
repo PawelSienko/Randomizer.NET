@@ -7,10 +7,12 @@ namespace Randomizer
 {
     public class RandomAlphanumericStringGenerator : RandomGeneratorBase, IRandomAlphanumericString
     {
-        public RandomAlphanumericStringGenerator()
+        public RandomAlphanumericStringGenerator(int seed)
+            : base(seed)
         {
-            randomizer = new Random((int)DateTime.Now.Ticks);
+
         }
+
         public string GenerateValue()
         {
             return GenerateRandomString(25, Consts.AlphanumericCharacters);

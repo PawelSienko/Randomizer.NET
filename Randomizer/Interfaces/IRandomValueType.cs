@@ -1,8 +1,7 @@
 ﻿namespace Randomizer.Interfaces
 {
-    public interface IRandomValueType<in TSeed, TType> : IRandom<TSeed>
+    public interface IRandomValueType<TType> : IRandom
         where TType : struct
-        where TSeed : new()
     {
         TType GenerateValue();
 

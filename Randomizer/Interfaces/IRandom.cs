@@ -1,8 +1,6 @@
 ﻿namespace Randomizer.Interfaces
 {
-    public interface IRandom<in TSeed>
-        where TSeed : new()
+    public interface IRandom
     {
-        void InitSeed(TSeed seed);
     }
 }

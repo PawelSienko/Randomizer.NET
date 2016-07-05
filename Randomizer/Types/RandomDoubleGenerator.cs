@@ -6,10 +6,9 @@ namespace Randomizer
 {
     public class RandomDoubleGenerator : RandomGeneratorBase, IRandomDouble
     {
-        public void InitSeed(int seed)
-        {
-            randomizer = new Random(seed);
-        }
+        public RandomDoubleGenerator(int seed)
+            : base(seed)
+        { }
 
         public double GenerateValue()
         {

@@ -6,9 +6,10 @@ namespace Randomizer
 {
     public class RandomDecimalGenerator : RandomGeneratorBase, IRandomDecimal
     {
-        public void InitSeed(int seed)
+        public RandomDecimalGenerator(int seed)
+            : base(seed)
         {
-            randomizer = new Random(seed);
+
         }
 
         public decimal GenerateValue()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Randomizer.Interfaces.ValueTypes
 {
-    public interface IRandomShort : IRandomDigit<int, short>
+    public interface IRandomShort : IRandomDigit<short>
     {
     }
 }

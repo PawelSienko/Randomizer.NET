@@ -6,9 +6,10 @@ namespace Randomizer
 {
     public sealed class RandomFloatGenerator : RandomGeneratorBase, IRandomFloat
     {
-        public void InitSeed(int seed)
+        public RandomFloatGenerator(int seed)
+            : base(seed)
         {
-            randomizer = new Random(seed);
+
         }
 
         public float GenerateValue()
