@@ -45,9 +45,9 @@ namespace Randomizer.OutputTests
             InvokeTests<DoubleTestManager>("double", -1022342D, 11D);
             InvokeTests<DoubleTestManager>("double", -1022342D, -11D);
             InvokeTests<DoubleTestManager>("double", 1022342D, 1123421312D);
-            //InvokeTests<DateTimeTestManager>("dateTime", DateTime.MinValue.AddMinutes(1), DateTime.MaxValue.AddMinutes(-1));
-            //InvokeTests<DateTimeTestManager>("dateTime", DateTime.Now.AddHours(-10), DateTime.Now.AddDays(2));
-            //InvokeTests<DateTimeTestManager>("dateTime", DateTime.Now.AddMilliseconds(-10), DateTime.Now.AddMilliseconds(10));
+            InvokeTests<DateTimeTestManager>("dateTime", DateTime.MinValue.AddSeconds(1), DateTime.MaxValue.AddSeconds(-1));
+            InvokeTests<DateTimeTestManager>("dateTime", DateTime.Now.AddHours(-10), DateTime.Now.AddDays(2));
+            InvokeTests<DateTimeTestManager>("dateTime", DateTime.Now.AddSeconds(-1), DateTime.Now.AddSeconds(1));
             InvokeTests<AlphanumericStringTestManager>("alphanumeric string");
             consoleManager.PrintFooter();
         }

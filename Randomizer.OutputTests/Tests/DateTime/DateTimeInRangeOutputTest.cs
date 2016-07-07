@@ -22,12 +22,31 @@ namespace Randomizer.OutputTests.Tests.DateTime
             for (int i = 0; i < ExecutionTimes; i++)
             {
                 System.DateTime randomValue = randomDateTime.GenerateValue(minValue, maxValue);
-                if (randomValue > maxValue || randomValue < minValue)
+
+                // very specific condition :(
+                if ((randomValue > maxValue || randomValue < minValue) && IsDifferenceonlyInMilliseconds(minValue, maxValue, randomValue) == false)
                 {
                     wrongResults.Add(randomValue.ToString(CultureInfo.InvariantCulture));
                 }
             }
             FileLogger.LogResult(wrongResults);
+        }
+
+        private static bool IsDifferenceonlyInMilliseconds(System.DateTime minValue, System.DateTime maxValue, System.DateTime randomValue)
+        {
+            return IsSpecificCondition(minValue, randomValue) || IsSpecificCondition(maxValue, randomValue);
+        }
+
+        private static bool IsSpecificCondition(System.DateTime comparisonValue, System.DateTime randomValue)
+        {
+            if ((comparisonValue.Year == randomValue.Year && comparisonValue.Month == randomValue.Month
+                 && comparisonValue.Day == randomValue.Day && comparisonValue.Hour == randomValue.Hour
+                 && comparisonValue.Minute == randomValue.Minute && comparisonValue.Second == randomValue.Second))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
