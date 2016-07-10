@@ -2,7 +2,6 @@
 
 namespace Randomizer
 {
-    [Obsolete]
     public static class Consts
     {
         public const string MinMaxValueExceptionMsg = "Min value must be less than max.";
