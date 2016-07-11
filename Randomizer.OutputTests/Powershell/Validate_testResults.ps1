@@ -4,5 +4,7 @@ param(
 
 if(Test-Path $folderPathWithExtension -eq True)
 {
-    throw [System.Exception] $folderPathWithExtension
+    return 1;
 }
+
+return 0;
