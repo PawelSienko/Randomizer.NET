@@ -2,9 +2,9 @@ param(
 [string]$folderPathWithExtension = "C:\Temp\*.log"
 )
 
-if(Test-Path $folderPathWithExtension -eq True)
+if(Test-Path $folderPathWithExtension)
 {
-    return 1;
+ 	return -1;
 }
 
 return 0;
