@@ -2,8 +2,9 @@ param(
 [string]$folderPathWithExtension = "C:\Temp\*.log"
 )
 
-if(Test-Path $folderPathWithExtension)
+if(Test-Path $folderPathWithExtension -eq True)
 {
- 	throw [System.Exception] "Some wrong test results came up."
+    Write-Error 'Folder is not empty. It contains errors.'
+    [System.Environment]::Exit(1)
 }
-
+[System.Environment]::Exit(0)
