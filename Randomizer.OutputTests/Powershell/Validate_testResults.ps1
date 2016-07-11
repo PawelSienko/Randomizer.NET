@@ -4,7 +4,6 @@ param(
 
 if(Test-Path $folderPathWithExtension)
 {
- 	return -1;
+ 	throw [System.Exception] "Some wrong test results came up."
 }
 
-return 0;
