@@ -1,7 +1,4 @@
-# Randomizer.NET - library to generate random values for .NET<a href="http://teamcity/viewType.html?buildTypeId=btN&guest=1">
-<img src="http://13.92.184.77:86/app/rest/builds/buildType:(id:Randomizer_Build)/statusIcon"/>
-</a>
-[![NuGet](https://img.shields.io/nuget/v/Nuget.Core.svg?maxAge=2592000?style=plastic)](https://www.nuget.org/packages/Randomizer.NET/)
+# Randomizer.NET - library to generate random values for .NET  <a href="http://teamcity/viewType.html?buildTypeId=btN&guest=1"><img src="http://13.92.184.77:86/app/rest/builds/buildType:(id:Randomizer_Build)/statusIcon"/></a>
 ###### Everyday  there is  10 000 000  tests per each type (double, float,DateTime etc.).
 ###### Very helpful in unit tests or random values to fill database tables.
 
