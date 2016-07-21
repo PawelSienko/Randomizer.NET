@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Core, Version=1.1.82.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Core.Net.Framework.1.0.82\lib\net46\Common.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml.Linq" />
@@ -69,10 +73,7 @@
     <Compile Include="Types\RandomShortGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common.Core\Common.Core\Common.Core.csproj">
-      <Project>{5a14f7ac-1b58-4645-9cac-34c114006486}</Project>
-      <Name>Common.Core</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
