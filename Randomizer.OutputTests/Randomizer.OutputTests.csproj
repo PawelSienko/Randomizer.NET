@@ -125,7 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common.Core\Common.Core\Common.Core.csproj">
-      <Project>{5a14f7ac-1b58-4645-9cac-34c114006486}</Project>
+      <Project>{5A14F7AC-1B58-4645-9CAC-34C114006486}</Project>
       <Name>Common.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Randomizer\Randomizer.csproj">
