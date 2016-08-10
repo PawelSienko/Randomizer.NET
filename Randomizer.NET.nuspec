@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Randomizer.NET</id>
+        <version>2.0.120</version>
+        <title>Randomizer.NET</title>
+        <authors>PawelSienko</authors>
+        <owners>PawelSienko</owners>
+        <projectUrl>https://github.com/PawelSienko/Randomizer.NET/wiki</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Randomizer.NET is .NET library to generate random values of predefined types.</description>
+        <summary>Randomizer.NET is .NET library to generate random values of predefined types.</summary>
+        <copyright>PawelSienko</copyright>
+        <language>en-GB</language>
+        <tags>random generator float double char datetime date time string long int short decimal .net net</tags>
+        <dependencies>
+            <dependency id="Common.Core.Net.Framework" version="1.0.82" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\net46\Randomizer.dll" target="lib\net46\Randomizer.dll" />
+    </files>
+</package>
