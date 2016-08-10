@@ -16,6 +16,5 @@
         <dependencies>
             <dependency id="Common.Core.Net.Framework" version="1.0.82" />
         </dependencies>
-    </metadata>    
-</files>
+    </metadata>
 </package>
