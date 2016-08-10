@@ -16,8 +16,6 @@
         <dependencies>
             <dependency id="Common.Core.Net.Framework" version="1.0.82" />
         </dependencies>
-    </metadata>
-    <files>
-        <file src="lib\Randomizer.dll" target="lib\Randomizer.dll" />
-    </files>
+    </metadata>    
+</files>
 </package>
