@@ -7,5 +7,7 @@
         string GenerateLowerCaseValue(int length = 25);
 
         string GenerateUpperCaseValue(int length = 25);
+
+        string GenerateValueWithout(int length = 25, params char[] excluded);
     }
 }
