@@ -21,7 +21,7 @@ namespace Randomizer
 
         public string GenerateValue()
         {
-            return GenerateRandomString(25, Consts.AlphanumericCharacters);
+            return GenerateRandomString(25, Consts.AlphanumericCharacters.ToCharArray());
         }
 
         public string GenerateValue(int length)
@@ -31,7 +31,7 @@ namespace Randomizer
                 throw new ArgumentException("Length cannot be less or equal 0.");
             }
 
-            return GenerateRandomString(length, Consts.AlphanumericCharacters);
+            return GenerateRandomString(length, Consts.AlphanumericCharacters.ToCharArray());
         }
 
         public string GenerateLowerCaseValue(int length = 25)
@@ -41,7 +41,7 @@ namespace Randomizer
                 throw new ArgumentException("Length cannot be less or equal 0.");
             }
 
-            return GenerateRandomString(length, Consts.Lowercase);
+            return GenerateRandomString(length, Consts.Lowercase.ToCharArray());
         }
 
         public string GenerateUpperCaseValue(int length = 25)
@@ -51,7 +51,7 @@ namespace Randomizer
                 throw new ArgumentException("Length cannot be less or equal 0.");
             }
 
-            return GenerateRandomString(length, Consts.Uppercase);
+            return GenerateRandomString(length, Consts.Uppercase.ToCharArray());
         }
 
         public string GenerateValueWithout(int length, params char[] excluded)
@@ -61,16 +61,16 @@ namespace Randomizer
             Validator.ValidateCondition(excluded, item => item.Length > 0);
 
             var alphanumericList = Consts.AlphanumericCharArray.ToList();
-            var itemsWithoutExcluded = alphanumericList.RemoveAll(item => alphanumericList.Contains(item));
+            var itemsWithoutExcluded = alphanumericList.Except(excluded).ToList();
 
-            return GenerateRandomString(length, itemsWithoutExcluded.ToString());
+            return GenerateRandomString(length, itemsWithoutExcluded);
         }
-
-        private string GenerateRandomString(int lenght, string source)
+        
+        private string GenerateRandomString(int lenght, IList<char> source)
         {
-            int maxIndex = source.Length - 1;
+            int maxIndex = source.Count- 1;
             char[] resultArray = new char[lenght];
-            char[] sourceAsArray = source.ToCharArray();
+            char[] sourceAsArray = source.ToArray();
 
             for (int i = 0; i < lenght; i++)
             {
