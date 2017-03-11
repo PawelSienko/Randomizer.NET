@@ -69,9 +69,6 @@
     <Compile Include="Types\RandomShortGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Common.Core\Common.Core\Common.Core.csproj">
       <Project>{5a14f7ac-1b58-4645-9cac-34c114006486}</Project>
       <Name>Common.Core</Name>
