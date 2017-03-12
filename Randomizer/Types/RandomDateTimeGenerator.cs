@@ -28,52 +28,231 @@ namespace Randomizer
             {
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
             }
-            
-            var randomSecond = randomizer.Next(min.Second, max.Second + 1);
-            var randomMinute = randomizer.Next(min.Minute, max.Minute + 1);
-            var randomHour = randomizer.Next(min.Hour, max.Hour + 1);
-            var randomMiliseconds = randomizer.Next(min.Millisecond, max.Millisecond);
+
+            if (min.Year == max.Year && min.Month == max.Month && min.Day == max.Day && min.Hour == max.Hour && min.Minute == max.Minute &&
+                min.Second == max.Second && min.Millisecond < max.Millisecond)
+            {
+                var randomMillisecond = randomizer.Next(min.Millisecond, max.Millisecond);
+                return new DateTime(min.Year, min.Month, min.Day, min.Hour, min.Minute, min.Second, randomMillisecond);
+            }
+
+            if (min.Year == max.Year && min.Month == max.Month && min.Day == max.Day && min.Hour == max.Hour && min.Minute == max.Minute &&
+                min.Second < max.Second)
+            {
+                var randomSecond = randomizer.Next(min.Second, max.Second);
+                int randomMillisecond;
+                randomMillisecond = randomizer.Next(randomSecond == min.Second ? min.Millisecond : 0, 999);
+
+                return new DateTime(min.Year, min.Month, min.Day, min.Hour, min.Minute, randomSecond, randomMillisecond);
+            }
+
+            if (min.Year == max.Year && min.Month == max.Month && min.Day == max.Day && min.Hour == max.Hour && min.Minute < max.Minute)
+            {
+                return this.RandomSeconds(min, max);
+            }
+
+            if (min.Year == max.Year && min.Month == max.Month && min.Day == max.Day && min.Hour < max.Hour)
+            {
+                return this.RandomMinutes(min, max);
+            }
+
 
             if (min.Year == max.Year && min.Month == max.Month && min.Day < max.Day)
             {
-                var randomDay = randomizer.Next(min.Day, max.Day + 1);
-                return new DateTime(min.Year, min.Month, randomDay, randomHour, randomMinute, randomSecond, randomMiliseconds);
+                return this.RandomHours(min, max);
             }
 
             if (min.Year == max.Year && min.Month < max.Month)
             {
-                var month = randomizer.Next(min.Month, max.Month + 1);
-                var day = RandomDay(min.Year, month);
-                return new DateTime(min.Year, month, day, randomHour, randomMinute, randomSecond, randomMiliseconds);
+                return this.RandomDays(min, max);
             }
 
-            if (min.Year != max.Year)
-            {
-                var year = randomizer.Next(min.Year, max.Year + 1);
-                var month = randomizer.Next(1, 13);
-                var day = RandomDay(min.Year, month);
-                return new DateTime(year, month, day, randomHour, randomMinute, randomSecond);
-            }
-            
-            if (min.Hour == max.Hour && min.Minute == max.Minute && min.Second < max.Second)
-            {
-                var randomSeconds = randomizer.Next(min.Second, max.Second + 1);
-                return new DateTime(min.Year, min.Month, min.Day, min.Hour, min.Minute, randomSeconds, randomMiliseconds);
-            }
 
-            if (min.Hour == max.Hour && min.Minute < max.Minute)
+            if (min.Year < max.Year)
             {
-                var randomMinutes = randomizer.Next(min.Minute, max.Minute + 1);
-                return new DateTime(min.Year, min.Month, min.Day, min.Hour, randomMinutes, randomSecond, randomMiliseconds);
-            }
-
-            if (min.Hour < max.Hour)
-            {
-                var randomHours = randomizer.Next(min.Minute, max.Minute + 1);
-                return new DateTime(min.Year, min.Month, min.Day, randomHours, randomMinute, randomSecond, randomMiliseconds);
+                return this.RandomMonths(min, max);
             }
 
             throw new InvalidStatementException();
+        }
+
+        private DateTime RandomMonths(DateTime min, DateTime max)
+        {
+            var randomSecond = randomizer.Next(0, 60);
+            var randomMillisecond = randomizer.Next(0, 999);
+            var randomMinute = randomizer.Next(0, 60);
+            var randomHour = randomizer.Next(1, 24);
+            
+            int randomMonth;
+            var randomYear = randomizer.Next(min.Year, max.Year);
+
+            randomMonth = randomizer.Next(randomYear == min.Year ? min.Month : 1, 12);
+            var randomDay = RandomDay(min.Year, randomMonth);
+
+            var randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            if (randomValue < min)
+            {
+                randomDay = randomizer.Next(min.Day, max.Day);
+
+                randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            }
+
+            if (randomValue < min)
+            {
+                randomHour = randomizer.Next(min.Hour, 24);
+                randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            }
+
+            if (randomValue < min)
+            {
+                randomMinute = randomizer.Next(min.Minute, 60);
+                randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            }
+
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+                randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            }
+
+            if (randomValue < min)
+            {
+                randomMillisecond = randomizer.Next(min.Millisecond, 999);
+                randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+            }
+
+            if (randomValue < min)
+            {
+                
+            }
+            return randomValue;
+        }
+
+        private DateTime RandomDays(DateTime min, DateTime max)
+        {
+            var randomSecond = randomizer.Next(0, 60);
+            var randomMillisecond = randomizer.Next(0, 999);
+            var randomMinute = randomizer.Next(0, 60);
+            var randomHour = randomizer.Next(1, 24);
+            int randomDay;
+
+            var randomMonth = randomizer.Next(min.Month, max.Month);
+
+            randomDay = randomizer.Next(min.Day, max.Day);
+
+            var randomValue = new DateTime(min.Year, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomHour = randomizer.Next(min.Hour, 24);
+            }
+            randomValue = new DateTime(min.Year, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomMinute = randomizer.Next(min.Minute, 60);
+            }
+
+            randomValue = new DateTime(min.Year, min.Month, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomMillisecond = randomizer.Next(min.Millisecond, 999);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+            return randomValue;
+        }
+
+        private DateTime RandomMinutes(DateTime min, DateTime max)
+        {
+            var randomSecond = randomizer.Next(0, 60);
+            var randomMillisecond = randomizer.Next(0, 999);
+            int randomMinute;
+
+            var randomHour = randomizer.Next(min.Hour, max.Hour);
+            randomMinute = randomizer.Next(randomHour == min.Hour ? min.Minute : 0, 60);
+
+            var randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomMillisecond = randomizer.Next(min.Millisecond, 999);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            return randomValue;
+        }
+
+        private DateTime RandomHours(DateTime min, DateTime max)
+        {
+            var randomSecond = randomizer.Next(0, 60);
+            var randomMillisecond = randomizer.Next(0, 999);
+            var randomMinute = randomizer.Next(0, 60);
+            int randomHour;
+            var randomDay = randomizer.Next(min.Day, max.Day);
+
+            randomHour = randomizer.Next(randomDay == min.Day ? min.Hour : 0, 24);
+
+            var randomValue = new DateTime(min.Year, min.Month, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomMinute = randomizer.Next(min.Minute, 60);
+            }
+
+            randomValue = new DateTime(min.Year, min.Month, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomMillisecond = randomizer.Next(min.Millisecond, 999);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, randomHour, randomMinute, randomSecond, randomMillisecond);
+            return randomValue;
+        }
+
+        private DateTime RandomSeconds(DateTime min, DateTime max)
+        {
+            int randomSecond;
+            var randomMillisecond = randomizer.Next(0, 999);
+            var randomMinute = randomizer.Next(min.Minute, max.Minute);
+
+            randomSecond = randomizer.Next(randomMinute == min.Minute ? min.Second : 0, 60);
+
+            var randomValue = new DateTime(min.Year, min.Month, min.Day, min.Hour, randomMinute, randomSecond, randomMillisecond);
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, min.Hour, randomMinute, randomSecond, randomMillisecond);
+
+            if (randomValue < min)
+            {
+                randomSecond = randomizer.Next(min.Second, 60);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, min.Hour, randomMinute, randomSecond, randomMillisecond);
+            if (randomValue < min)
+            {
+                randomMillisecond = randomizer.Next(min.Millisecond, 999);
+            }
+            randomValue = new DateTime(min.Year, min.Month, min.Day, min.Hour, randomMinute, randomSecond, randomMillisecond);
+            return randomValue;
         }
 
         public DateTime GeneratePositiveValue()
