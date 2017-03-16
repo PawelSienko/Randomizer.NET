@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IRandomRefType.cs" />
     <Compile Include="Interfaces\ReferenceTypes\IRandomAlphanumericString.cs" />
     <Compile Include="Interfaces\ReferenceTypes\IRandomCharacter.cs" />
+    <Compile Include="Interfaces\ReferenceTypes\IRandomString.cs" />
     <Compile Include="Interfaces\ValueTypes\IRandomDateTime.cs" />
     <Compile Include="Interfaces\ValueTypes\IRandomDecimal.cs" />
     <Compile Include="Interfaces\IRandomDigit.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Interfaces\ValueTypes\IRandomShort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomGeneratorBase.cs" />
+    <Compile Include="RandomStringGeneratorBase.cs" />
     <Compile Include="Types\RandomAlphanumericCharGenerator.cs" />
     <Compile Include="Types\RandomAlphanumericStringGenerator.cs" />
     <Compile Include="Types\RandomDateTimeGenerator.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Types\RandomIntegerGenerator.cs" />
     <Compile Include="Types\RandomLongGenerator.cs" />
     <Compile Include="Types\RandomShortGenerator.cs" />
+    <Compile Include="Types\RandomStringGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Common.Core\Common.Core\Common.Core.csproj">
