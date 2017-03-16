@@ -32,13 +32,17 @@ namespace Randomizer
         
         protected string GenerateStringValue(int firstLetterCode, int lastLetterCode, int length = 25, params int[] excludedChars)
         {
-            StringBuilder builder = new StringBuilder(length);
+            StringBuilder builder = new StringBuilder();
             for (int index = 0; index < length; index++)
             {
-                var randomValue = randomizer.Next(firstLetterCode - 1, lastLetterCode);
-                if (IsExcluded(randomValue) == false)
+                var randomValue = randomizer.Next(firstLetterCode, lastLetterCode);
+                if (IsExcluded(randomValue, excludedChars) == false)
                 {
-                    builder.Append(randomValue);
+                    builder.Append((char)randomValue);
+                }
+                else
+                {
+                    index--;
                 }
             }
 
