@@ -82,7 +82,7 @@ namespace Randomizer
             var randomMillisecond = randomizer.Next(0, 999);
             var randomMinute = randomizer.Next(0, 60);
             var randomHour = randomizer.Next(1, 24);
-            
+
             int randomMonth;
             var randomYear = randomizer.Next(min.Year, max.Year);
 
@@ -90,9 +90,18 @@ namespace Randomizer
             var randomDay = RandomDay(min.Year, randomMonth);
 
             var randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
+
             if (randomValue < min)
             {
-                randomDay = randomizer.Next(min.Day, max.Day);
+                if (min.Day >= max.Day)
+                {
+                    var endOfMonth = DateTime.DaysInMonth(min.Year, min.Month);
+                    randomDay = randomizer.Next(min.Day, endOfMonth);
+                }
+                else
+                {
+                    randomDay = randomizer.Next(min.Day, max.Day);
+                }
 
                 randomValue = new DateTime(randomYear, randomMonth, randomDay, randomHour, randomMinute, randomSecond, randomMillisecond);
             }
@@ -123,7 +132,7 @@ namespace Randomizer
 
             if (randomValue < min)
             {
-                
+
             }
             return randomValue;
         }
