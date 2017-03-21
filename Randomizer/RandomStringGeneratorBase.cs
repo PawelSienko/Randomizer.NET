@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Randomizer
 {
-    public abstract class RandomStringGeneratorBase : RandomGeneratorBase
+    public abstract class RandomStringGeneratorBase : RandomGenericGeneratorBase<string>
     {
         protected RandomStringGeneratorBase()
         {
