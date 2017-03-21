@@ -4,7 +4,7 @@ using Randomizer.Interfaces.ValueTypes;
 // ReSharper disable once CheckNamespace
 namespace Randomizer
 {
-    public class RandomIntegerGenerator : RandomGeneratorBase, IRandomInteger
+    public class RandomIntegerGenerator : RandomGenericGeneratorBase<int>, IRandomInteger
     {
         public RandomIntegerGenerator()
         {

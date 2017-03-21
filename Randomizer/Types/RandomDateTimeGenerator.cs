@@ -5,7 +5,7 @@ using Randomizer.Interfaces.ValueTypes;
 // ReSharper disable once CheckNamespace
 namespace Randomizer
 {
-    public class RandomDateTimeGenerator : RandomGeneratorBase, IRandomDateTime
+    public class RandomDateTimeGenerator : RandomGenericGeneratorBase<DateTime>, IRandomDateTime
     {
         public RandomDateTimeGenerator()
         {

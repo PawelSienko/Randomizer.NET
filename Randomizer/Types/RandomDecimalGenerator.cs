@@ -4,7 +4,7 @@ using Randomizer.Interfaces.ValueTypes;
 // ReSharper disable once CheckNamespace
 namespace Randomizer
 {
-    public class RandomDecimalGenerator : RandomGeneratorBase, IRandomDecimal
+    public class RandomDecimalGenerator : RandomGenericGeneratorBase<decimal>, IRandomDecimal
     {
         public RandomDecimalGenerator()
         {
@@ -42,7 +42,7 @@ namespace Randomizer
             decimal randomDecimal = (decimal)randomizer.NextDouble();
             return min + randomDecimal * max - randomDecimal * min;
         }
-
+        
         public decimal GeneratePositiveValue()
         {
             if (IsConditionToReachLimit())

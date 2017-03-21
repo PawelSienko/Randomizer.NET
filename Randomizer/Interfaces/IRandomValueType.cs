@@ -6,5 +6,7 @@
         TType GenerateValue();
 
         TType GenerateValue(TType min, TType max);
+
+        TType GenerateValue(params TType[] values);
     }
 }
