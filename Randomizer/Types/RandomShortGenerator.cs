@@ -16,14 +16,7 @@ namespace Randomizer
         
         public short GenerateValue()
         {
-            short randomPositive = (short)randomizer.Next(0, short.MaxValue);
-            short randomNegative = (short)randomizer.Next(short.MinValue, 0);
-            if (IsConditionToReachLimit())
-            {
-                return short.MaxValue;
-            }
-
-            return (short)(randomPositive + randomNegative);
+            return GetRandomValue();
         }
 
         public short GenerateValue(short min, short max)
@@ -57,6 +50,18 @@ namespace Randomizer
             }
 
             return (short)randomizer.Next(short.MinValue, 0);
+        }
+
+        protected override short GetRandomValue()
+        {
+            short randomPositive = (short)randomizer.Next(0, short.MaxValue);
+            short randomNegative = (short)randomizer.Next(short.MinValue, 0);
+            if (IsConditionToReachLimit())
+            {
+                return short.MaxValue;
+            }
+
+            return (short)(randomPositive + randomNegative);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Randomizer
 
         public string GenerateValue()
         {
-            return GenerateRandomString(25, Consts.AlphanumericCharacters.ToCharArray());
+            return GetRandomValue();
         }
 
         public string GenerateValue(int length)
@@ -56,6 +56,11 @@ namespace Randomizer
             var itemsWithoutExcluded = alphanumericList.Except(excluded).ToList();
 
             return GenerateRandomString(length, itemsWithoutExcluded);
+        }
+
+        protected override string GetRandomValue()
+        {
+            return GenerateRandomString(25, Consts.AlphanumericCharacters.ToCharArray());
         }
     }
 }

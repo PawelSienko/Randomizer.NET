@@ -7,6 +7,8 @@
 
         TType GenerateValue(TType min, TType max);
 
-        TType GenerateValue(params TType[] values);
+        TType GenerateValueWithin(params TType[] values);
+
+        TType GenerateValueApartFrom(params TType[] values);
     }
 }

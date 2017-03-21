@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Common.Core.Exceptions;
 using Randomizer.Interfaces.ValueTypes;
 
@@ -19,9 +20,9 @@ namespace Randomizer
 
         public DateTime GenerateValue()
         {
-            return new DateTime(randomizer.Next(0, int.MaxValue), randomizer.Next(0, 13), randomizer.Next(0, 32));
+            return GetRandomValue();
         }
-
+        
         public DateTime GenerateValue(DateTime min, DateTime max)
         {
             if (min >= max)
@@ -75,7 +76,7 @@ namespace Randomizer
 
             throw new InvalidStatementException();
         }
-
+        
         private DateTime RandomMonths(DateTime min, DateTime max)
         {
             var randomSecond = randomizer.Next(0, 60);
@@ -289,5 +290,9 @@ namespace Randomizer
             return randomizer.Next(1, DateTime.DaysInMonth(year, month));
         }
 
+        protected override DateTime GetRandomValue()
+        {
+            return new DateTime(randomizer.Next(0, int.MaxValue), randomizer.Next(0, 13), randomizer.Next(0, 32));
+        }
     }
 }

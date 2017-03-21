@@ -3,6 +3,5 @@
     public interface IRandomRefType<out TReturn>
     {
         TReturn GenerateValue();
-
     }
 }

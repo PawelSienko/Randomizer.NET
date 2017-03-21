@@ -17,8 +17,7 @@ namespace Randomizer
 
         public char GenerateValue()
         {
-            int indexofCharacter = randomizer.Next(0, Consts.AlphanumericCharacters.Length - 1);
-            return Consts.AlphanumericCharArray[indexofCharacter];
+            return GetRandomValue();
         }
 
         public char GenerateValue(char min, char max)
@@ -38,6 +37,12 @@ namespace Randomizer
 
             int randomIndex = randomizer.Next(firstIndex, lastIndex);
             return Consts.AlphanumericCharArray[randomIndex];
+        }
+
+        protected override char GetRandomValue()
+        {
+            int indexofCharacter = randomizer.Next(0, Consts.AlphanumericCharacters.Length - 1);
+            return Consts.AlphanumericCharArray[indexofCharacter];
         }
     }
 }

@@ -16,14 +16,7 @@ namespace Randomizer
 
         public long GenerateValue()
         {
-            long randomPositive = (long)(randomizer.NextDouble() * long.MaxValue);
-            long randomNegative = (long)(randomizer.NextDouble() * long.MinValue);
-            if (IsConditionToReachLimit())
-            {
-                return long.MaxValue;
-            }
-
-            return randomNegative + randomPositive;
+            return GetRandomValue();
         }
 
         public long GenerateValue(long min, long max)
@@ -59,6 +52,18 @@ namespace Randomizer
             }
 
             return (long)(randomizer.NextDouble() * long.MinValue);
+        }
+
+        protected override long GetRandomValue()
+        {
+            long randomPositive = (long)(randomizer.NextDouble() * long.MaxValue);
+            long randomNegative = (long)(randomizer.NextDouble() * long.MinValue);
+            if (IsConditionToReachLimit())
+            {
+                return long.MaxValue;
+            }
+
+            return randomNegative + randomPositive;
         }
     }
 }

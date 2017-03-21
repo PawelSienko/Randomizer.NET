@@ -16,12 +16,7 @@ namespace Randomizer
 
         public int GenerateValue()
         {
-            if (IsConditionToReachLimit())
-            {
-                return int.MaxValue;
-            }
-
-            return randomizer.Next();
+            return GetRandomValue();
         }
 
         public int GenerateValue(int min, int max)
@@ -57,6 +52,16 @@ namespace Randomizer
             }
 
             return randomizer.Next(int.MinValue, 0);
+        }
+
+        protected override int GetRandomValue()
+        {
+            if (IsConditionToReachLimit())
+            {
+                return int.MaxValue;
+            }
+
+            return randomizer.Next();
         }
     }
 }

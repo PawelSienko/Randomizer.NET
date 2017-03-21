@@ -18,7 +18,7 @@ namespace Randomizer.Types
 
         public string GenerateValue()
         {
-            return GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex);
+            return GetRandomValue();
         }
 
         public string GenerateValue(int length)
@@ -53,6 +53,11 @@ namespace Randomizer.Types
             var charsAsInt = excluded.Select(item => (int) item);
             var randomString = GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex, length, charsAsInt.ToArray());
             return randomString;
+        }
+
+        protected override string GetRandomValue()
+        {
+            return GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex);
         }
     }
 }

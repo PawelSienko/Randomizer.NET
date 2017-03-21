@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Randomizer.Interfaces.ValueTypes;
 
 // ReSharper disable once CheckNamespace
@@ -16,9 +17,7 @@ namespace Randomizer
 
         public double GenerateValue()
         {
-            double randomPositive = randomizer.NextDouble() * double.MaxValue;
-            double randomNegative = randomizer.NextDouble() * double.MinValue;
-            return randomPositive + randomNegative;
+            return GetRandomValue();
         }
 
         public double GenerateValue(double min, double max)
@@ -54,6 +53,13 @@ namespace Randomizer
             }
 
             return randomizer.NextDouble() * double.MinValue;
+        }
+
+        protected override double GetRandomValue()
+        {
+            double randomPositive = randomizer.NextDouble() * double.MaxValue;
+            double randomNegative = randomizer.NextDouble() * double.MinValue;
+            return randomPositive + randomNegative;
         }
     }
 }

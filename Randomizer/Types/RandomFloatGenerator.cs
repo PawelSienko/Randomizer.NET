@@ -35,7 +35,7 @@ namespace Randomizer
             float randomFloat = (float)randomizer.NextDouble();
             return min + randomFloat * max - randomFloat * min;
         }
-
+        
         public float GeneratePositiveValue()
         {
             if (IsConditionToReachLimit())
@@ -54,6 +54,14 @@ namespace Randomizer
             }
 
             return (float)randomizer.NextDouble() * float.MinValue;
+        }
+
+        protected override float GetRandomValue()
+        {
+            float randomPositive = (float)randomizer.NextDouble() * float.MinValue;
+            float randomNegative = (float)randomizer.NextDouble() * float.MaxValue;
+
+            return randomPositive + randomNegative;
         }
     }
 }
