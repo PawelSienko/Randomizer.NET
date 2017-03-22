@@ -28,8 +28,6 @@ namespace Randomizer
             return values[randomIndex];
         }
 
-        protected abstract TType GetRandomValue();
-
         public virtual TType GenerateValueApartFrom(params TType[] excludedValues)
         {
             TType randomValue;
@@ -40,5 +38,6 @@ namespace Randomizer
 
             return randomValue;
         }
+        protected abstract TType GetRandomValue();
     }
 }
