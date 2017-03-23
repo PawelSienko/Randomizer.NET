@@ -44,7 +44,7 @@ namespace Randomizer.Types
             return randomString.ToUpper();
         }
 
-        public string GenerateValueWithout(int length = 25, params char[] excluded)
+        public string GenerateApartFrom(int length = 25, params char[] excluded)
         {
             Validator.ValidateCondition(length, (item) => item > 0);
             Validator.ValidateNull(excluded);

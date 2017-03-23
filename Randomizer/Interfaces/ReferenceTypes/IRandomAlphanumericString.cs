@@ -8,6 +8,6 @@
 
         string GenerateUpperCaseValue(int length = 25);
 
-        string GenerateValueWithout(int length = 25, params char[] excluded);
+        string GenerateApartFrom(int length = 25, params char[] excluded);
     }
 }

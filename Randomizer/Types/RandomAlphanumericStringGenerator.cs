@@ -46,7 +46,7 @@ namespace Randomizer
             return GenerateRandomString(length, Consts.Uppercase.ToCharArray());
         }
 
-        public string GenerateValueWithout(int length, params char[] excluded)
+        public string GenerateApartFrom(int length, params char[] excluded)
         {
             Validator.ValidateCondition(length, (item) => item > 0);
             Validator.ValidateNull(excluded);
