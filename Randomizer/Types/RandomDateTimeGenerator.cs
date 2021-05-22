@@ -24,6 +24,11 @@ namespace Randomizer
 
         public DateTime GenerateValue(DateTime min, DateTime max)
         {
+            return RandomRangeDate(min, max);
+        }
+
+        private DateTime RandomRangeDate(DateTime min, DateTime max)
+        {
             if (min >= max)
             {
                 throw new ArgumentException(Consts.MinMaxValueExceptionMsg);
@@ -291,19 +296,10 @@ namespace Randomizer
 
         protected override DateTime GetRandomValue()
         {
-            var yearRandomValue = randomizer.Next(0, 9999);
-            var monthRandomValue = randomizer.Next(0, 13);
-            const int februaryMonthValue = 2;
-            var dayRandomValue = default(int);
-            if (monthRandomValue == februaryMonthValue)
-            {
-                dayRandomValue = randomizer.Next(0, 28);
-            }
-            else
-            {
-                dayRandomValue = randomizer.Next(0, 32);
-            }
-            return new DateTime(yearRandomValue, monthRandomValue, dayRandomValue);
+            var minDate = DateTime.MinValue;
+            var maxDate = DateTime.MaxValue;
+
+            return this.RandomRangeDate(minDate, maxDate);
         }
     }
 }
