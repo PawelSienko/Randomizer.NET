@@ -13,7 +13,7 @@ namespace Randomizer
 
         public const int FirstCharacterHex = 0x21;
 
-        public const int LastCharacterHex = 0x7e;
+        //public const int LastCharacterHex = 0x7e;
 
         public static string AlphanumericCharacters => string.Concat(Uppercase, Lowercase, Numbers);
 
