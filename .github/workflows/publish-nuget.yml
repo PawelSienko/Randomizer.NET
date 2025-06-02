@@ -23,7 +23,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 9.x.x
-    - name: Package
+    - name: Pack
       run: dotnet pack --configuration Release -p:PackageVersion=${{ github.ref_name }} --output .
     - name: Publish to GitHub packages
       run: dotnet nuget push *.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source ${{ env.PACKAGES_URL }}/${{ github.repository_owner }}/index.json
