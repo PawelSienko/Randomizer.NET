@@ -25,7 +25,10 @@ jobs:
         dotnet-version: 9.x.x
     - name: Pack
       run: dotnet pack --configuration Release -p:PackageVersion=${{ github.ref_name }} --output .
+      continue-on-error: false
     - name: Publish to GitHub packages
       run: dotnet nuget push *.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source ${{ env.PACKAGES_URL }}/${{ github.repository_owner }}/index.json
+      continue-on-error: false
     - name: Publish to NuGet
       run: dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+      continue-on-error: false
