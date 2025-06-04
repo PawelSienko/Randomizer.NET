@@ -6,4 +6,25 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>Randomizer.NET</PackageId>
+    <Title>Randomizer.NET</Title>
+    <Authors>PawelSienko</Authors>
+    <Owners>PawelSienko</Owners>
+    <PackageProjectUrl>https://github.com/PawelSienko/Randomizer.NET/wiki</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Randomizer.NET is .NET library to generate random values of predefined types.</Description>
+    <Summary>Randomizer.NET is .NET library to generate random values of predefined types.</Summary>
+    <Copyright>PawelSienko</Copyright>
+    <PackageLanguage>en-GB</PackageLanguage>
+    <PackageTags>random generator float double char datetime date time string long int short decimal .net net</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>licence.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="" Visible="false" />
+    <None Include="..\licence.txt" Pack="true" PackagePath="" Visible="false" />
+  </ItemGroup>
+
 </Project>
