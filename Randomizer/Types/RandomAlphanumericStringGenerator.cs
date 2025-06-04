@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Common.Core.Validation;
 using Randomizer.Interfaces.ReferenceTypes;
 
 // ReSharper disable once CheckNamespace
@@ -25,14 +24,21 @@ namespace Randomizer
 
         public string GenerateValue(int length)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
+            if (length <= 0)
+            {
+                throw new ArgumentException();
+            }
 
             return GenerateRandomString(length, Consts.AlphanumericCharacters.ToCharArray());
         }
 
         public string GenerateLowerCaseValue(int length = 25)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
+            if (length <= 0)
+            {
+                throw new ArgumentException();
+            }
+
             return GenerateRandomString(length, Consts.Lowercase.ToCharArray());
         }
 
@@ -48,9 +54,10 @@ namespace Randomizer
 
         public string GenerateApartFrom(int length, params char[] excluded)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
-            Validator.ValidateNull(excluded);
-            Validator.ValidateCondition(excluded, item => item.Length > 0);
+            if (length <= 0 || excluded == null || excluded.Length == 0)
+            {
+                throw new ArgumentException();
+            }
 
             var alphanumericList = Consts.AlphanumericCharArray.ToList();
             var itemsWithoutExcluded = alphanumericList.Except(excluded).ToList();
