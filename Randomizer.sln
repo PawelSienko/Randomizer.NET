@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Randomizer", "Randomizer\Randomizer.csproj", "{447730F2-2210-4747-A023-753FC4C1B712}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Core", "..\Common.Core\Common.Core\Common.Core.csproj", "{5A14F7AC-1B58-4645-9CAC-34C114006486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +15,11 @@ Global
 		{447730F2-2210-4747-A023-753FC4C1B712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{447730F2-2210-4747-A023-753FC4C1B712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{447730F2-2210-4747-A023-753FC4C1B712}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A14F7AC-1B58-4645-9CAC-34C114006486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A14F7AC-1B58-4645-9CAC-34C114006486}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A14F7AC-1B58-4645-9CAC-34C114006486}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A14F7AC-1B58-4645-9CAC-34C114006486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EED7A880-8B8F-4E0C-B45E-27F438B9FA5D}
 	EndGlobalSection
 EndGlobal

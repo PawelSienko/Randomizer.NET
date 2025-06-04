@@ -1,89 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{447730F2-2210-4747-A023-753FC4C1B712}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Randomizer</RootNamespace>
-    <AssemblyName>Randomizer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+
+  <PropertyGroup>
+    <PackageId>Randomizer.NET</PackageId>
+    <Title>Randomizer.NET</Title>
+    <Authors>PawelSienko</Authors>
+    <Owners>PawelSienko</Owners>
+    <PackageProjectUrl>https://github.com/PawelSienko/Randomizer.NET/wiki</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Randomizer.NET is .NET library to generate random values of predefined types.</Description>
+    <Summary>Randomizer.NET is .NET library to generate random values of predefined types.</Summary>
+    <Copyright>PawelSienko</Copyright>
+    <PackageLanguage>en-GB</PackageLanguage>
+    <PackageTags>random generator float double char datetime date time string long int short decimal .net net</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>licence.txt</PackageLicenseFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <None Include="..\README.md" Pack="true" PackagePath="" Visible="false" />
+    <None Include="..\licence.txt" Pack="true" PackagePath="" Visible="false" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Consts.cs" />
-    <Compile Include="Interfaces\IRandomRefType.cs" />
-    <Compile Include="Interfaces\ReferenceTypes\IRandomAlphanumericString.cs" />
-    <Compile Include="Interfaces\ReferenceTypes\IRandomCharacter.cs" />
-    <Compile Include="Interfaces\ReferenceTypes\IRandomString.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomDateTime.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomDecimal.cs" />
-    <Compile Include="Interfaces\IRandomDigit.cs" />
-    <Compile Include="Interfaces\IRandom.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomDouble.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomFloat.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomInteger.cs" />
-    <Compile Include="Interfaces\IRandomValueType.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomLong.cs" />
-    <Compile Include="Interfaces\ValueTypes\IRandomShort.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomGeneratorBase.cs" />
-    <Compile Include="RandomGenericGeneratorBase.cs" />
-    <Compile Include="RandomStringGeneratorBase.cs" />
-    <Compile Include="Types\RandomAlphanumericCharGenerator.cs" />
-    <Compile Include="Types\RandomAlphanumericStringGenerator.cs" />
-    <Compile Include="Types\RandomDateTimeGenerator.cs" />
-    <Compile Include="Types\RandomDecimalGenerator.cs" />
-    <Compile Include="Types\RandomDoubleGenerator.cs" />
-    <Compile Include="Types\RandomFloatGenerator.cs" />
-    <Compile Include="Types\RandomIntegerGenerator.cs" />
-    <Compile Include="Types\RandomLongGenerator.cs" />
-    <Compile Include="Types\RandomShortGenerator.cs" />
-    <Compile Include="Types\RandomStringGenerator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Common.Core\Common.Core\Common.Core.csproj">
-      <Project>{5a14f7ac-1b58-4645-9cac-34c114006486}</Project>
-      <Name>Common.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

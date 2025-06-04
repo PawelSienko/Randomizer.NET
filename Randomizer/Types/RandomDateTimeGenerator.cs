@@ -1,5 +1,4 @@
 ﻿using System;
-using Common.Core.Exceptions;
 using Randomizer.Interfaces.ValueTypes;
 
 // ReSharper disable once CheckNamespace
@@ -78,7 +77,7 @@ namespace Randomizer
                 return this.RandomMonths(min, max);
             }
 
-            throw new InvalidStatementException();
+            throw new ArgumentException();
         }
 
         private DateTime RandomMonths(DateTime min, DateTime max)
