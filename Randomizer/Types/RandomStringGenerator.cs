@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using Common.Core.Validation;
+﻿using System;
+using System.Linq;
 using Randomizer.Interfaces.ReferenceTypes;
 
 namespace Randomizer.Types
@@ -23,14 +23,20 @@ namespace Randomizer.Types
 
         public string GenerateValue(int length)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
+            if (length <= 0)
+            {
+                throw new ArgumentException();
+            }
 
             return GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex, length);
         }
 
         public string GenerateLowerCaseValue(int length = 25)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
+            if (length <= 0)
+            {
+                throw new ArgumentException();
+            }
 
             var randomString = GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex, length);
             return randomString.ToLower();
@@ -38,7 +44,10 @@ namespace Randomizer.Types
 
         public string GenerateUpperCaseValue(int length = 25)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
+            if (length <= 0)
+            {
+                throw new ArgumentException();
+            }
 
             var randomString = GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex, length);
             return randomString.ToUpper();
@@ -46,9 +55,10 @@ namespace Randomizer.Types
 
         public string GenerateApartFrom(int length = 25, params char[] excluded)
         {
-            Validator.ValidateCondition(length, (item) => item > 0);
-            Validator.ValidateNull(excluded);
-            Validator.ValidateCondition(excluded, item => item.Length > 0);
+            if (length <= 0 || excluded == null || excluded.Length == 0)
+            {
+                throw new ArgumentException();
+            }
 
             var charsAsInt = excluded.Select(item => (int) item);
             var randomString = GenerateStringValue(Consts.FirstCharacterHex, Consts.LastCharacterHex, length, charsAsInt.ToArray());

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Common.Core.Validation;
 
 namespace Randomizer
 {
@@ -16,10 +16,11 @@ namespace Randomizer
         { }
 
         public virtual TType GenerateValueWithin(params TType[] values)
-        {
-            Validator.ValidateNull(values);
-            Validator.ValidateCondition(values, item => values.Length > 0);
-            Validator.ValidateCondition(values, item => values.Length > 1);
+        {      
+            if (values == null || values.Length <= 1)
+            {
+                throw new ArgumentException();
+            }
 
             int numberOfItemsToRandom = values.Length;
 
